@@ -1,0 +1,53 @@
+# aliases, inspired by DT: https://gitlab.com/dwt1/dotfiles/-/blob/master/.zshrc
+
+# neovim!!
+alias vim='nvim'
+
+# color for grep
+alias grep='grep --color=auto'
+
+# confirm before overwriting something
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
+
+# improved version of cat: colorized output
+alias cat='bat --map-syntax .zsh_aliases:"Bourne Again Shell (bash)"'
+
+# enable support for git bare repo of dotfiles
+alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+
+# better du flags - only works on arch :(
+dus() {
+	du $1 -hd1 | sort -h
+}
+
+# changing "ls" to the modern "exa"
+alias ls='exa -Fal --color=always --group-directories-first --sort=modified --git' # prefered listing
+alias lss='exa -Fal --color=always --group-directories-first --sort=size --git' # sort by size
+alias la='exa -a --across --color=always --group-directories-first'  # all files and dirs
+alias tree='exa -aT --color=always' # tree listing
+
+# copy contents of file to clipboard - only works on arch :(
+clip() {
+	cat $1 | xclip -sel clip
+}
+
+# pacman and yay
+alias pacsyu='sudo pacman -Syu'                  # update only standard pkgs
+alias pacsyyu='sudo pacman -Syyu'                # Refresh pkglist & update standard pkgs
+alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR pkgs (yay)
+alias cleanup='sudo pacman -Rs $(pacman -Qqtd)'  # remove orphaned packages
+
+# misc. (frequently used) programs -> so I don't have to memorize these
+alias tldr='tldr' # alternative to man
+alias files='pcmanfm'
+alias spotify='spotify'
+alias firefox='firefox'
+alias wally='wally' #zsa keyboard flashing tool
+alias minecraft='LC_ALL=C ./.minecraft/launcher/minecraft-launcher' # launch minecraft
+alias bluetooth='blueman-manager'
+alias volume='alsamixer'
+alias photo_editor='gimp'
+alias android='android-studio'
+alias battery='acpi'
