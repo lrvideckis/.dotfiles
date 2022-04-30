@@ -1,6 +1,6 @@
 HISTFILE=~/.zsh_history
-HISTSIZE=50000
-SAVEHIST=50000
+HISTSIZE=100000
+SAVEHIST=100000
 
 # Enable Vi key bindings
 bindkey -v
