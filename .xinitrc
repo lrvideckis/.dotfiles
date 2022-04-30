@@ -59,4 +59,4 @@ setxkbmap -option caps:ctrl_modifier
 # compositor used only for transparent terminal
 picom &
 
-exec qtile start
+qtile start
