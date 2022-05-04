@@ -93,7 +93,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
+    font="Consolas",
     fontsize=12,
     padding=3,
 )
@@ -104,19 +104,16 @@ screens = [
         bottom=bar.Bar(
             [
                 widget.GroupBox(),
-                widget.Prompt(),
+                widget.Sep(),
                 widget.WindowName(max_chars=16),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
+                widget.Sep(),
                 widget.Systray(),
+                widget.Sep(),
+                widget.Net(format='{down:<8} ↓↑ {up:8}'),
                 widget.Sep(),
                 widget.ThermalSensor(show_tag=True, tag_sensor="CPU"),
                 widget.CPU(
-                    format="{load_percent}%",
+                    format="{load_percent:>6.2f}%",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
                 ),
                 widget.Sep(),
