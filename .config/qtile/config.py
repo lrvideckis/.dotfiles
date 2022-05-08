@@ -36,6 +36,7 @@ from libqtile.lazy import lazy
 
 mod = "mod1"
 terminal = "alacritty"
+network_interface = "wlp1s0"
 
 keys = [
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
@@ -109,7 +110,8 @@ screens = [
                 widget.Sep(),
                 widget.Systray(),
                 widget.Sep(),
-                widget.Net(format='{down:10} ↓↑ {up:10}'),
+                widget.Wlan(interface=network_interface, format='{essid}'),
+                widget.Net(interface=network_interface, format='{down:7} ↓↑ {up:7}'),
                 widget.Sep(),
                 widget.ThermalSensor(show_tag=True, tag_sensor="CPU"),
                 widget.CPU(
