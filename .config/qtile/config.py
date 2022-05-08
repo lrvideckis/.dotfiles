@@ -135,7 +135,7 @@ screens = [
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --hold --command acpi')},
                 ),
                 widget.Sep(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Clock(format="%Y-%m-%d %a %H:%M"),
                 widget.Sep(),
                 widget.QuickExit(),
             ],
