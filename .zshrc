@@ -7,7 +7,7 @@ bindkey -v
 bindkey 'kj' vi-cmd-mode
 
 # prompt as: date, time, directory
-PS1='%D{%a-%f-%b-%Y %I:%M%P} %n@%m %~ %# '
+PS1='%n@%m %~ %# '
 
 export TERM=xterm-256color
 export EDITOR=nvim
