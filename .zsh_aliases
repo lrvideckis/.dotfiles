@@ -24,9 +24,8 @@ dus() {
 
 # changing "ls" to the modern "exa"
 alias ls='exa -Fal --color=always --group-directories-first --sort=modified --git' # prefered listing
-alias lss='exa -Fal --color=always --group-directories-first --sort=size --git' # sort by size
 alias la='exa -a --across --color=always --group-directories-first'  # all files and dirs
-alias tree='exa -aT --color=always' # tree listing
+alias tree='exa -alT --color=always' # tree listing
 
 # copy contents of file to clipboard - only works on arch :(
 clip() {
