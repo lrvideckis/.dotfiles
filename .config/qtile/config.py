@@ -102,7 +102,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.GroupBox(),
                 widget.Sep(),
@@ -120,7 +120,7 @@ screens = [
                 ),
                 widget.Sep(),
                 widget.Memory(
-                    format="{MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
+                    format="RAM: {MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_MEM')},
                 ),
                 widget.Sep(),

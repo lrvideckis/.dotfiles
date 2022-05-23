@@ -7,9 +7,10 @@ alias vim='nvim'
 alias grep='grep --color=auto'
 
 # confirm before overwriting something
-alias rm='rm -i'
-alias mv='mv -i'
-alias cp='cp -i'
+alias rm='rm --interactive'
+alias mv='mv --interactive'
+alias cp='cp --interactive'
+alias mkdir='mkdir --parents'
 
 # improved version of cat: colorized output
 alias cat='bat --map-syntax .zsh_aliases:"Bourne Again Shell (bash)"'
