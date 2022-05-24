@@ -12,15 +12,22 @@ alias mv='mv --interactive'
 alias cp='cp --interactive'
 alias mkdir='mkdir --parents'
 
-# improved version of cat: colorized output
+# changing cat to the modern bat
 alias cat='bat --map-syntax .zsh_aliases:"Bourne Again Shell (bash)"'
+
+# changing cd to the modern zoxide
+autoload -Uz compinit
+compinit
+eval "$(zoxide init zsh)"
+alias cd="z"
 
 # enable support for git bare repo of dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
+# changing du to the modern dust
 alias du="dust --depth 1"
 
-# changing "ls" to the modern "exa"
+# changing ls to the modern exa
 alias ls='exa -Fal --color=always --group-directories-first --sort=modified --git' # prefered listing
 alias la='exa -a --across --color=always --group-directories-first'  # all files and dirs
 alias tree='exa -alT --color=always' # tree listing
