@@ -18,10 +18,7 @@ alias cat='bat --map-syntax .zsh_aliases:"Bourne Again Shell (bash)"'
 # enable support for git bare repo of dotfiles
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
-# better du flags - only works on arch :(
-dus() {
-	du $1 -hd1 | sort -h
-}
+alias du="dust --depth 1"
 
 # changing "ls" to the modern "exa"
 alias ls='exa -Fal --color=always --group-directories-first --sort=modified --git' # prefered listing
