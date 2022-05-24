@@ -6,7 +6,7 @@ SAVEHIST=100000
 bindkey -v
 bindkey 'kj' vi-cmd-mode
 
-# prompt as: date, time, directory
+# prompt as: user, machine
 PS1='%n@%m %~ %# '
 
 export TERM=xterm-256color
