@@ -17,16 +17,8 @@ export PATH=$PATH:~/.local/bin/
 # all aliases
 . ~/.zsh_aliases
 
-# enhancements
-source /usr/share/zsh/share/antigen.zsh
-
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-antigen apply
 
 # terminal bling
 neofetch
