@@ -39,10 +39,14 @@ terminal = "alacritty"
 network_interface = "wlp1s0"
 
 keys = [
+    Key([mod], "h", lazy.layout.left(), desc="Move focus left"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([mod], "l", lazy.layout.right(), desc="Move focus right"),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window left"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window right"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "f", lazy.spawn("firefox"), desc="Launch firefox"),
     Key([mod], "g", lazy.next_layout(), desc="Toggle between layouts"),
