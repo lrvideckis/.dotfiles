@@ -11,7 +11,7 @@ PS1='%n@%m %~ %# '
 
 export TERM=xterm-256color
 export EDITOR=nvim
-#cpplint command installed to ~/.local/bin/ instead of /usr/local/bin/ . This is the fix
+# cpplint command installed to ~/.local/bin/ instead of /usr/local/bin/ . This is the fix
 export PATH=$PATH:~/.local/bin/
 
 # all aliases
