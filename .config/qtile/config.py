@@ -111,15 +111,15 @@ screens = [
             [
                 widget.GroupBox(),
                 widget.Sep(),
-                widget.Net(interface=network_interface, format='{down:7} ↓↑ {up:7}'),
                 widget.Wlan(interface=network_interface, format='{essid}'),
+                widget.Net(interface=network_interface, format='{up:7} ↑↓ {down:7}'),
                 widget.Sep(),
                 widget.TextBox(text="CPU:"),
-                widget.ThermalSensor(tag_sensor="CPU"),
                 widget.CPU(
                     format="{load_percent:4.1f}%",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
                 ),
+                widget.ThermalSensor(tag_sensor="CPU"),
                 widget.Sep(),
                 widget.Memory(
                     format="RAM: {MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
