@@ -52,6 +52,7 @@ keys = [
     Key([mod], "g", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod, "shift"], "Return", lazy.spawn("dmenu_run"), desc='Run Dmenu Launcher'),
 ]
 
@@ -110,17 +111,13 @@ screens = [
             [
                 widget.GroupBox(),
                 widget.Sep(),
-                widget.WindowName(max_chars=16),
-                widget.Sep(),
-                widget.Systray(),
-                widget.Sep(),
-                widget.Wlan(interface=network_interface, format='{essid}'),
                 widget.Net(interface=network_interface, format='{down:7} ↓↑ {up:7}'),
+                widget.Wlan(interface=network_interface, format='{essid}'),
                 widget.Sep(),
                 widget.TextBox(text="CPU:"),
                 widget.ThermalSensor(tag_sensor="CPU"),
                 widget.CPU(
-                    format="{load_percent:6.1f}%",
+                    format="{load_percent:4.1f}%",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
                 ),
                 widget.Sep(),
@@ -129,21 +126,19 @@ screens = [
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_MEM')},
                 ),
                 widget.Sep(),
-                widget.Volume(
-                    fmt='Volume: {}',
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command alsamixer')},
-                ),
-                widget.Sep(),
                 widget.Battery(
                     format="Battery: {char} {percent:2.0%}",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --hold --command acpi')},
                 ),
                 widget.Sep(),
+                widget.Volume(
+                    fmt='Volume: {}',
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command alsamixer')},
+                ),
+                widget.Spacer(),
                 widget.Clock(format="%Y-%m-%d %a %H:%M"),
-                widget.Sep(),
-                widget.QuickExit(),
             ],
-            24,
+            20,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
