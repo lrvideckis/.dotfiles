@@ -135,7 +135,7 @@ screens = [
                     fmt='Volume: {}',
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command alsamixer')},
                 ),
-                widget.Spacer(),
+                widget.Spacer(), # widgets before this are left justified; widgets after: right justified
                 widget.Clock(format="%Y-%m-%d %a %H:%M"),
             ],
             20,
