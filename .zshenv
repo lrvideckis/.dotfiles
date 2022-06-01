@@ -14,7 +14,7 @@ alias mkdir="mkdir --parents"
 # alternatives to core utils, inspired by https://wiki.archlinux.org/title/Core_utilities#Alternatives
 # changing vim to the modern neovim
 alias vim="nvim"
-# changing ls to the modern exa
+# changing ls, tree to the modern exa
 exa_flags="--all --long --classify --color=always --group-directories-first --sort=modified --git"
 alias ls="exa "$exa_flags
 alias tree="exa --tree "$exa_flags
