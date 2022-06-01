@@ -39,6 +39,10 @@ alias clip="xclip -sel clip"
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 # update only standard pkgs
 alias pacsyu="sudo pacman -Syu"
+# fancier git log/config log
+flags="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gitl="git "$flags
+alias configl="config "$flags
 
 
 # misc. (frequently used) programs -> so I don't have to memorize these
