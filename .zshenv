@@ -15,8 +15,9 @@ alias mkdir="mkdir --parents"
 # changing vim to the modern neovim
 alias vim="nvim"
 # changing ls to the modern exa
-alias ls="exa -Fal --color=always --group-directories-first --sort=modified --git"
-alias tree="exa -alT --color=always"
+exa_flags="--all --long --classify --color=always --group-directories-first --sort=modified --git"
+alias ls="exa "$exa_flags
+alias tree="exa --tree "$exa_flags
 # changing cd to the modern zoxide
 autoload -Uz compinit
 compinit
@@ -40,9 +41,9 @@ alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 # update only standard pkgs
 alias pacsyu="sudo pacman -Syu"
 # fancier git log/config log, source: https://coderwall.com/p/euwpig/a-better-git-log
-flags="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gitl="git "$flags
-alias configl="config "$flags
+git_log_flags="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gitl="git "$git_log_flags
+alias configl="config "$git_log_flags
 
 
 # misc. (frequently used) programs -> so I don't have to memorize these
