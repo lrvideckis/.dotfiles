@@ -9,6 +9,8 @@ alias mv="mv --interactive"
 alias cp="cp --interactive"
 # create all folders on path
 alias mkdir="mkdir --parents"
+# show entire history
+alias history="history 1"
 
 
 # alternatives to core utils, inspired by https://wiki.archlinux.org/title/Core_utilities#Alternatives
@@ -35,11 +37,11 @@ alias htop="btop"
 
 # commonly used actions
 # copy contents of file to clipboard
-alias clip="xclip -sel clip"
-# enable support for git bare repo of dotfiles
+alias clip="xclip -selection clipboard"
+# enable support for git bare repo of dotfiles, source: https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
-# update only standard pkgs
-alias pacsyu="sudo pacman -Syu"
+# update standard pkgs (pacman -Syu)
+alias pacsyu="sudo pacman --sync --refresh --sysupgrade"
 # fancier git log/config log, source: https://coderwall.com/p/euwpig/a-better-git-log
 git_log_flags="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gitl="git "$git_log_flags
@@ -47,7 +49,7 @@ alias configl="config "$git_log_flags
 
 
 # misc. (frequently used) programs -> so I don't have to memorize these
-alias files="pcmanfm"
+alias pcmanfm="pcmanfm"
 alias spotify="spotify"
 alias firefox="firefox"
 # zsa keyboard flashing tool
@@ -55,8 +57,12 @@ alias wally="wally"
 alias minecraft="LC_ALL=C ./.minecraft/launcher/minecraft-launcher"
 alias bluetooth="blueman-manager"
 alias volume="alsamixer"
-alias photo_editor="gimp"
+alias gimp="gimp"
 alias android="android-studio"
 alias battery="acpi"
-# local copy of arch wiki
+alias coreshot="coreshot"
+alias sensors="sensors"
+alias pass="pass"
+alias paru="paru"
+# local copy of arch wiki (TODO)
 alias ws="wiki-search"
