@@ -28,6 +28,8 @@ alias cat="bat --map-syntax .zsh_aliases:'Bourne Again Shell (bash)'"
 alias man="tldr"
 # changing du to the modern dust
 alias du="dust --depth 1"
+# changing htop to the modern btop
+alias htop="btop"
 
 
 # commonly used actions
