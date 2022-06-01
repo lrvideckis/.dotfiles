@@ -53,3 +53,5 @@ alias volume="alsamixer"
 alias photo_editor="gimp"
 alias android="android-studio"
 alias battery="acpi"
+# local copy of arch wiki
+alias ws="wiki-search"
