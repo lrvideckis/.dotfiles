@@ -23,7 +23,7 @@ compinit
 eval "$(zoxide init zsh)"
 alias cd="z"
 # changing cat to the modern bat
-alias cat="bat --map-syntax .zsh_aliases:'Bourne Again Shell (bash)'"
+alias cat="bat"
 # changing man to the modern tldr
 alias man="tldr"
 # changing du to the modern dust

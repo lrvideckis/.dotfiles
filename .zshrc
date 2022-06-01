@@ -15,7 +15,7 @@ export EDITOR=nvim
 export PATH=$PATH:~/.local/bin/
 
 # all aliases
-. ~/.zsh_aliases
+. ~/.zshenv
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
