@@ -66,3 +66,6 @@ alias pass="pass"
 alias paru="paru"
 # local copy of arch wiki (TODO)
 alias ws="wiki-search"
+# cool terminal output
+alias hollywood="hollywood"
+alias cmatrix="cmatrix"
