@@ -183,6 +183,7 @@ floating_layout = layout.Floating(
         Match(wm_class="pinentry-gtk-2"), # pass: master-password entry window
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+        Match(title="Bluetooth Devices"),  # bluetooth
     ]
 )
 auto_fullscreen = True
