@@ -46,7 +46,7 @@ noremap <F6> :w!<CR>:<C-u>!g++ -std=c++20 %:r.cpp -o %:r.out<CR>
 noremap <F9> :<C-u>!./%:r.out < in<CR>
 
 "new cpp files default to template
-autocmd BufNewFile *.cpp -r ~/Programming-Team-Code/template.cpp
+autocmd BufNewFile *.cpp -r ~/programming_team_code/template.cpp
 
 "remove trailing white space during writes
 autocmd BufWrite *.cpp,*.h,*.py silent! execute '%s/\s\+$//ge'
