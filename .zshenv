@@ -11,6 +11,8 @@ alias cp="cp --interactive"
 alias mkdir="mkdir --parents"
 # show entire history
 alias history="history 1"
+#japanese characters
+alias cmatrix="cmatrix -c"
 
 
 # alternatives to core utils, inspired by https://wiki.archlinux.org/title/Core_utilities#Alternatives
@@ -68,4 +70,3 @@ alias paru="paru"
 alias ws="wiki-search"
 # cool terminal output
 alias hollywood="hollywood"
-alias cmatrix="cmatrix"
