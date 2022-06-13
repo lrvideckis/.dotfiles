@@ -1,7 +1,7 @@
 # aliases, inspired by DT: https://gitlab.com/dwt1/dotfiles/-/blob/master/.zshrc
 
 
-#better flags for common tools
+# better flags for common tools
 alias grep="grep --color=auto"
 # confirm before overwriting something
 alias rm="rm --interactive"
