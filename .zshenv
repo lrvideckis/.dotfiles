@@ -42,8 +42,10 @@ alias htop="btop"
 alias clip="xclip -selection clipboard"
 # enable support for git bare repo of dotfiles, source: https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
-# update standard pkgs (pacman -Syu)
-alias pacsyu="sudo pacman --sync --refresh --sysupgrade"
+# update standard pkgs (pacman/paru -Syu)
+pac_flags="--sync --refresh --sysupgrade --noconfirm"
+alias pacsyu="sudo pacman "$pac_flags
+alias parusyu="paru "$pac_flags
 # fancier git log/config log, source: https://coderwall.com/p/euwpig/a-better-git-log
 git_log_flags="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gitl="git "$git_log_flags
@@ -65,7 +67,6 @@ alias battery="acpi"
 alias coreshot="coreshot"
 alias sensors="sensors"
 alias pass="pass"
-alias paru="paru"
 # local copy of arch wiki (TODO)
 alias ws="wiki-search"
 # cool terminal output
