@@ -29,8 +29,6 @@ eval "$(zoxide init zsh)"
 alias cd="z"
 # changing cat to the modern bat
 alias cat="bat"
-# changing man to the modern tldr
-alias man="tldr"
 # changing du to the modern dust
 alias du="dust --depth 1"
 # changing htop to the modern btop
@@ -65,6 +63,8 @@ alias gimp="gimp"
 alias android="android-studio"
 alias battery="acpi"
 alias coreshot="coreshot"
+# modern version of man
+alias tldr="tldr"
 alias sensors="sensors"
 alias pass="pass"
 # local copy of arch wiki (TODO)
