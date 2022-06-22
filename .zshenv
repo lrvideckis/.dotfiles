@@ -74,3 +74,5 @@ alias ws="wiki-search"
 alias hollywood="hollywood"
 # extracting compressed files
 alias atool="atool"
+# terminal file manager
+alias vifm="vifm"
