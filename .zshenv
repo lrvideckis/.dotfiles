@@ -72,3 +72,5 @@ alias pass="pass"
 alias ws="wiki-search"
 # cool terminal output
 alias hollywood="hollywood"
+# extracting compressed files
+alias atool="atool"
