@@ -13,6 +13,7 @@ alias mkdir="mkdir --parents"
 alias history="history 1"
 #japanese characters
 alias cmatrix="cmatrix -c"
+alias clear='printf "\e[H\e[2J" && neofetch'
 
 
 # alternatives to core utils, inspired by https://wiki.archlinux.org/title/Core_utilities#Alternatives
