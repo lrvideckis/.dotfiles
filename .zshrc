@@ -6,11 +6,6 @@ SAVEHIST=100000
 bindkey -v
 bindkey 'kj' vi-cmd-mode
 
-# prompt as: user, machine, path, git info
-# to locate: pacman --query --list zsh-git-prompt
-source /usr/lib/zsh-git-prompt/zshrc.sh
-PS1='%n@%m %~ $(git_super_status) %# '
-
 export TERM=xterm-256color
 export EDITOR=nvim
 # cpplint command installed to ~/.local/bin/ instead of /usr/local/bin/ . This is the fix
@@ -21,6 +16,9 @@ export PATH=$PATH:~/.local/bin/
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+
+# starship prompt
+eval "$(starship init zsh)"
 
 # terminal bling
 neofetch
