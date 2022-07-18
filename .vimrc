@@ -43,7 +43,7 @@ noremap <F5> :w!<CR>:<C-u>!g++ -g -Wall -Wextra -pedantic -Wno-unused-result
 \ %:r.cpp -o %:r.out<CR>
 noremap <F6> :w!<CR>:<C-u>!g++ -std=c++20 %:r.cpp -o %:r.out<CR>
 "could add -Wconversion -Wsign-conversion but they cause too many warnings
-noremap <F9> :<C-u>!./%:r.out < in<CR>
+noremap <F9> :<C-u>!./%:r.out<CR>
 
 "new cpp files default to template
 autocmd BufNewFile *.cpp -r ~/programming_team_code/template.cpp
