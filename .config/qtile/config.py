@@ -103,7 +103,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="Consolas",
+    font="Consolas", # use monospace font for bar so that widgets have a constant width
     fontsize=12,
     padding=3,
 )
