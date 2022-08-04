@@ -11,7 +11,7 @@ alias cp="cp --interactive"
 alias mkdir="mkdir --parents"
 # show entire history
 alias history="history 1"
-#japanese characters
+# japanese characters
 alias cmatrix="cmatrix -c"
 
 
