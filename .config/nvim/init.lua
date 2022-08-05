@@ -34,11 +34,11 @@ vim.api.nvim_set_keymap('n', '<F9>', '<CMD>terminal ./%:r.out<CR>', {noremap = t
 vim.cmd([[autocmd TermOpen * startinsert]]) -- you can now paste stuff when running with F9
 vim.cmd([[autocmd BufNewFile *.cpp -r ~/programming_team_code/template.cpp]]) -- new cpp files default to template
 vim.cmd([[autocmd BufWrite *.cpp,*.h,*.lua silent! execute '%s/\s\+$//ge']]) -- remove trailing white space during writes
-vim.cmd([[autocmd BufWrite init.lua source init.lua | PackerSync]]) -- update Packer on writes (or :PackerSync)
-vim.cmd([[colorscheme dracula]])
+vim.cmd([[autocmd BufWrite init.lua source init.lua | PackerSync]]) -- update Packer on writes
+vim.cmd([[colorscheme tokyonight]])
 require('neoscroll').setup()
-require('packer').startup(function() --plugins
+require('packer').startup(function() -- :PackerSync to reload
   use 'wbthomason/packer.nvim' -- Packer can manage itself
   use 'karb94/neoscroll.nvim' -- smooth scroll
-  use 'Mofiqul/dracula.nvim' -- better color scheme
+  use 'folke/tokyonight.nvim'
 end)
