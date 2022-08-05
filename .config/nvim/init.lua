@@ -18,7 +18,7 @@ vim.o.splitbelow = true -- terminal opens at bottom on <F9>
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
 
 -- key maps
-vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true})
+vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
 vim.api.nvim_set_keymap('i', '<TAB>', '<C-N>', {noremap = true}) -- tab completion
 vim.api.nvim_set_keymap('i', '<S-TAB>', '<C-P>', {noremap = true})
 vim.api.nvim_set_keymap('c', 'W', 'w', {noremap = true}) -- :W now writes
