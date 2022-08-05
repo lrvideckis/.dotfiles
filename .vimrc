@@ -1,24 +1,6 @@
 "this is my secret sauce
 
-"general settings
-colorscheme slate
 
-"key maps
-"Catching silly mistakes with GCC: https://codeforces.com/blog/entry/15547
-noremap <F5> :w!<CR>:<C-u>!g++ -g -Wall -Wextra -pedantic -Wno-unused-result
-\ -DLOCAL -std=c++20 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wcast-qual
-\ -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -fsanitize=address
-\ -fsanitize=undefined -fno-sanitize-recover=all -fstack-protector
-\ %:r.cpp -o %:r.out<CR>
-noremap <F6> :w!<CR>:<C-u>!g++ -std=c++20 %:r.cpp -o %:r.out<CR>
-"could add -Wconversion -Wsign-conversion but they cause too many warnings
-noremap <F9> :<C-u>!./%:r.out<CR>
-
-"new cpp files default to template
-autocmd BufNewFile *.cpp -r ~/programming_team_code/template.cpp
-
-"remove trailing white space during writes
-autocmd BufWrite *.cpp,*.h,*.py silent! execute '%s/\s\+$//ge'
 
 "smooth scroll on ctrl-d and ctrl-u
 noremap <silent> <c-u> :call SmoothScroll('u', &scroll, 10, 2)<CR>
