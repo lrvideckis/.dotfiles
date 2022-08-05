@@ -1,40 +1,9 @@
 "this is my secret sauce
 
 "general settings
-set nocompatible
-let indent_len=4 " # of characters which a tab shows up as
-let &tabstop=indent_len
-let &shiftwidth=indent_len
-let &softtabstop=indent_len
-set hlsearch ignorecase smartcase incsearch
-set showmatch matchpairs+=<:>
-set autoindent smartindent cindent
-set sidescroll=1 scrolloff=2
-set number
-set nowrap
-set nobackup noswapfile noundofile nowritebackup
-syntax on
-set listchars=tab:\|\ ,trail:_ list
-set wildmenu wildmode=list:longest "bash-like completion
-let c_no_curly_error=1 "disable curly brace error: thing[{i, j}]
-cal matchadd('ColorColumn', '\%101v.', 100) "101st column limit
 colorscheme slate
-set cursorline
-hi CursorLine cterm=bold,underline
 
 "key maps
-inoremap kj <ESC>
-inoremap kJ <ESC>
-inoremap Kj <ESC>
-inoremap KJ <ESC>
-cnoremap W w
-map Q <NOP>|"disable ex mode
-nnoremap <CR> :noh<CR>
-inoremap {<CR> {<CR>}<ESC>O
-noremap <C-j> 6j
-noremap <C-k> 6k
-inoremap <tab> <C-n>
-inoremap <S-tab> <C-p>
 "Catching silly mistakes with GCC: https://codeforces.com/blog/entry/15547
 noremap <F5> :w!<CR>:<C-u>!g++ -g -Wall -Wextra -pedantic -Wno-unused-result
 \ -DLOCAL -std=c++20 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wcast-qual
