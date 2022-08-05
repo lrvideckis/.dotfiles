@@ -14,6 +14,7 @@ vim.o.termguicolors = true -- looks cooler
 vim.o.wildmode = "list:longest" -- bash-like completion
 vim.o.colorcolumn = "100";
 vim.o.matchpairs = "(:),{:},[:],<:>"
+vim.o.splitbelow = true -- terminal opens at bottom on <F9>
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
 
 -- key maps
@@ -24,14 +25,14 @@ vim.api.nvim_set_keymap('c', 'W', 'w', {noremap = true}) -- :W now writes
 vim.api.nvim_set_keymap('n', '<C-J>', '6j', {noremap = true}) -- faster navigation
 vim.api.nvim_set_keymap('n', '<C-K>', '6k', {noremap = true})
 vim.api.nvim_set_keymap('n', '<CR>', ':nohlsearch<CR>', {noremap = true}) -- unhighlight search results
-vim.api.nvim_set_keymap('n', '<F5>',
-	'<CMD>w!<CR>' .. -- save, remove old executable, and compile
+vim.api.nvim_set_keymap('n', '<F5>', -- save, remove old executable, and compile
+	'<CMD>w!<CR>' ..
 	'<CMD>!rm --force %:r.out<CR>' ..
 	'<CMD>!g++ -Wall -Wextra -Wno-unused-result -Wshadow -g -std=c++20 %:r.cpp -o %:r.out<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F9>', '<CMD>terminal ./%:r.out<CR>', {noremap = true}) -- run in interactive terminal
+vim.api.nvim_set_keymap('n', '<F9>', '<CMD>8split | terminal ./%:r.out<CR>', {noremap = true}) -- run in interactive terminal
 
 -- enhancements
-vim.cmd([[autocmd TermOpen * startinsert]]) -- you can now paste stuff when running with F9
+vim.cmd([[autocmd TermOpen * startinsert]]) -- you can now paste stuff when running with <F9>
 vim.cmd([[autocmd BufNewFile *.cpp -r ~/programming_team_code/template.cpp]]) -- new cpp files default to template
 vim.cmd([[autocmd BufWrite *.cpp,*.h,*.lua silent! execute '%s/\s\+$//ge']]) -- remove trailing white space during writes
 vim.cmd([[colorscheme tokyonight]])
