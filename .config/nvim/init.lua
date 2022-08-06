@@ -32,9 +32,9 @@ vim.api.nvim_set_keymap('n', '<F5>', -- save, remove old executable, and compile
 vim.api.nvim_set_keymap('n', '<F9>', '<CMD>8split | terminal ./%:r.out<CR>', {noremap = true}) -- run in interactive terminal
 
 -- enhancements
-vim.cmd([[autocmd TermOpen * startinsert]]) -- you can now paste stuff when running with <F9>
-vim.cmd([[autocmd BufNewFile *.cpp -r ~/programming_team_code/template.cpp]]) -- new cpp files default to template
-vim.cmd([[autocmd BufWrite *.cpp,*.h,*.lua silent! execute '%s/\s\+$//ge']]) -- remove trailing white space during writes
+vim.api.nvim_create_autocmd("TermOpen", { command = "startinsert" }) -- you can now paste stuff when running with <F9>
+vim.api.nvim_create_autocmd("BufNewFile", { pattern = "*.cpp", command = "-r ~/programming_team_code/template.cpp" }) -- new cpp files default to template
+vim.api.nvim_create_autocmd("BufWrite", { pattern = "*.cpp,*.h,*.lua", command = "silent! execute \'%s/\\s\\+$//ge\'" }) -- remove trailing white space during writes
 vim.cmd([[colorscheme tokyonight]])
 require('neoscroll').setup() -- sets keybindings for smooth scrolling
 require('packer').startup(function() -- :PackerSync to reload (run after all changes)
