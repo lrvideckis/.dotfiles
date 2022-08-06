@@ -30,6 +30,7 @@ vim.api.nvim_set_keymap('n', '<F5>', -- save, remove old executable, and compile
 	'<CMD>!rm --force %:r.out<CR>' ..
 	'<CMD>!g++ -Wall -Wextra -Wno-unused-result -Wshadow -g -std=c++20 %:r.cpp -o %:r.out<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F9>', '<CMD>8split | terminal ./%:r.out<CR>', {noremap = true}) -- run in interactive terminal
+vim.api.nvim_set_keymap('n', '<C-T>', '<CMD>NvimTreeFocus<CR>', {noremap = true}) -- open nvim tree
 
 -- enhancements
 vim.api.nvim_create_autocmd("TermOpen", { command = "startinsert" }) -- you can now paste stuff when running with <F9>
@@ -43,7 +44,15 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
+	use { -- better file tree than Netrw
+		'kyazdani42/nvim-tree.lua',
+		requires = {
+			'kyazdani42/nvim-web-devicons', -- optional, for file icons
+		},
+		tag = 'nightly' -- optional, updated every week. (see issue #1193)
+	}
 end)
 vim.cmd([[colorscheme tokyonight]])
-require('neoscroll').setup() -- sets keybindings for smooth scrolling
-require('lualine').setup() -- required for lualine status bar
+require('neoscroll').setup()
+require('lualine').setup()
+require("nvim-tree").setup()
