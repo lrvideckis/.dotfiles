@@ -35,10 +35,15 @@ vim.api.nvim_set_keymap('n', '<F9>', '<CMD>8split | terminal ./%:r.out<CR>', {no
 vim.api.nvim_create_autocmd("TermOpen", { command = "startinsert" }) -- you can now paste stuff when running with <F9>
 vim.api.nvim_create_autocmd("BufNewFile", { pattern = "*.cpp", command = "-r ~/programming_team_code/template.cpp" }) -- new cpp files default to template
 vim.api.nvim_create_autocmd("BufWrite", { pattern = "*.cpp,*.h,*.lua", command = "silent! execute \'%s/\\s\\+$//ge\'" }) -- remove trailing white space during writes
+require('packer').startup(function() -- :PackerSync to reload (run after all changes)
+	use 'wbthomason/packer.nvim' -- Packer can manage itself
+	use 'karb94/neoscroll.nvim' -- smooth scroll
+	use 'folke/tokyonight.nvim' -- color scheme
+	use { -- better status bar
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	}
+end)
 vim.cmd([[colorscheme tokyonight]])
 require('neoscroll').setup() -- sets keybindings for smooth scrolling
-require('packer').startup(function() -- :PackerSync to reload (run after all changes)
-  use 'wbthomason/packer.nvim' -- Packer can manage itself
-  use 'karb94/neoscroll.nvim' -- smooth scroll
-  use 'folke/tokyonight.nvim' -- color scheme
-end)
+require('lualine').setup() -- required for lualine status bar
