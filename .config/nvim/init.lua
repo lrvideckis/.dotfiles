@@ -22,8 +22,8 @@ vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
 vim.api.nvim_set_keymap('i', '<TAB>', '<C-N>', {noremap = true}) -- tab completion
 vim.api.nvim_set_keymap('i', '<S-TAB>', '<C-P>', {noremap = true})
 vim.api.nvim_set_keymap('c', 'W', 'w', {noremap = true}) -- :W now writes
-vim.api.nvim_set_keymap('n', '<C-J>', '6j', {noremap = true}) -- faster navigation
-vim.api.nvim_set_keymap('n', '<C-K>', '6k', {noremap = true})
+vim.api.nvim_set_keymap("", '<C-J>', '6j', {noremap = true}) -- faster navigation
+vim.api.nvim_set_keymap("", '<C-K>', '6k', {noremap = true})
 vim.api.nvim_set_keymap('n', '<CR>', ':nohlsearch<CR>', {noremap = true}) -- unhighlight search results
 vim.api.nvim_set_keymap('n', '<F5>', -- save, remove old executable, and compile
 	'<CMD>w!<CR>' ..
