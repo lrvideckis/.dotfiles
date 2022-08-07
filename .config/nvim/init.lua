@@ -14,7 +14,6 @@ vim.o.termguicolors = true -- looks cooler
 vim.o.wildmode = "list:longest" -- bash-like tab completion
 vim.o.colorcolumn = "100";
 vim.o.matchpairs = "(:),{:},[:],<:>"
-vim.o.splitbelow = true -- terminal opens at bottom on <F9>
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
 
 -- key maps
@@ -29,11 +28,10 @@ vim.api.nvim_set_keymap('n', '<F5>', -- save, remove old executable, and compile
 	'<CMD>w!<CR>' ..
 	'<CMD>!rm --force %:r.out<CR>' ..
 	'<CMD>!g++ -Wall -Wextra -Wno-unused-result -Wshadow -g -std=c++20 %:r.cpp -o %:r.out<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F9>', '<CMD>8split | terminal ./%:r.out<CR>', {noremap = true}) -- run in interactive terminal
+vim.api.nvim_set_keymap('n', '<F9>', '<CMD>!./%:r.out < in<CR>', {noremap = true}) -- run code
 vim.api.nvim_set_keymap('n', '<C-T>', '<CMD>NvimTreeFocus<CR>', {noremap = true}) -- open nvim tree
 
 -- enhancements
-vim.api.nvim_create_autocmd("TermOpen", { command = "startinsert" }) -- you can now paste stuff when running with <F9>
 vim.api.nvim_create_autocmd("BufNewFile", { pattern = "*.cpp", command = "-r ~/programming_team_code/template.cpp" }) -- new cpp files default to template
 vim.api.nvim_create_autocmd("BufWrite", { pattern = "*.cpp,*.h,*.lua", command = "silent! execute \'%s/\\s\\+$//ge\'" }) -- remove trailing white space during writes
 require('packer').startup(function() -- :PackerSync to reload (run after all changes)
