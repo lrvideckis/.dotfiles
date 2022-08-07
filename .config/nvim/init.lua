@@ -49,8 +49,16 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 		},
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
+	use { -- better git integration
+		'lewis6991/gitsigns.nvim',
+		requires = {
+			'nvim-lua/plenary.nvim'
+		},
+		tag = 'release' -- To use the latest release
+	}
 end)
 vim.cmd('colorscheme tokyonight')
 require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-E> and <C-Y>
 require('lualine').setup()
 require('nvim-tree').setup()
+require('gitsigns').setup()
