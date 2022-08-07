@@ -1,15 +1,15 @@
 -- settings
 vim.o.number = true -- show line numbers
-vim.o.wrap = false -- don't wrap
-vim.o.scrolloff = 2
 tab_len = 4 -- tabs!
 vim.o.tabstop = tab_len
 vim.o.shiftwidth = tab_len
-vim.o.cursorline = true
-vim.o.list = true -- show '>' for tabs and '-' for trailing spaces
+vim.o.wrap = false -- don't wrap
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.cindent = true
+vim.o.scrolloff = 2
+vim.o.cursorline = true
+vim.o.list = true -- show '>' for tabs and '-' for trailing spaces
 vim.o.termguicolors = true -- looks cooler
 vim.o.wildmode = "list:longest" -- bash-like tab completion
 vim.o.colorcolumn = "100";
