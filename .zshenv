@@ -53,7 +53,6 @@ alias configl="config "$git_log_flags
 # misc. (frequently used) programs -> so I don't have to memorize these
 alias pcmanfm="pcmanfm"
 alias spotify="spotify"
-alias firefox="firefox"
 # zsa keyboard flashing tool
 alias wally="wally"
 alias minecraft="LC_ALL=C ./.minecraft/launcher/minecraft-launcher"
