@@ -10,7 +10,6 @@ vim.o.cindent = true
 vim.o.scrolloff = 2
 vim.o.cursorline = true
 vim.o.list = true -- show '>' for tabs and '-' for trailing spaces
-vim.o.termguicolors = true -- looks cooler
 vim.o.wildmode = 'list:longest' -- bash-like tab completion
 vim.o.colorcolumn = '100';
 vim.o.matchpairs = '(:),{:},[:],<:>'
