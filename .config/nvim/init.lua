@@ -1,8 +1,8 @@
 -- settings
 vim.o.number = true -- show line numbers
-vim.o.wrap = false -- don't wrap (fight me!)
+vim.o.wrap = false -- don't wrap
 vim.o.scrolloff = 2
-tab_len = 4 -- tabs (fight me!)
+tab_len = 4 -- tabs!
 vim.o.tabstop = tab_len
 vim.o.shiftwidth = tab_len
 vim.o.cursorline = true
