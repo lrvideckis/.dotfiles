@@ -11,8 +11,7 @@ alias cp="cp --interactive"
 alias mkdir="mkdir --parents"
 # show entire history
 alias history="history 1"
-# japanese characters
-alias cmatrix="cmatrix -c"
+alias matrix="unimatrix --speed=95 --no-bold"
 
 
 # alternatives to core utils, inspired by https://wiki.archlinux.org/title/Core_utilities#Alternatives
