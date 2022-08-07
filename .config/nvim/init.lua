@@ -32,7 +32,7 @@ vim.api.nvim_set_keymap('n', '<F9>', '<CMD>!cat in && echo "----" && ./%:r.out <
 vim.api.nvim_set_keymap('n', '<C-t>', '<CMD>NvimTreeFocus<CR>', {noremap = true}) -- open nvim tree
 
 -- enhancements
-vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = '-r ~/programming_team_code/template.cpp' }) -- new cpp files default to template
+vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = 'read ~/programming_team_code/template.cpp' }) -- new cpp files default to template
 vim.api.nvim_create_autocmd('BufWrite', { pattern = '*.cpp,*.h,*.lua', command = 'silent! execute \'%s/\\s\\+$//ge\'' }) -- remove trailing white space during writes
 require('packer').startup(function() -- :PackerSync to reload (run after all changes)
 	use 'wbthomason/packer.nvim' -- Packer can manage itself
