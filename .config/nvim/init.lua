@@ -18,18 +18,18 @@ vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
 
 -- key maps
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
-vim.api.nvim_set_keymap('i', '<TAB>', '<C-N>', {noremap = true}) -- tab completion
-vim.api.nvim_set_keymap('i', '<S-TAB>', '<C-P>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<TAB>', '<C-n>', {noremap = true}) -- tab completion
+vim.api.nvim_set_keymap('i', '<S-TAB>', '<C-p>', {noremap = true})
 vim.api.nvim_set_keymap('c', 'W', 'w', {noremap = true}) -- :W now writes
-vim.api.nvim_set_keymap('', '<C-J>', '6j', {noremap = true}) -- faster navigation
-vim.api.nvim_set_keymap('', '<C-K>', '6k', {noremap = true})
+vim.api.nvim_set_keymap('', '<C-j>', '6j', {noremap = true}) -- faster navigation
+vim.api.nvim_set_keymap('', '<C-k>', '6k', {noremap = true})
 vim.api.nvim_set_keymap('n', '<CR>', '<CMD>nohlsearch<CR>', {noremap = true}) -- unhighlight search results
 vim.api.nvim_set_keymap('n', '<F5>', -- save, remove old executable, and compile
 	'<CMD>w!<CR>' ..
 	'<CMD>!rm --force %:r.out<CR>' ..
 	'<CMD>!g++ -Wall -Wextra -Wno-unused-result -Wshadow -g -std=c++20 %:r.cpp -o %:r.out<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F9>', '<CMD>!cat in && echo "----" && ./%:r.out < in<CR>', {noremap = true}) -- run code
-vim.api.nvim_set_keymap('n', '<C-T>', '<CMD>NvimTreeFocus<CR>', {noremap = true}) -- open nvim tree
+vim.api.nvim_set_keymap('n', '<C-t>', '<CMD>NvimTreeFocus<CR>', {noremap = true}) -- open nvim tree
 
 -- enhancements
 vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = '-r ~/programming_team_code/template.cpp' }) -- new cpp files default to template
@@ -58,7 +58,7 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 	}
 end)
 vim.cmd('colorscheme tokyonight')
-require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-E> and <C-Y>
+require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-e> and <C-y>
 require('lualine').setup()
 require('nvim-tree').setup()
 require('gitsigns').setup()
