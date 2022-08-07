@@ -2,7 +2,7 @@
 
 
 # better flags for common tools
-alias grep="grep --color=auto"
+alias grep="grep --line-number --color=auto"
 # confirm before overwriting something
 alias rm="rm --interactive"
 alias mv="mv --interactive"
