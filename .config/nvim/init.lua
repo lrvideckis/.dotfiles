@@ -23,10 +23,10 @@ vim.api.nvim_set_keymap('c', 'W', 'w', {noremap = true}) -- :W now writes
 vim.api.nvim_set_keymap('', '<C-j>', '6j', {noremap = true}) -- faster navigation
 vim.api.nvim_set_keymap('', '<C-k>', '6k', {noremap = true})
 vim.api.nvim_set_keymap('n', '<CR>', '<CMD>nohlsearch<CR>', {noremap = true}) -- unhighlight search results
+compile_flags = '-Wall -Wextra -Wno-unused-result -Wshadow -g -std=c++20'
 vim.api.nvim_set_keymap('n', '<F5>', -- save, remove old executable, and compile
 	'<CMD>w!<CR>' ..
-	'<CMD>!rm --force %:r.out<CR>' ..
-	'<CMD>!g++ -Wall -Wextra -Wno-unused-result -Wshadow -g -std=c++20 %:r.cpp -o %:r.out<CR>', {noremap = true})
+	'<CMD>!rm --force %:r.out && g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F9>', '<CMD>!cat in && echo "----" && ./%:r.out < in<CR>', {noremap = true}) -- run code
 vim.api.nvim_set_keymap('n', '<C-t>', '<CMD>NvimTreeFocus<CR>', {noremap = true}) -- open nvim tree
 
