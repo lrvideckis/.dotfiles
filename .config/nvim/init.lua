@@ -55,9 +55,23 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 		},
 		tag = 'release' -- To use the latest release
 	}
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+	}
 end)
 vim.cmd('colorscheme tokyonight')
 require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-e> and <C-y>
 require('lualine').setup({ options = {theme = 'tokyonight'} })
 require('nvim-tree').setup()
 require('gitsigns').setup()
+require('nvim-treesitter.configs').setup({ -- better syntax highlighting & indenting
+	ensure_installed = {"cpp"},
+	auto_install = true, -- Automatically install missing parsers when entering buffer
+	highlight = {
+		enable = true,
+	},
+	indent = {
+		enable = true
+	}
+})
