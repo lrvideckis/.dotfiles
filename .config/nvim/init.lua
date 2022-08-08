@@ -55,7 +55,7 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 		},
 		tag = 'release' -- To use the latest release
 	}
-	use {
+	use { -- better syntax highlighting & indenting
 		'nvim-treesitter/nvim-treesitter',
 		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
 	}
@@ -65,7 +65,7 @@ require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) 
 require('lualine').setup({ options = {theme = 'tokyonight'} })
 require('nvim-tree').setup()
 require('gitsigns').setup()
-require('nvim-treesitter.configs').setup({ -- better syntax highlighting & indenting
+require('nvim-treesitter.configs').setup({
 	ensure_installed = {"cpp"},
 	auto_install = true, -- Automatically install missing parsers when entering buffer
 	highlight = {
