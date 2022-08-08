@@ -58,6 +58,6 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 end)
 vim.cmd('colorscheme tokyonight')
 require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-e> and <C-y>
-require('lualine').setup()
+require('lualine').setup({ options = {theme = 'tokyonight'} })
 require('nvim-tree').setup()
 require('gitsigns').setup()
