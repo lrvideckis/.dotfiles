@@ -40,7 +40,7 @@ alias clip="xclip -selection clipboard"
 # enable support for git bare repo of dotfiles, source: https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 # update standard pkgs (pacman/paru -Syu)
-pac_flags="--sync --refresh --sysupgrade --noconfirm"
+pac_flags="--sync --refresh --sysupgrade --noconfirm --color=auto"
 alias pacsyu="sudo pacman "$pac_flags
 alias parusyu="paru "$pac_flags
 # fancier git log/config log, source: https://coderwall.com/p/euwpig/a-better-git-log
