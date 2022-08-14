@@ -30,8 +30,6 @@ alias cd="z"
 alias cat="bat"
 # changing du to the modern dust
 alias du="dust"
-# changing htop to the modern btop
-alias htop="btop"
 
 
 # commonly used actions
