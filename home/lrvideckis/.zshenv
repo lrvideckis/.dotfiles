@@ -29,7 +29,7 @@ alias cd="z"
 # changing cat to the modern bat
 alias cat="bat"
 # changing du to the modern dust
-alias du="dust --depth 1"
+alias du="dust"
 # changing htop to the modern btop
 alias htop="btop"
 
@@ -40,14 +40,13 @@ alias clip="xclip -selection clipboard"
 # enable support for git bare repo of dotfiles, source: https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
 alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/"
 # update standard pkgs (pacman/paru -Syu)
-alias pacman="pacman --noconfirm --color=auto"
-pac_flags="--sync --refresh --sysupgrade --noconfirm --color=auto"
+pac_flags="--sync --refresh --sysupgrade"
 alias pacsyu="sudo pacman "$pac_flags
 alias parusyu="paru "$pac_flags
-# fancier git log/config log, source: https://coderwall.com/p/euwpig/a-better-git-log
+# fancier git log/cf log, source: https://coderwall.com/p/euwpig/a-better-git-log
 git_log_flags="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gitl="git "$git_log_flags
-alias configl="config "$git_log_flags
+alias cfl="cf "$git_log_flags
 
 
 # misc. (frequently used) programs -> so I don't have to memorize these
