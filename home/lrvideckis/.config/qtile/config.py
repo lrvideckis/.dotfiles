@@ -104,7 +104,7 @@ layouts = [
 
 widget_defaults = dict(
     font="Source Code Pro", # use monospace font for bar so that widgets have a constant width
-    fontsize=21,
+    fontsize=13,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -154,7 +154,7 @@ screens = [
                 widget.Spacer(), # widgets before this are left justified; widgets after: right justified
                 widget.Clock(format="%Y-%m-%d %a %H:%M"),
             ],
-            40,
+            20,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
