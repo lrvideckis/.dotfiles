@@ -29,7 +29,7 @@ alias cd="z"
 # changing cat to the modern bat
 alias cat="bat"
 # changing du to the modern dust
-alias du="dust --depth 1"
+alias du="dust"
 # changing htop to the modern btop
 alias htop="btop"
 
