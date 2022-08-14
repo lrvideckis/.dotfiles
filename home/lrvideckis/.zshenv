@@ -41,7 +41,7 @@ alias clip="xclip -selection clipboard"
 alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/"
 # update standard pkgs (pacman/paru -Syu)
 alias pacman="pacman --noconfirm"
-pac_flags="--sync --refresh --sysupgrade --noconfirm --color=auto"
+pac_flags="--sync --refresh --sysupgrade --noconfirm"
 alias pacsyu="sudo pacman "$pac_flags
 alias parusyu="paru "$pac_flags
 # fancier git log/config log, source: https://coderwall.com/p/euwpig/a-better-git-log
