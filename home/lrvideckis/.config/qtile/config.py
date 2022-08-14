@@ -117,29 +117,29 @@ screens = [
                 widget.Sep(),
                 widget.Wlan(
                     interface=network_interface, format='{essid}',
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command btop')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop')},
                 ),
                 widget.Net(
                     interface=network_interface, format='{up:7} ↑↓ {down:7}',
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command btop')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop')},
                 ),
                 widget.Sep(),
                 widget.TextBox(
                     text="CPU:",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command btop')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop')},
                 ),
                 widget.CPU(
                     format="{load_percent:4.1f}%",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command btop')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop')},
                 ),
                 widget.ThermalSensor(
                     tag_sensor="CPU",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command btop')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop')},
                 ),
                 widget.Sep(),
                 widget.Memory(
                     format="RAM: {MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command btop')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop')},
                 ),
                 widget.Sep(),
                 widget.Battery(
