@@ -38,7 +38,7 @@ alias htop="btop"
 # copy contents of file to clipboard
 alias clip="xclip -selection clipboard"
 # enable support for git bare repo of dotfiles, source: https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
-alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 # update standard pkgs (pacman/paru -Syu)
 alias pacman="pacman --noconfirm --color=auto"
 pac_flags="--sync --refresh --sysupgrade --noconfirm --color=auto"
