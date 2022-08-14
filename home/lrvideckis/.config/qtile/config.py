@@ -34,9 +34,9 @@ from libqtile import bar, layout, widget, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
-mod = "mod1"
+mod = "mod4"
 terminal = "alacritty"
-network_interface = "wlp1s0"
+network_interface = "enp3s0"
 
 keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus left"),
@@ -57,7 +57,7 @@ keys = [
     Key([mod, "shift"], "Return", lazy.spawn("dmenu_run"), desc='Run Dmenu Launcher'),
 ]
 
-groups = [Group(i) for i in "1234"]
+groups = [Group(i) for i in "as"]
 
 for i in groups:
     keys.extend(
@@ -87,7 +87,7 @@ layouts = [
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     layout.MonadTall(
         new_client_position='top',
-        margin=8,
+        margin=23,
     ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
@@ -104,7 +104,7 @@ layouts = [
 
 widget_defaults = dict(
     font="Source Code Pro", # use monospace font for bar so that widgets have a constant width
-    fontsize=13,
+    fontsize=21,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -133,18 +133,13 @@ screens = [
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command btop')},
                 ),
                 widget.ThermalSensor(
-                    tag_sensor="CPU",
+                    tag_sensor="Package id 0",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command btop')},
                 ),
                 widget.Sep(),
                 widget.Memory(
                     format="RAM: {MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command btop')},
-                ),
-                widget.Sep(),
-                widget.Battery(
-                    format="Battery: {char} {percent:2.0%}",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --hold --command acpi')},
                 ),
                 widget.Sep(),
                 widget.Volume(
@@ -154,7 +149,7 @@ screens = [
                 widget.Spacer(), # widgets before this are left justified; widgets after: right justified
                 widget.Clock(format="%Y-%m-%d %a %H:%M"),
             ],
-            20,
+            40,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
