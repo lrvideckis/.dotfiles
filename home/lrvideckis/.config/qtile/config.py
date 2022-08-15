@@ -172,7 +172,6 @@ screens = [
                 widget.CheckUpdates(
                     no_update_string="no updates",
                     background=color2
-
                 ),
                 get_arrow_widget(True, False),
                 widget.Spacer(
