@@ -11,7 +11,6 @@ vim.o.scrolloff = 2
 vim.o.cursorline = true
 vim.o.list = true -- show '>' for tabs and '-' for trailing spaces
 vim.o.wildmode = 'list:longest' -- bash-like tab completion
-vim.o.colorcolumn = '100';
 vim.o.matchpairs = '(:),{:},[:],<:>'
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
 
@@ -57,6 +56,7 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 	}
 end)
 vim.cmd('colorscheme tokyonight')
+vim.cmd('highlight Normal guibg=none') -- transparency
 require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-e> and <C-y>
 require('lualine').setup({ options = {theme = 'tokyonight'} })
 require('nvim-tree').setup()
