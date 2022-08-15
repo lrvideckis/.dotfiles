@@ -105,50 +105,92 @@ layouts = [
 widget_defaults = dict(
     font="Source Code Pro", # use monospace font for bar so that widgets have a constant width
     fontsize=13,
-    padding=3,
+    fontshadow='#002e63'
 )
 extension_defaults = widget_defaults.copy()
+
+color1 = '#253253'
+color2 = '#4169E1'
+
+def get_arrow_widget(points_right: bool, parody: bool) -> widget.TextBox:
+    return widget.TextBox(
+            text = '' if points_right else '',
+            foreground = color1 if parody else color2,
+            background = color2 if parody else color1,
+            padding = 0,
+            fontsize = 20
+    )
 
 screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(),
-                widget.Sep(),
-                widget.Wlan(interface=network_interface, format='{essid}'),
-                widget.Net(interface=network_interface, format='{up:7} ↑↓ {down:7}'),
-                widget.Sep(),
+                widget.GroupBox(background=color1),
+                get_arrow_widget(True, True),
+                widget.Wlan(
+                    interface=network_interface,
+                    format='{essid}',
+                    background=color2
+                ),
+                widget.Net(
+                    interface=network_interface,
+                    format='{up:7} ↑↓ {down:7}',
+                    padding=5,
+                    background=color2
+                ),
+                get_arrow_widget(True, False),
                 widget.TextBox(
                     text="CPU:",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
+                    padding=10,
+                    background=color1
                 ),
                 widget.CPU(
                     format="{load_percent:4.1f}%",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
+                    background=color1
                 ),
                 widget.ThermalSensor(
                     tag_sensor="CPU",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
+                    background=color1
                 ),
-                widget.Sep(),
+                get_arrow_widget(True, True),
                 widget.Memory(
                     format="RAM: {MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_MEM')},
+                    background=color2
                 ),
-                widget.Sep(),
-                widget.Battery(
-                    format="Battery: {char} {percent:2.0%}",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --hold --command acpi')},
-                ),
-                widget.Sep(),
+                get_arrow_widget(True, False),
                 widget.Volume(
                     fmt='Volume: {}',
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command alsamixer')},
+                    padding = 10,
+                    background=color1
                 ),
-                widget.Spacer(), # widgets before this are left justified; widgets after: right justified
-                widget.Clock(format="%Y-%m-%d %a %H:%M"),
+                get_arrow_widget(True, True),
+                widget.CheckUpdates(
+                    no_update_string="no updates",
+                    background=color2
+
+                ),
+                get_arrow_widget(True, False),
+                widget.Spacer(
+                    background=color1
+                ), # widgets before this are left justified; widgets after: right justified
+                get_arrow_widget(False, False),
+                widget.Battery(
+                    format="Battery: {char} {percent:2.0%}",
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --hold --command acpi')},
+                    background=color2
+                ),
+                get_arrow_widget(False, True),
+                widget.Clock(
+                    format="%Y-%m-%d %a %H:%M",
+                    background=color1
+                ),
             ],
-            20,
+            24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
