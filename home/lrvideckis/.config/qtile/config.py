@@ -181,6 +181,8 @@ screens = [
                 get_arrow_widget(False, False),
                 widget.Battery(
                     format="Battery: {char} {percent:2.0%}",
+                    charge_char = '↑',
+                    discharge_char = '↓',
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --hold --command acpi')},
                     background=color2
                 ),
