@@ -109,8 +109,8 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-color1 = '#0070ff'
-color2 = '#253253'
+color1 = '#253253'
+color2 = '#4169E1'
 
 def get_arrow_widget(points_right: bool, parody: bool) -> widget.TextBox:
     return widget.TextBox(
@@ -170,17 +170,18 @@ screens = [
                 ),
                 get_arrow_widget(True, True),
                 widget.CheckUpdates(
+                    custom_command="checkupdates | wc -l",
                     no_update_string="no updates",
                     background=color2
-
                 ),
+                get_arrow_widget(True, False),
                 widget.Spacer(
-                    background=color2
+                    background=color1
                 ), # widgets before this are left justified; widgets after: right justified
-                get_arrow_widget(False, True),
+                get_arrow_widget(False, False),
                 widget.Clock(
                     format="%Y-%m-%d %a %H:%M",
-                    background=color1
+                    background=color2
                 ),
             ],
             35,
