@@ -170,6 +170,7 @@ screens = [
                 ),
                 get_arrow_widget(True, True),
                 widget.CheckUpdates(
+                    custom_command="checkupdates | wc -l",
                     no_update_string="no updates",
                     background=color2
                 ),
