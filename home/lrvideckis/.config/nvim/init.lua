@@ -54,6 +54,7 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 		},
 		tag = 'release' -- To use the latest release
 	}
+	use 'norcalli/nvim-colorizer.lua' -- show color for hex codes
 end)
 vim.cmd('colorscheme tokyonight')
 vim.cmd('highlight Normal guibg=none') -- transparency
@@ -61,3 +62,4 @@ require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) 
 require('lualine').setup({ options = {theme = 'tokyonight'} })
 require('nvim-tree').setup()
 require('gitsigns').setup()
+require('colorizer').setup()
