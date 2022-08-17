@@ -170,8 +170,15 @@ screens = [
                 ),
                 get_arrow_widget(True, True),
                 widget.CheckUpdates(
-                    custom_command="checkupdates | wc -l",
-                    no_update_string="no updates",
+                    display_format="pacman {updates}",
+                    distro="Arch", #this is already the default. I'm including it for readability
+                    no_update_string="pacman 0",
+                    background=color2
+                ),
+                widget.CheckUpdates(
+                    display_format="paru {updates}",
+                    distro="Arch_paru",
+                    no_update_string="paru 0",
                     background=color2
                 ),
                 get_arrow_widget(True, False),
