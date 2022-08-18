@@ -33,7 +33,7 @@ alias du="dust"
 
 
 # commonly used actions
-# copy contents of file to clipboard
+# copy file to clipboard with `clip a.cpp`
 alias clip="xclip -selection clipboard"
 # enable support for git bare repo of dotfiles, source: https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
 alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/"

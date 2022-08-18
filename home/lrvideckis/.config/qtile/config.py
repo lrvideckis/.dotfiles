@@ -130,6 +130,7 @@ screens = [
                 widget.Wlan(
                     interface=network_interface,
                     format='{essid}',
+                    max_chars=10,
                     background=color2
                 ),
                 widget.Net(
