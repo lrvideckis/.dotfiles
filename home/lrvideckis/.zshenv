@@ -11,7 +11,6 @@ alias cp="cp --interactive"
 alias mkdir="mkdir --parents"
 # show entire history
 alias history="history 1"
-alias matrix="unimatrix --speed=95 --no-bold"
 
 
 # alternatives to core utils, inspired by https://wiki.archlinux.org/title/Core_utilities#Alternatives
@@ -66,6 +65,7 @@ alias pass="pass"
 # local copy of arch wiki (TODO)
 alias ws="wiki-search"
 # cool terminal output
+alias matrix="unimatrix --speed=95 --no-bold"
 alias hollywood="hollywood"
 # extracting compressed files
 alias atool="atool"
