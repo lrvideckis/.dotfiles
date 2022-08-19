@@ -12,7 +12,9 @@ vim.o.cursorline = true
 vim.o.list = true -- show '>' for tabs and '-' for trailing spaces
 vim.o.wildmode = 'list:longest' -- bash-like tab completion
 vim.o.matchpairs = '(:),{:},[:],<:>'
+vim.o.clipboard = 'unnamedplus' -- sync nvim and OS clipboard
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
+
 
 -- key maps
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
