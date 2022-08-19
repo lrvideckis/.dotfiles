@@ -15,7 +15,6 @@ vim.o.matchpairs = '(:),{:},[:],<:>'
 vim.o.clipboard = 'unnamedplus' -- sync nvim and OS clipboard
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
 
-
 -- key maps
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
 vim.api.nvim_set_keymap('i', '<TAB>', '<C-n>', {noremap = true}) -- tab completion
