@@ -36,7 +36,6 @@ vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = 'read ~
 vim.api.nvim_create_autocmd('BufWrite', { pattern = '*.cpp,*.h,*.lua', command = 'silent! execute \'%s/\\s\\+$//ge\'' }) -- remove trailing white space during writes
 require('packer').startup(function() -- :PackerSync to reload (run after all changes)
 	use 'wbthomason/packer.nvim' -- Packer can manage itself
-	use 'karb94/neoscroll.nvim' -- smooth scroll
 	use 'folke/tokyonight.nvim' -- color scheme
 	use { -- better status bar
 		'nvim-lualine/lualine.nvim',
@@ -60,7 +59,6 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 end)
 vim.cmd('colorscheme tokyonight')
 vim.cmd('highlight Normal guibg=none') -- transparency
-require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-e> and <C-y>
 require('lualine').setup({ options = {theme = 'tokyonight'} })
 require('nvim-tree').setup()
 require('gitsigns').setup()
