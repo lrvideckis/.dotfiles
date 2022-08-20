@@ -67,6 +67,7 @@ alias ws="wiki-search"
 # cool terminal output
 alias matrix="unimatrix --speed=95 --no-bold"
 alias hollywood="hollywood"
+alias cbonsai="cbonsai --live --infinite --message='it will be okay' --verbose"
 # extracting compressed files
 alias atool="atool"
 # terminal file manager
