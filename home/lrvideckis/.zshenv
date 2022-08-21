@@ -62,8 +62,6 @@ alias coreshot="coreshot"
 alias tldr="tldr"
 alias sensors="sensors"
 alias pass="pass"
-# local copy of arch wiki (TODO)
-alias ws="wiki-search"
 # cool terminal output
 alias matrix="unimatrix --speed=95 --no-bold"
 alias hollywood="hollywood"
