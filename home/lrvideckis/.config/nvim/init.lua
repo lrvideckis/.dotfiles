@@ -14,6 +14,7 @@ vim.o.wildmode = 'list:longest' -- bash-like tab completion
 vim.o.matchpairs = '(:),{:},[:],<:>'
 vim.o.clipboard = 'unnamedplus' -- sync nvim and OS clipboard
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
+vim.opt.mouse = "n" -- mainly for scrolling in normal mode
 
 -- key maps
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
