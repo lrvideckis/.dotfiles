@@ -171,15 +171,9 @@ screens = [
                 ),
                 get_arrow_widget(True, True),
                 widget.CheckUpdates(
-                    display_format="pacman {updates}",
+                    #display_format="pacman {updates}",
                     distro="Arch_checkupdates",
-                    no_update_string="pacman 0",
-                    background=color2
-                ),
-                widget.CheckUpdates(
-                    display_format="paru {updates}",
-                    distro="Arch_paru_Sup",
-                    no_update_string="paru 0",
+                    #no_update_string="pacman 0",
                     background=color2
                 ),
                 get_arrow_widget(True, False),
