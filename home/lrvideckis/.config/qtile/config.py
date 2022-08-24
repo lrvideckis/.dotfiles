@@ -187,6 +187,7 @@ screens = [
                     format="Battery: {char} {percent:2.0%}",
                     charge_char = '↑',
                     discharge_char = '↓',
+                    update_interval = 600, # 10 minutes
                     background=color2
                 ),
                 get_arrow_widget(False, True),
