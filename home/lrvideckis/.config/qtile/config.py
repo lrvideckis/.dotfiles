@@ -171,9 +171,11 @@ screens = [
                 ),
                 get_arrow_widget(True, True),
                 widget.CheckUpdates(
-                    #display_format="pacman {updates}",
+                    # requires an internet connection (good)
+                    # other options (pacman -Qu; pacman -Sup) show stale info unless you first manually run pacman -Sy (so bad)
+                    # https://www.reddit.com/r/qtile/comments/ur8mz3/comment/i90sa7d/
                     distro="Arch_checkupdates",
-                    #no_update_string="pacman 0",
+                    no_update_string="Updates: 0",
                     background=color2
                 ),
                 get_arrow_widget(True, False),
