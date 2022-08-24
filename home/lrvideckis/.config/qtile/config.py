@@ -172,13 +172,13 @@ screens = [
                 get_arrow_widget(True, True),
                 widget.CheckUpdates(
                     display_format="pacman {updates}",
-                    distro="Arch", #this is already the default. I'm including it for readability
+                    distro="Arch_checkupdates",
                     no_update_string="pacman 0",
                     background=color2
                 ),
                 widget.CheckUpdates(
                     display_format="paru {updates}",
-                    distro="Arch_paru",
+                    distro="Arch_paru_Sup",
                     no_update_string="paru 0",
                     background=color2
                 ),
