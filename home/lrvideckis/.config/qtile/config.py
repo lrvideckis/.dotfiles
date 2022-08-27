@@ -176,7 +176,7 @@ screens = [
                     # https://www.reddit.com/r/qtile/comments/ur8mz3/comment/i90sa7d/
                     distro="Arch_checkupdates",
                     no_update_string="Updates: 0",
-                    update_interval = 600, # 10 minutes
+                    update_interval = 1800, # 30 minutes
                     background=color2
                 ),
                 get_arrow_widget(True, False),
