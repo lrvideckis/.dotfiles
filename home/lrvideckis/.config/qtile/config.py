@@ -121,32 +121,12 @@ def get_arrow_widget(points_right: bool, parody: bool) -> widget.TextBox:
             fontsize = 30
     )
 
-SELECTED_PREFIX = '→ '
-UNSELECTED_PREFIX = '  '
-LEN_WINDOW_NAME = 8 # num
-
-def clean_window_name(name: str) -> str:
-    if len(name) < 2 or name[0:2] != SELECTED_PREFIX:
-        name = UNSELECTED_PREFIX + name
-    if len(name) > LEN_WINDOW_NAME:
-        return name[0:LEN_WINDOW_NAME]
-    return " " * (LEN_WINDOW_NAME - len(name)) + name
-
-def clean_window_names(name: str) -> str:
-    return " | ".join(clean_window_name(name) for name in name.split(" | "))
-
 screens = [
     Screen(
         top=bar.Bar(
             [
                 widget.GroupBox(background=color1),
                 get_arrow_widget(True, True),
-                widget.Wlan(
-                    interface=network_interface,
-                    format='{essid}',
-                    max_chars=10, # Vedang's wifi name is too long
-                    background=color2
-                ),
                 widget.Net(
                     interface=network_interface,
                     format='{up:7} ↑↓ {down:7}',
@@ -194,10 +174,9 @@ screens = [
                     background=color2
                 ),
                 get_arrow_widget(True, False),
-                widget.WindowTabs(
-                        parse_text=clean_window_names,
-                        selected=(SELECTED_PREFIX, ''),
-                        background=color1
+                widget.WindowCount(
+                    fmt='Windows: {}',
+                    background=color1
                 ),
                 get_arrow_widget(True, True),
                 widget.Spacer(
