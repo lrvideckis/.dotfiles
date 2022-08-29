@@ -84,9 +84,9 @@ for i in groups:
     )
 
 layouts = [
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     layout.MonadTall(
         new_client_position='top',
+        border_focus='#1877f2',
         margin=8,
     ),
     layout.Max(),
