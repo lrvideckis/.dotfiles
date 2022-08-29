@@ -176,6 +176,7 @@ screens = [
                 get_arrow_widget(True, False),
                 widget.WindowCount(
                     fmt='Windows: {}',
+                    show_zero=True,
                     background=color1
                 ),
                 get_arrow_widget(True, True),
