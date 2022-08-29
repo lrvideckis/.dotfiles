@@ -127,12 +127,6 @@ screens = [
             [
                 widget.GroupBox(background=color1),
                 get_arrow_widget(True, True),
-                widget.Wlan(
-                    interface=network_interface,
-                    format='{essid}',
-                    max_chars=10,
-                    background=color2
-                ),
                 widget.Net(
                     interface=network_interface,
                     format='{up:7} ↑↓ {down:7}',
@@ -180,20 +174,25 @@ screens = [
                     background=color2
                 ),
                 get_arrow_widget(True, False),
-                widget.Spacer(
+                widget.WindowCount(
+                    fmt='Windows: {}',
                     background=color1
+                ),
+                get_arrow_widget(True, True),
+                widget.Spacer(
+                    background=color2
                 ), # widgets before this are left justified; widgets after: right justified
-                get_arrow_widget(False, False),
+                get_arrow_widget(False, True),
                 widget.Battery(
                     format="Battery: {char} {percent:2.0%}",
                     charge_char = '↑',
                     discharge_char = '↓',
-                    background=color2
+                    background=color1
                 ),
-                get_arrow_widget(False, True),
+                get_arrow_widget(False, False),
                 widget.Clock(
                     format="%Y-%m-%d %a %H:%M",
-                    background=color1
+                    background=color2
                 ),
             ],
             22,
