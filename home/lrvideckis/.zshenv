@@ -44,7 +44,7 @@ alias parusyu="paru "$pac_flags
 git_log_flags="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gitl="git "$git_log_flags
 alias cfl="cf "$git_log_flags
-alias catall="cd ~/programming_team_code/library/ && find -type f -name '*.hpp' | xargs bat"
+alias catall="z ~/programming_team_code/library/ && find -type f -name '*.hpp' | xargs bat && z -"
 
 
 # misc. (frequently used) programs -> so I don't have to memorize these
