@@ -84,12 +84,12 @@ for i in groups:
     )
 
 layouts = [
+    layout.Max(),
     layout.MonadTall(
         new_client_position='top',
         border_focus='#1877f2',
         margin=23,
     ),
-    layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
