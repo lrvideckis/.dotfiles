@@ -193,6 +193,7 @@ screens = [
                 get_arrow_widget(False, False),
                 widget.Clock(
                     format="%Y-%m-%d %a %H:%M",
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command sh -c "cal --color=auto --year && sleep infinity"')},
                     background=color2
                 ),
             ],
