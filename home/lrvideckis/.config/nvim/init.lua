@@ -33,7 +33,7 @@ vim.api.nvim_set_keymap('n', '<C-t>', '<CMD>NvimTreeFocus<CR>', {noremap = true}
 
 -- enhancements
 vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = 'read ~/programming_team_code/library/contest/template.cpp' }) -- new cpp files default to template
-vim.api.nvim_create_autocmd('BufWrite', { pattern = '*.cpp,*.h,*.lua', command = 'silent! execute \'%s/\\s\\+$//ge\'' }) -- remove trailing white space during writes
+vim.api.nvim_create_autocmd('BufWrite', { pattern = '*.cpp,*.hpp,*.lua', command = 'silent! execute \'%s/\\s\\+$//ge\'' }) -- remove trailing white space during writes
 require('packer').startup(function() -- :PackerSync to reload (run after all changes)
 	use 'wbthomason/packer.nvim' -- Packer can manage itself
 	use 'karb94/neoscroll.nvim' -- smooth scroll
