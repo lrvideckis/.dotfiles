@@ -14,7 +14,6 @@ vim.o.wildmode = 'list:longest' -- bash-like tab completion
 vim.o.matchpairs = '(:),{:},[:],<:>'
 vim.o.clipboard = 'unnamedplus' -- sync nvim and OS clipboard
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
-vim.opt.mouse = "n" -- mainly for scrolling in normal mode
 
 -- key maps
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
@@ -63,5 +62,5 @@ vim.cmd('highlight Normal guibg=none') -- transparency
 require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-e> and <C-y>
 require('lualine').setup({ options = {theme = 'tokyonight'} })
 require('nvim-tree').setup()
-require('gitsigns').setup()
+--require('gitsigns').setup()
 require('colorizer').setup()
