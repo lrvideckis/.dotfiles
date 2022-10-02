@@ -1,6 +1,5 @@
 # aliases, inspired by DT: https://gitlab.com/dwt1/dotfiles/-/blob/master/.zshrc
 
-
 # better flags for common tools
 alias grep="grep --line-number --color=auto"
 # confirm before overwriting something
@@ -11,7 +10,6 @@ alias cp="cp --interactive"
 alias mkdir="mkdir --parents"
 # show entire history
 alias history="history 1"
-
 
 # alternatives to core utils, inspired by https://wiki.archlinux.org/title/Core_utilities#Alternatives
 # changing vim to the modern neovim
@@ -30,7 +28,6 @@ alias cat="bat"
 # changing du to the modern dust
 alias du="dust"
 
-
 # commonly used actions
 # copy file to clipboard with `clip a.cpp`
 alias clip="xclip -selection clipboard"
@@ -40,23 +37,15 @@ alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/"
 pac_flags="--sync --refresh --sysupgrade"
 alias pacsyu="sudo pacman "$pac_flags
 alias parusyu="paru "$pac_flags
-# fancier git log/cf log, source: https://coderwall.com/p/euwpig/a-better-git-log
-git_log_flags="log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gitl="git "$git_log_flags
-alias cfl="cf "$git_log_flags
+# I use this to quickly view+search library code from any directory.
 alias catlib="find ~/programming_team_code/library/ -type f -name '*.hpp' | xargs bat"
-
 
 # misc. (frequently used) programs -> so I don't have to memorize these
 alias pcmanfm="pcmanfm"
 alias spotify="spotify"
-# zsa keyboard flashing tool
-alias wally="wally"
 alias minecraft="LC_ALL=C ./.minecraft/launcher/minecraft-launcher"
 alias bluetooth="blueman-manager"
-alias volume="alsamixer"
 alias gimp="gimp"
-alias android="android-studio"
 alias battery="acpi"
 alias coreshot="coreshot"
 # modern version of man
@@ -69,5 +58,3 @@ alias hollywood="hollywood"
 alias cbonsai="cbonsai --live --infinite --message='it will be okay' --verbose"
 # extracting compressed files
 alias atool="atool"
-# terminal file manager
-alias vifm="vifm"
