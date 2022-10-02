@@ -32,6 +32,7 @@ alias du="dust"
 # copy file to clipboard with `clip a.cpp`
 alias clip="xclip -selection clipboard"
 # enable support for git bare repo of dotfiles, source: https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
+# working tree is root so I can add my pacman config
 alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/"
 # update standard pkgs (pacman/paru -Syu)
 pac_flags="--sync --refresh --sysupgrade"
@@ -56,5 +57,3 @@ alias pass="pass"
 alias matrix="unimatrix --speed=95 --no-bold"
 alias hollywood="hollywood"
 alias cbonsai="cbonsai --live --infinite --message='it will be okay' --verbose"
-# extracting compressed files
-alias atool="atool"
