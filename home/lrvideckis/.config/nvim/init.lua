@@ -13,6 +13,8 @@ vim.o.list = true -- show '>' for tabs and '-' for trailing spaces
 vim.o.wildmode = 'list:longest' -- bash-like tab completion
 vim.o.matchpairs = '(:),{:},[:],<:>'
 vim.o.clipboard = 'unnamedplus' -- sync nvim and OS clipboard
+vim.o.ls = 0 -- hide bottom panel
+vim.o.ch = 0
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
 
 -- key maps
@@ -37,10 +39,6 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 	use 'wbthomason/packer.nvim' -- Packer can manage itself
 	use 'karb94/neoscroll.nvim' -- smooth scroll
 	use 'folke/tokyonight.nvim' -- color scheme
-	use { -- better status bar
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}
 	use { -- better file tree than Netrw
 		'kyazdani42/nvim-tree.lua',
 		requires = {
@@ -60,7 +58,6 @@ end)
 vim.cmd('colorscheme tokyonight')
 vim.cmd('highlight Normal guibg=none') -- transparency
 require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-e> and <C-y>
-require('lualine').setup({ options = {theme = 'tokyonight'} })
 require('nvim-tree').setup()
 --require('gitsigns').setup()
 require('colorizer').setup()
