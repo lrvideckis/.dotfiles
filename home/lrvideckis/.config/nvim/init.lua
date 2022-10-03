@@ -51,7 +51,8 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 		requires = {
 			'nvim-lua/plenary.nvim'
 		},
-		tag = 'release' -- To use the latest release
+		-- use release once they fix breaking change caused by neovim version 0.8.0
+		--tag = 'release' -- To use the latest release
 	}
 	use 'norcalli/nvim-colorizer.lua' -- show color for hex codes
 end)
@@ -59,5 +60,5 @@ vim.cmd('colorscheme tokyonight')
 vim.cmd('highlight Normal guibg=none') -- transparency
 require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-e> and <C-y>
 require('nvim-tree').setup()
---require('gitsigns').setup()
+require('gitsigns').setup()
 require('colorizer').setup()
