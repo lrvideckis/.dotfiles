@@ -7,7 +7,6 @@ vim.o.wrap = false -- don't wrap
 vim.o.ignorecase = true -- better search highlight settings
 vim.o.smartcase = true
 vim.o.cindent = true
-vim.o.scrolloff = 2
 vim.o.cursorline = true
 vim.o.list = true -- show '>' for tabs and '-' for trailing spaces
 vim.o.wildmode = 'list:longest' -- bash-like tab completion
