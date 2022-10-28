@@ -3,7 +3,6 @@ vim.o.number = true -- show line numbers
 tab_len = 4 -- tabs!
 vim.o.tabstop = tab_len
 vim.o.shiftwidth = tab_len
-vim.o.wrap = false -- don't wrap
 vim.o.ignorecase = true -- better search highlight settings
 vim.o.smartcase = true
 vim.o.cindent = true
