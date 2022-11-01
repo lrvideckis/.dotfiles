@@ -184,7 +184,7 @@ screens = [
                 get_arrow_widget(True, True),
                 widget.Backlight(
                     backlight_name='intel_backlight',
-                    fmt='Backlight: {}',
+                    fmt='Brightness: {}',
                     mouse_callbacks = {
                         'Button1': lambda: qtile.cmd_spawn('brightnessctl set +10%'),
                         'Button3': lambda: qtile.cmd_spawn('brightnessctl set 10%-'),
