@@ -169,7 +169,8 @@ screens = [
                     # other options (pacman -Qu; pacman -Sup) show stale info unless you first manually run pacman -Sy (so bad)
                     # https://www.reddit.com/r/qtile/comments/ur8mz3/comment/i90sa7d/
                     distro="Arch_checkupdates",
-                    no_update_string="Updates: 0",
+                    display_format="ᗧ·· {updates}",
+                    no_update_string="ᗧ·· 0",
                     update_interval = 1800, # 30 minutes
                     background=color2
                 ),
@@ -180,6 +181,11 @@ screens = [
                     background=color1
                 ),
                 get_arrow_widget(True, True),
+                widget.Backlight(
+                    backlight_name='intel_backlight',
+                    fmt='Backlight: {}',
+                    background=color2
+                ),
                 widget.Spacer(
                     background=color2
                 ), # widgets before this are left justified; widgets after: right justified
