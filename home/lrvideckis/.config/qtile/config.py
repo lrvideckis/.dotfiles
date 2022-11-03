@@ -157,13 +157,6 @@ screens = [
                     background=color2
                 ),
                 get_arrow_widget(True, False),
-                widget.Volume(
-                    fmt='Volume: {}',
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command alsamixer')},
-                    padding = 10,
-                    background=color1
-                ),
-                get_arrow_widget(True, True),
                 widget.CheckUpdates(
                     # requires an internet connection (good)
                     # other options (pacman -Qu; pacman -Sup) show stale info unless you first manually run pacman -Sy (so bad)
@@ -173,23 +166,30 @@ screens = [
                     no_update_string="ᗧ·· 0",
                     update_interval = 1800, # 30 minutes
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --hold --command sudo pacman -Syu')},
+                    background=color1
+                ),
+                widget.Spacer(
+                    background=color1
+                ), # widgets before this are left justified; widgets after: right justified
+                get_arrow_widget(False, False),
+                widget.Volume(
+                    fmt='Volume: {}',
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command alsamixer')},
+                    padding = 10,
                     background=color2
                 ),
-                get_arrow_widget(True, False),
+                get_arrow_widget(False, True),
                 widget.WindowCount(
                     fmt='Windows: {}',
                     show_zero=True,
                     background=color1
                 ),
-                get_arrow_widget(True, True),
+                get_arrow_widget(False, False),
                 widget.Clock(
                     format="%Y-%m-%d %a %H:%M",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --hold --command cal --color=auto --year')},
                     background=color2
                 ),
-                widget.Spacer(
-                    background=color2
-                ), # widgets before this are left justified; widgets after: right justified
                 get_arrow_widget(False, True),
                 widget.Battery(
                     format="Battery: {char} {percent:2.0%}",
