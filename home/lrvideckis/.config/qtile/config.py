@@ -165,7 +165,6 @@ screens = [
                     display_format="ᗧ·· {updates}",
                     no_update_string="ᗧ·· 0",
                     update_interval = 1800, # 30 minutes
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --hold --command sudo pacman -Syu')},
                     background=color1
                 ),
                 widget.Spacer(
@@ -201,10 +200,6 @@ screens = [
                 widget.Backlight(
                     backlight_name='intel_backlight',
                     fmt='Brightness: {}',
-                    mouse_callbacks = {
-                        'Button1': lambda: qtile.cmd_spawn('brightnessctl set +10%'),
-                        'Button3': lambda: qtile.cmd_spawn('brightnessctl set 10%-'),
-                    },
                     background=color2
                 ),
             ],
