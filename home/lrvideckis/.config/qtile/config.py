@@ -182,13 +182,9 @@ screens = [
                     background=color1
                 ),
                 get_arrow_widget(True, True),
-                widget.Backlight(
-                    backlight_name='intel_backlight',
-                    fmt='Brightness: {}',
-                    mouse_callbacks = {
-                        'Button1': lambda: qtile.cmd_spawn('brightnessctl set +10%'),
-                        'Button3': lambda: qtile.cmd_spawn('brightnessctl set 10%-'),
-                    },
+                widget.Clock(
+                    format="%Y-%m-%d %a %H:%M",
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --hold --command cal --color=auto --year')},
                     background=color2
                 ),
                 widget.Spacer(
@@ -202,9 +198,13 @@ screens = [
                     background=color1
                 ),
                 get_arrow_widget(False, False),
-                widget.Clock(
-                    format="%Y-%m-%d %a %H:%M",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --hold --command cal --color=auto --year')},
+                widget.Backlight(
+                    backlight_name='intel_backlight',
+                    fmt='Brightness: {}',
+                    mouse_callbacks = {
+                        'Button1': lambda: qtile.cmd_spawn('brightnessctl set +10%'),
+                        'Button3': lambda: qtile.cmd_spawn('brightnessctl set 10%-'),
+                    },
                     background=color2
                 ),
             ],
