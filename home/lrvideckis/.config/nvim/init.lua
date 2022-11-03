@@ -17,9 +17,6 @@ vim.opt.ls = 0 -- hide bottom panel
 vim.opt.ch = 0
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
 
--- to help with formatting doxygen comments
-vim.api.nvim_set_keymap('n', 'Q', '^a    <ESC>', {noremap = true})
-
 -- key maps
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
 vim.api.nvim_set_keymap('i', '<TAB>', '<C-n>', {noremap = true}) -- tab completion
@@ -34,6 +31,7 @@ vim.api.nvim_set_keymap('n', '<F5>', -- save, remove old executable, and compile
 	'<CMD>!rm --force %:r.out && g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F9>', '<CMD>!cat in && echo "----" && ./%:r.out < in<CR>', {noremap = true}) -- run code
 vim.api.nvim_set_keymap('n', '<C-t>', '<CMD>NvimTreeFocus<CR>', {noremap = true}) -- open nvim tree
+vim.api.nvim_set_keymap('n', 'Q', '^a    <ESC>', {noremap = true}) -- to help with formatting doxygen comments
 
 -- enhancements
 vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = 'read ~/programming_team_code/library/contest/template.cpp' }) -- new cpp files default to template
