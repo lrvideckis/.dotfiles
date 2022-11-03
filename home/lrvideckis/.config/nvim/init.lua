@@ -1,21 +1,24 @@
 -- settings
-vim.o.number = true -- show line numbers
+vim.opt.number = true -- show line numbers
 tab_len = 4 -- tabs!
-vim.o.tabstop = tab_len
-vim.o.shiftwidth = tab_len
-vim.o.wrap = false -- don't wrap
-vim.o.ignorecase = true -- better search highlight settings
-vim.o.smartcase = true
-vim.o.cindent = true
-vim.o.cino = 'j1,(0,ws,Ws' -- handle indentation inside lambdas correctly
-vim.o.cursorline = true
-vim.o.list = true -- show '>' for tabs and '-' for trailing spaces
-vim.o.wildmode = 'list:longest' -- bash-like tab completion
-vim.o.matchpairs = '(:),{:},[:],<:>'
-vim.o.clipboard = 'unnamedplus' -- sync nvim and OS clipboard
-vim.o.ls = 0 -- hide bottom panel
-vim.o.ch = 0
+vim.opt.tabstop = tab_len
+vim.opt.shiftwidth = tab_len
+vim.opt.wrap = false -- don't wrap
+vim.opt.ignorecase = true -- better search highlight settings
+vim.opt.smartcase = true
+vim.opt.cindent = true
+vim.opt.cino = 'j1,(0,ws,Ws' -- handle indentation inside lambdas correctly
+vim.opt.cursorline = true
+vim.opt.list = true -- show '>' for tabs and '-' for trailing spaces
+vim.opt.wildmode = 'list:longest' -- bash-like tab completion
+vim.opt.matchpairs = '(:),{:},[:],<:>'
+vim.opt.clipboard = 'unnamedplus' -- sync nvim and OS clipboard
+vim.opt.ls = 0 -- hide bottom panel
+vim.opt.ch = 0
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
+
+-- to help with formatting doxygen comments
+vim.api.nvim_set_keymap('n', 'Q', '^a    <ESC>', {noremap = true})
 
 -- key maps
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
