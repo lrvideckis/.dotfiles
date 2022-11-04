@@ -31,7 +31,6 @@ vim.api.nvim_set_keymap('n', '<F5>', -- save, remove old executable, and compile
 	'<CMD>!rm --force %:r.out && g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F9>', '<CMD>!cat in && echo "----" && ./%:r.out < in<CR>', {noremap = true}) -- run code
 vim.api.nvim_set_keymap('n', '<C-t>', '<CMD>NvimTreeFocus<CR>', {noremap = true}) -- open nvim tree
-vim.api.nvim_set_keymap('n', 'Q', '^a    <ESC>', {noremap = true}) -- to help with formatting doxygen comments
 
 -- enhancements
 vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = 'read ~/programming_team_code/library/contest/template.cpp' }) -- new cpp files default to template
