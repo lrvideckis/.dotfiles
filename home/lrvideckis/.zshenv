@@ -39,6 +39,12 @@ alias pacsyu="sudo pacman -Syu"
 alias parusyu="paru -Syu"
 # I use this to quickly view+search library code from any directory.
 alias catlib="find ~/programming_team_code/library/ -type f -name '*.hpp' | xargs bat"
+# git
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gps="git push"
+alias gpl="git pull"
 
 # misc. (frequently used) programs -> so I don't have to memorize these
 alias pcmanfm="pcmanfm"
