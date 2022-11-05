@@ -35,9 +35,8 @@ alias clip="xclip -selection clipboard"
 # working tree is root so I can add my pacman config
 alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/"
 # update standard pkgs (pacman/paru -Syu)
-pac_flags="--sync --refresh --sysupgrade"
-alias pacsyu="sudo pacman "$pac_flags
-alias parusyu="paru "$pac_flags
+alias pacsyu="sudo pacman -Syu"
+alias parusyu="paru -Syu"
 # I use this to quickly view+search library code from any directory.
 alias catlib="find ~/programming_team_code/library/ -type f -name '*.hpp' | xargs bat"
 
