@@ -41,6 +41,7 @@ alias parusyu="paru -Syu"
 alias catlib="find ~/programming_team_code/library/ -type f -name '*.hpp' | xargs bat"
 # git
 alias gs="git status"
+alias gd="git diff"
 alias ga="git add"
 alias gc="git commit"
 alias gps="git push"
