@@ -87,8 +87,8 @@ layouts = [
     layout.Max(),
     layout.MonadTall(
         new_client_position='top',
-        border_focus='#1877f2',
-        margin=8,
+        border_focus='#0000FF',
+        margin=0,
     ),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
