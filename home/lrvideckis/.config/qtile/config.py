@@ -173,6 +173,7 @@ screens = [
                     margin_y=0,
                     samples=10,
                     width=20,
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
                 ),
                 widget.ThermalSensor(
                     tag_sensor="CPU",
@@ -184,6 +185,16 @@ screens = [
                     format="RAM {MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_MEM')},
                     background=color2
+                ),
+                widget.MemoryGraph(
+                    border_width=0,
+                    type='box',
+                    margin_x=0,
+                    margin_y=0,
+                    samples=10,
+                    width=20,
+                    background='#000000',
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_MEM')},
                 ),
                 get_arrow_widget(True, False),
                 widget.CheckUpdates(
