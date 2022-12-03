@@ -127,11 +127,32 @@ screens = [
             [
                 widget.GroupBox(background=color1),
                 get_arrow_widget(True, True),
+                widget.NetGraph(
+                    interface=network_interface,
+                    bandwidth_type='up',
+                    border_width=0,
+                    type='box',
+                    margin_x=0,
+                    margin_y=0,
+                    samples=10,
+                    width=20,
+                    background='#000000'
+                ),
                 widget.Net(
                     interface=network_interface,
                     format='{up:7} ↑↓ {down:7}',
                     padding=5,
                     background=color2
+                ),
+                widget.NetGraph(
+                    interface=network_interface,
+                    border_width=0,
+                    type='box',
+                    margin_x=0,
+                    margin_y=0,
+                    samples=10,
+                    width=20,
+                    background='#000000'
                 ),
                 get_arrow_widget(True, False),
                 widget.TextBox(
@@ -146,7 +167,7 @@ screens = [
                     background=color1
                 ),
                 widget.CPUGraph(
-                    border_width=1,
+                    border_width=0,
                     type='box',
                     margin_x=0,
                     margin_y=0,
