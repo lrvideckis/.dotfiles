@@ -111,6 +111,7 @@ extension_defaults = widget_defaults.copy()
 
 color1 = '#253253'
 color2 = '#4169E1'
+graph_color_hex = '#FF0000'
 
 def get_arrow_widget(points_right: bool, parody: bool) -> widget.TextBox:
     return widget.TextBox(
@@ -129,13 +130,15 @@ screens = [
                 get_arrow_widget(True, True),
                 widget.NetGraph(
                     interface=network_interface,
+                    graph_color=graph_color_hex,
+                    fill_color=graph_color_hex,
                     bandwidth_type='up',
                     border_width=0,
                     margin_x=0,
                     margin_y=0,
                     samples=20,
                     width=20,
-                    background='#000000'
+                    background=color2
                 ),
                 widget.Net(
                     interface=network_interface,
@@ -145,12 +148,14 @@ screens = [
                 ),
                 widget.NetGraph(
                     interface=network_interface,
+                    graph_color=graph_color_hex,
+                    fill_color=graph_color_hex,
                     border_width=0,
                     margin_x=0,
                     margin_y=0,
                     samples=20,
                     width=20,
-                    background='#000000'
+                    background=color2,
                 ),
                 get_arrow_widget(True, False),
                 widget.TextBox(
@@ -165,12 +170,15 @@ screens = [
                     background=color1
                 ),
                 widget.CPUGraph(
+                    graph_color=graph_color_hex,
+                    fill_color=graph_color_hex,
                     border_width=0,
                     margin_x=0,
                     margin_y=0,
                     samples=20,
                     width=20,
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
+                    background=color1,
                 ),
                 widget.ThermalSensor(
                     tag_sensor="CPU",
@@ -184,12 +192,14 @@ screens = [
                     background=color2
                 ),
                 widget.MemoryGraph(
+                    graph_color=graph_color_hex,
+                    fill_color=graph_color_hex,
                     border_width=0,
                     margin_x=0,
                     margin_y=0,
                     samples=20,
                     width=20,
-                    background='#000000',
+                    background=color2,
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_MEM')},
                 ),
                 get_arrow_widget(True, False),
