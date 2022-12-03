@@ -131,10 +131,9 @@ screens = [
                     interface=network_interface,
                     bandwidth_type='up',
                     border_width=0,
-                    type='box',
                     margin_x=0,
                     margin_y=0,
-                    samples=10,
+                    samples=20,
                     width=20,
                     background='#000000'
                 ),
@@ -147,10 +146,9 @@ screens = [
                 widget.NetGraph(
                     interface=network_interface,
                     border_width=0,
-                    type='box',
                     margin_x=0,
                     margin_y=0,
-                    samples=10,
+                    samples=20,
                     width=20,
                     background='#000000'
                 ),
@@ -168,10 +166,9 @@ screens = [
                 ),
                 widget.CPUGraph(
                     border_width=0,
-                    type='box',
                     margin_x=0,
                     margin_y=0,
-                    samples=10,
+                    samples=20,
                     width=20,
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
                 ),
@@ -188,10 +185,9 @@ screens = [
                 ),
                 widget.MemoryGraph(
                     border_width=0,
-                    type='box',
                     margin_x=0,
                     margin_y=0,
-                    samples=10,
+                    samples=20,
                     width=20,
                     background='#000000',
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_MEM')},
