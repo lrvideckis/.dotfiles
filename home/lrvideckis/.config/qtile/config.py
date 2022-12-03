@@ -135,7 +135,7 @@ screens = [
                 ),
                 get_arrow_widget(True, False),
                 widget.TextBox(
-                    text="CPU:",
+                    text="CPU",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
                     padding=10,
                     background=color1
@@ -145,6 +145,14 @@ screens = [
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
                     background=color1
                 ),
+                widget.CPUGraph(
+                    border_width=1,
+                    type='box',
+                    margin_x=0,
+                    margin_y=0,
+                    samples=10,
+                    width=20,
+                ),
                 widget.ThermalSensor(
                     tag_sensor="CPU",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
@@ -152,7 +160,7 @@ screens = [
                 ),
                 get_arrow_widget(True, True),
                 widget.Memory(
-                    format="RAM: {MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
+                    format="RAM {MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_MEM')},
                     background=color2
                 ),
@@ -172,14 +180,14 @@ screens = [
                 ), # widgets before this are left justified; widgets after: right justified
                 get_arrow_widget(False, False),
                 widget.Volume(
-                    fmt='Volume: {}',
+                    fmt='Volume {}',
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command alsamixer')},
                     padding = 10,
                     background=color2
                 ),
                 get_arrow_widget(False, True),
                 widget.WindowCount(
-                    fmt='Windows: {}',
+                    fmt='Windows {}',
                     show_zero=True,
                     background=color1
                 ),
@@ -191,7 +199,7 @@ screens = [
                 ),
                 get_arrow_widget(False, True),
                 widget.Battery(
-                    format="Battery: {char} {percent:2.0%}",
+                    format="Battery {char} {percent:2.0%}",
                     charge_char = '↑',
                     discharge_char = '↓',
                     background=color1
@@ -199,7 +207,7 @@ screens = [
                 get_arrow_widget(False, False),
                 widget.Backlight(
                     backlight_name='intel_backlight',
-                    fmt='Brightness: {}',
+                    fmt='Brightness {}',
                     mouse_callbacks = {
                         'Button1': lambda: qtile.cmd_spawn('brightnessctl set +10%'),
                         'Button3': lambda: qtile.cmd_spawn('brightnessctl set 10%-'),
