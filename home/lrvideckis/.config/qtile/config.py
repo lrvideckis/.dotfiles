@@ -111,7 +111,7 @@ extension_defaults = widget_defaults.copy()
 
 color1 = '#253253'
 color2 = '#4169E1'
-graph_color_hex = '#FF0000'
+graph_color_hex = '#C41E3A'
 
 def get_arrow_widget(points_right: bool, parody: bool) -> widget.TextBox:
     return widget.TextBox(
