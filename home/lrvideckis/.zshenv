@@ -24,7 +24,8 @@ compinit
 eval "$(zoxide init zsh)"
 alias cd="z"
 # changing cat to the modern bat
-alias cat="bat"
+alias cat="bat --paging=always"
+
 # changing du to the modern dust
 alias du="dust"
 
