@@ -57,7 +57,7 @@ keys = [
     Key([mod, "shift"], "Return", lazy.spawn("dmenu_run"), desc='Run Dmenu Launcher'),
 ]
 
-groups = [Group(i) for i in "1234"]
+groups = [Group(i) for i in "123"]
 
 for i in groups:
     keys.extend(
@@ -218,7 +218,7 @@ screens = [
                 ), # widgets before this are left justified; widgets after: right justified
                 get_arrow_widget(False, False),
                 widget.Volume(
-                    fmt='Volume {}',
+                    fmt='Vol {}',
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command alsamixer')},
                     padding = 10,
                     background=color2
@@ -240,12 +240,13 @@ screens = [
                     format="Battery {char} {percent:2.0%}",
                     charge_char = '↑',
                     discharge_char = '↓',
+                    show_short_text = False,
                     background=color1
                 ),
                 get_arrow_widget(False, False),
                 widget.Backlight(
                     backlight_name='intel_backlight',
-                    fmt='Brightness {}',
+                    fmt='Backlight {}',
                     mouse_callbacks = {
                         'Button1': lambda: qtile.cmd_spawn('brightnessctl set +10%'),
                         'Button3': lambda: qtile.cmd_spawn('brightnessctl set 10%-'),
