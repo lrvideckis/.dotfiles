@@ -240,6 +240,7 @@ screens = [
                     format="Battery {char} {percent:2.0%}",
                     charge_char = '↑',
                     discharge_char = '↓',
+                    full_char = '',
                     show_short_text = False,
                     background=color1
                 ),
