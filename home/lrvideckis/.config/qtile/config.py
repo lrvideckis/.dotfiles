@@ -203,6 +203,9 @@ screens = [
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_MEM')},
                 ),
                 get_arrow_widget(True, False),
+                widget.Spacer(
+                    background=color1
+                ), # widgets before this are left justified
                 widget.CheckUpdates(
                     # requires an internet connection (good)
                     # other options (pacman -Qu; pacman -Sup) show stale info unless you first manually run pacman -Sy (so bad)
@@ -215,7 +218,7 @@ screens = [
                 ),
                 widget.Spacer(
                     background=color1
-                ), # widgets before this are left justified; widgets after: right justified
+                ), # widgets after this are right justified
                 get_arrow_widget(False, False),
                 widget.Volume(
                     fmt='Vol {}',
