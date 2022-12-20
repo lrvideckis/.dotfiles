@@ -51,6 +51,7 @@ keys = [
     Key([mod], "b", lazy.spawn("brave"), desc="Launch brave"),
     Key([mod], "d", lazy.spawn("discord"), desc="Launch discord"),
     Key([mod], "g", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating status of selected window"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -273,7 +274,6 @@ screens = [
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
 dgroups_key_binder = None
