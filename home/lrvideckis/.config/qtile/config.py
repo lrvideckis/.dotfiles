@@ -217,8 +217,8 @@ screens = [
                     no_update_string="ᗧ·· 0",
                     update_interval = 1800, # 30 minutes
                     mouse_callbacks = {
-                        'Button1': lambda: qtile.cmd_spawn(terminal + ' --hold --command sudo pacman -Syu'),
-                        'Button3': lambda: qtile.cmd_spawn(terminal + ' --hold --command paru -Syu'),
+                        'Button1': lambda: qtile.cmd_spawn(terminal + ' --command sudo pacman -Syu'),
+                        'Button3': lambda: qtile.cmd_spawn(terminal + ' --command paru -Syu'),
                     },
                     background=color1
                 ),
