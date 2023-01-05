@@ -38,6 +38,7 @@ mod = "mod1"
 terminal = "alacritty"
 network_interface = "wlp1s0"
 
+### KEYBINDINGS ###
 keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus left"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
@@ -59,6 +60,7 @@ keys = [
     Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod, "shift"], "Return", lazy.spawn("dmenu_run"), desc='Run Dmenu Launcher'),
 ]
+### KEYBINDINGS ###
 
 groups = [Group(i) for i in "123"]
 
