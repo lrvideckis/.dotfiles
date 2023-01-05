@@ -53,6 +53,7 @@ keys = [
     Key([mod], "g", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating status of selected window"),
     Key([mod], "s", lazy.spawn("scrot --select --freeze --exec 'mv $f ~/Pictures/screenshots/'"), desc="take screenshot"),
+    Key([mod], "x", lazy.hide_show_bar(position="top"), desc="Toggle top bar"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
