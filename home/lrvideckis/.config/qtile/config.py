@@ -36,6 +36,7 @@ from libqtile.lazy import lazy
 
 mod = "mod1"
 terminal = "alacritty"
+terminal_floating = terminal + " --class floating_terminal"
 network_interface = "wlp1s0"
 
 ### KEYBINDINGS ###
@@ -55,7 +56,7 @@ keys = [
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating status of selected window"),
     Key([mod], "s", lazy.spawn("scrot --select --freeze --exec 'mv $f ~/Pictures/screenshots/'"), desc="take screenshot"),
     Key([mod], "x", lazy.hide_show_bar(position="top"), desc="Toggle top bar"),
-    Key([mod], "z", lazy.spawn(terminal + " --class show_keybindings --command zsh -c 'kb'"), desc="show keybindings in floating window"),
+    Key([mod], "z", lazy.spawn(terminal_floating + " --command zsh -c 'kb'"), desc="show keybindings in floating window"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -166,13 +167,13 @@ screens = [
                 get_arrow_widget(True, False),
                 widget.TextBox(
                     text="CPU",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command htop --sort-key=PERCENT_CPU')},
                     padding=10,
                     background=color1
                 ),
                 widget.CPU(
                     format="{load_percent:4.1f}%",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command htop --sort-key=PERCENT_CPU')},
                     background=color1
                 ),
                 widget.CPUGraph(
@@ -183,18 +184,18 @@ screens = [
                     margin_y=0,
                     samples=20,
                     width=20,
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command htop --sort-key=PERCENT_CPU')},
                     background=color1,
                 ),
                 widget.ThermalSensor(
                     tag_sensor="CPU",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_CPU')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command htop --sort-key=PERCENT_CPU')},
                     background=color1
                 ),
                 get_arrow_widget(True, True),
                 widget.Memory(
                     format="RAM {MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_MEM')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command htop --sort-key=PERCENT_MEM')},
                     background=color2
                 ),
                 widget.MemoryGraph(
@@ -206,7 +207,7 @@ screens = [
                     samples=20,
                     width=20,
                     background=color2,
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command htop --sort-key=PERCENT_MEM')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command htop --sort-key=PERCENT_MEM')},
                 ),
                 get_arrow_widget(True, False),
                 widget.Spacer(
@@ -221,8 +222,8 @@ screens = [
                     no_update_string="ᗧ·· 0",
                     update_interval = 1800, # 30 minutes
                     mouse_callbacks = {
-                        'Button1': lambda: qtile.cmd_spawn(terminal + ' --command sudo pacman -Syu'),
-                        'Button3': lambda: qtile.cmd_spawn(terminal + ' --command paru -Syu'),
+                        'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command sudo pacman -Syu'),
+                        'Button3': lambda: qtile.cmd_spawn(terminal_floating + ' --command paru -Syu'),
                     },
                     background=color1
                 ),
@@ -232,7 +233,7 @@ screens = [
                 get_arrow_widget(False, False),
                 widget.Volume(
                     fmt='Vol {}',
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --command alsamixer')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command alsamixer')},
                     padding = 10,
                     background=color2
                 ),
@@ -245,7 +246,7 @@ screens = [
                 get_arrow_widget(False, False),
                 widget.Clock(
                     format="%Y-%m-%d %a %H:%M",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' --hold --command cal --color=auto --year')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --hold --command cal --color=auto --months 9')},
                     background=color2
                 ),
                 get_arrow_widget(False, True),
@@ -291,8 +292,8 @@ floating_layout = layout.Floating(
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
         Match(wm_class="pinentry-gtk-2"), # pass: master-password entry window
-        Match(wm_class="show_keybindings"), # window to show keybindings
-    ]
+        Match(wm_class="floating_terminal"), # window to show keybindings
+    ],
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
