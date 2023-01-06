@@ -41,7 +41,7 @@ alias parusyu="paru -Syu"
 # I use this to quickly view+search library code from any directory.
 alias catlib="find ~/programming_team_code/library/ -type f -name '*.hpp' | xargs bat"
 # display keybindings
-alias kb="bat --paging=always ~/.config/qtile/config.py --line-range $(sed --quiet '/### KEYBINDINGS ###/=' ~/.config/qtile/config.py | paste --serial --delimiters=:)"
+alias kb="sed --quiet '/KEYBINDINGS/=' ~/.config/qtile/config.py | paste --serial --delimiters=: | xargs bat --wrap=never --paging=always ~/.config/qtile/config.py --line-range"
 
 # git
 alias gs="git status"

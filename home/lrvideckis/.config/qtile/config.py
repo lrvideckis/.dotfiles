@@ -55,6 +55,7 @@ keys = [
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating status of selected window"),
     Key([mod], "s", lazy.spawn("scrot --select --freeze --exec 'mv $f ~/Pictures/screenshots/'"), desc="take screenshot"),
     Key([mod], "x", lazy.hide_show_bar(position="top"), desc="Toggle top bar"),
+    Key([mod], "z", lazy.spawn(terminal + " --class show_keybindings --command zsh -c 'kb'"), desc="show keybindings in floating window"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -290,6 +291,7 @@ floating_layout = layout.Floating(
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
         Match(wm_class="pinentry-gtk-2"), # pass: master-password entry window
+        Match(wm_class="show_keybindings"), # window to show keybindings
     ]
 )
 auto_fullscreen = True
