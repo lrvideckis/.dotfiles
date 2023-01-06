@@ -1,5 +1,8 @@
 # aliases, inspired by DT: https://gitlab.com/dwt1/dotfiles/-/blob/master/.zshrc
 
+# allows calling an alias from another alias https://superuser.com/a/1651026
+zmodload -F zsh/parameter p:aliases
+
 # better flags for common tools
 alias grep="grep --line-number --color=auto"
 # confirm before overwriting something
@@ -15,9 +18,9 @@ alias history="history 1"
 # changing vim to the modern neovim
 alias vim="nvim"
 # changing ls, tree to the modern exa
-exa_flags="--all --long --classify --color=always --group-directories-first --sort=modified --git"
-alias ls="exa "$exa_flags
-alias tree="exa --tree "$exa_flags
+alias exa="exa --all --long --classify --color=always --group-directories-first --sort=modified --git"
+alias ls="exa"
+alias tree="exa --tree"
 # changing cd to the modern zoxide
 autoload -Uz compinit
 compinit
@@ -38,11 +41,12 @@ alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/"
 # update standard pkgs (pacman/paru -Syu)
 alias pacsyu="sudo pacman -Syu"
 alias parusyu="paru -Syu"
+
 # I use this to quickly view+search library code from any directory.
-alias catlib="find ~/programming_team_code/library/ -type f -name '*.hpp' | xargs bat"
+alias catlib="find ~/programming_team_code/library/ -type f -name '*.hpp' | xargs $aliases[cat]"
 # display keybindings
 qtile_conf="~/.config/qtile/config.py"
-alias kb="sed --quiet '/KEYBINDINGS/=' $qtile_conf | paste --serial --delimiters=: | xargs bat --wrap=never --paging=always $qtile_conf --line-range"
+alias kb="sed --quiet '/KEYBINDINGS/=' $qtile_conf | paste --serial --delimiters=: | xargs $aliases[cat] --wrap=never --paging=always $qtile_conf --line-range"
 
 # git
 alias gs="git status"
