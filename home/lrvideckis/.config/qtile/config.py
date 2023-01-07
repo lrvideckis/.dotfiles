@@ -24,15 +24,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import os
 import re
 import socket
 import subprocess
 
-
 from libqtile import bar, layout, widget, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
+from os.path import expanduser
 
 mod = "mod1"
 terminal = "alacritty"
@@ -41,7 +40,7 @@ network_interface = "wlp1s0"
 start_network = "nmcli device connect " + network_interface
 stop_network = "nmcli device disconnect " + network_interface
 
-### KEYBINDINGS ###
+# START DISPLAY
 keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus left"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
@@ -58,13 +57,13 @@ keys = [
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating status of selected window"),
     Key([mod], "s", lazy.spawn("scrot --select --freeze --exec 'mv $f ~/Pictures/screenshots/'"), desc="take screenshot"),
     Key([mod], "x", lazy.hide_show_bar(position="top"), desc="Toggle top bar"),
-    Key([mod], "z", lazy.spawn(terminal_floating + " --command zsh -c 'kb'"), desc="show keybindings in floating window"),
+    Key([mod], "z", lazy.spawn(terminal_floating + " --command zsh -c \"sed -n '/^\# START DISPLAY$/,/^\# END DISPLAY$/p' " + expanduser("~/.config/qtile/config.py") + " " + expanduser("~/.zshenv") + " | bat --wrap=never --style=plain --file-name='.zshenv'\""), desc="show keybindings & aliases"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod, "shift"], "Return", lazy.spawn("dmenu_run"), desc='Run Dmenu Launcher'),
 ]
-### KEYBINDINGS ###
+# END DISPLAY
 
 groups = [Group(i) for i in "123"]
 
@@ -130,7 +129,6 @@ def get_arrow_widget(points_right: bool, parody: bool) -> widget.TextBox:
             padding = 0,
             fontsize = 20
     )
-
 
 screens = [
     Screen(
