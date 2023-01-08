@@ -35,7 +35,7 @@ from os.path import expanduser
 
 mod = "mod1"
 terminal = "alacritty"
-terminal_floating = terminal + " --class floating_terminal"
+terminal_floating = terminal + " --class floating_terminal --command"
 network_interface = "wlp1s0"
 start_network = "nmcli device connect " + network_interface
 stop_network = "nmcli device disconnect " + network_interface
@@ -57,7 +57,7 @@ keys = [
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating status of selected window"),
     Key([mod], "s", lazy.spawn("scrot --select --freeze --exec 'mv $f ~/Pictures/screenshots/'"), desc="take screenshot"),
     Key([mod], "x", lazy.hide_show_bar(position="top"), desc="Toggle top bar"),
-    Key([mod], "z", lazy.spawn(terminal_floating + " --command zsh -c \"sed -n '/^\# START DISPLAY$/,/^\# END DISPLAY$/p' " + expanduser("~/.config/qtile/config.py") + " " + expanduser("~/.zshenv") + " | bat --wrap=never --style=plain --file-name='.zshenv'\""), desc="show keybindings & aliases"),
+    Key([mod], "z", lazy.spawn(terminal_floating + " zsh -c \"sed -n '/^\# START DISPLAY$/,/^\# END DISPLAY$/p' " + expanduser("~/.config/qtile/config.py") + " " + expanduser("~/.zshenv") + " | bat --wrap=never --style=plain --paging=always --file-name='.zshenv'\""), desc="show keybindings & aliases"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -180,13 +180,13 @@ screens = [
                 get_arrow_widget(True, False),
                 widget.TextBox(
                     text="CPU",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command htop --sort-key=PERCENT_CPU')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
                     padding=10,
                     background=color1
                 ),
                 widget.CPU(
                     format="{load_percent:4.1f}%",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command htop --sort-key=PERCENT_CPU')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
                     background=color1
                 ),
                 widget.CPUGraph(
@@ -197,18 +197,18 @@ screens = [
                     margin_y=0,
                     samples=20,
                     width=20,
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command htop --sort-key=PERCENT_CPU')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
                     background=color1,
                 ),
                 widget.ThermalSensor(
                     tag_sensor="CPU",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command htop --sort-key=PERCENT_CPU')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
                     background=color1
                 ),
                 get_arrow_widget(True, True),
                 widget.Memory(
                     format="RAM {MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command htop --sort-key=PERCENT_MEM')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' htop --sort-key=PERCENT_MEM')},
                     background=color2
                 ),
                 widget.MemoryGraph(
@@ -220,7 +220,7 @@ screens = [
                     samples=20,
                     width=20,
                     background=color2,
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command htop --sort-key=PERCENT_MEM')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' htop --sort-key=PERCENT_MEM')},
                 ),
                 get_arrow_widget(True, False),
                 widget.Spacer(
@@ -235,8 +235,8 @@ screens = [
                     no_update_string="ᗧ·· 0",
                     update_interval = 1800, # 30 minutes
                     mouse_callbacks = {
-                        'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command sudo pacman -Syu'),
-                        'Button3': lambda: qtile.cmd_spawn(terminal_floating + ' --command paru -Syu'),
+                        'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' sudo pacman -Syu'),
+                        'Button3': lambda: qtile.cmd_spawn(terminal_floating + ' paru -Syu'),
                     },
                     background=color1
                 ),
@@ -246,7 +246,7 @@ screens = [
                 get_arrow_widget(False, False),
                 widget.Volume(
                     fmt='Vol {}',
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --command alsamixer')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' alsamixer')},
                     padding = 10,
                     background=color2
                 ),
@@ -259,7 +259,7 @@ screens = [
                 get_arrow_widget(False, False),
                 widget.Clock(
                     format="%Y-%m-%d %a %H:%M",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' --hold --command cal --color=auto --months 9')},
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + " zsh -c \"cal --color=always --months 9 | bat --wrap=never --style=plain --paging=always\"") },
                     background=color2
                 ),
                 get_arrow_widget(False, True),

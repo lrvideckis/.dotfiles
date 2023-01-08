@@ -20,8 +20,9 @@ alias cat="bat --wrap=never --paging=always"
 alias du="dust"
 
 # START DISPLAY
+alias tql="tail -f ~/.local/share/qtile/qtile.log" # Tail Qtile Log
 alias clip="xclip -selection clipboard" # clip a.cpp
-alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/" # https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
+alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/" # ConFig https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
 alias catlib="cat ~/programming_team_code/library/**/*.hpp"
 alias minecraft="LC_ALL=C ./.minecraft/launcher/minecraft-launcher"
 alias matrix="unimatrix --speed=95 --no-bold"
