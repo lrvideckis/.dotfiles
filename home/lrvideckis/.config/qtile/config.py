@@ -57,7 +57,7 @@ keys = [
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating status of selected window"),
     Key([mod], "s", lazy.spawn("scrot --select --freeze --exec 'mv $f ~/Pictures/screenshots/'"), desc="take screenshot"),
     Key([mod], "x", lazy.hide_show_bar(position="top"), desc="Toggle top bar"),
-    Key([mod], "z", lazy.spawn(terminal_floating + " zsh -c \"sed -n '/^\# START DISPLAY$/,/^\# END DISPLAY$/p' " + expanduser("~/.config/qtile/config.py") + " " + expanduser("~/.zshenv") + " | bat --wrap=never --style=plain --paging=always --file-name='.zshenv'\""), desc="show keybindings & aliases"),
+    Key([mod], "z", lazy.spawn(terminal_floating + " zsh -c \"sed -n '/^\# START DISPLAY$/,/^\# END DISPLAY$/p' " + expanduser("~/.config/qtile/config.py") + " " + expanduser("~/.zshrc") + " | bat --wrap=never --style=plain --paging=always --file-name='.zshrc'\""), desc="show keybindings & aliases"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
