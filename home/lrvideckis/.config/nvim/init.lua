@@ -15,6 +15,7 @@ vim.opt.matchpairs = '(:),{:},[:],<:>' -- <> is not included by default; useful 
 vim.opt.clipboard = 'unnamedplus' -- sync nvim and OS clipboard
 vim.opt.ls = 0 -- hide bottom panel
 vim.opt.ch = 0
+vim.opt.termguicolors = true
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
 
 -- key maps
@@ -39,7 +40,6 @@ vim.api.nvim_create_autocmd('BufWrite', { pattern = '*.cpp,*.hpp,*.lua', command
 require('packer').startup(function() -- :PackerSync to reload (run after all changes)
 	use 'wbthomason/packer.nvim' -- Packer can manage itself
 	use 'karb94/neoscroll.nvim' -- smooth scroll
-	use 'folke/tokyonight.nvim' -- color scheme
 	use { -- better file tree than Netrw
 		'kyazdani42/nvim-tree.lua',
 		requires = {
@@ -57,7 +57,7 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 	}
 	use 'norcalli/nvim-colorizer.lua' -- show color for hex codes
 end)
-vim.cmd('colorscheme tokyonight')
+vim.cmd('colorscheme pablo')
 vim.cmd('highlight Normal guibg=none') -- transparency
 require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-e> and <C-y>
 require('nvim-tree').setup()
