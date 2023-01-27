@@ -94,7 +94,7 @@ layouts = [
     layout.MonadTall(
         new_client_position='top',
         border_focus='#0000FF',
-        margin=0,
+        border_width=1,
     ),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
