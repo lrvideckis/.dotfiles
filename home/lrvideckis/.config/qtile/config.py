@@ -82,10 +82,6 @@ for i in groups:
                 lazy.window.togroup(i.name, switch_group=True),
                 desc="Switch to & move focused window to group {}".format(i.name),
             ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
         ]
     )
 
@@ -93,19 +89,8 @@ layouts = [
     layout.Max(),
     layout.MonadTall(
         new_client_position='top',
-        border_focus='#0000FF',
-        border_width=1,
+        border_width=0,
     ),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
@@ -269,8 +254,6 @@ screens = [
                 ),
             ],
             22,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
         wallpaper='~/Pictures/wallpaper_mpls.jpg',
         wallpaper_mode='fill',
@@ -290,13 +273,8 @@ bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
     float_rules=[
-        # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
-        Match(wm_class="pinentry-gtk-2"), # pass: master-password entry window
         Match(wm_class="floating_terminal"), # window to show keybindings
-    ],
-    no_reposition_rules=[
-        Match(wm_class="floating_terminal"),
     ],
 )
 auto_fullscreen = True
