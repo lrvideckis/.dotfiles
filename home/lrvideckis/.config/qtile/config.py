@@ -229,7 +229,7 @@ screens = [
                 ),
                 get_arrow_widget(False, False),
                 widget.Clock(
-                    format="%Y-%m-%d %a %H:%M",
+                    format="%d-%m-%Y %a %H:%M",
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + " zsh -c \"cal --color=always --months 9 | bat --wrap=never --style=plain --paging=always\"") },
                     background=color2
                 ),
