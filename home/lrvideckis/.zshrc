@@ -27,6 +27,7 @@ alias cat="bat --wrap=never --paging=always"
 alias du="dust"
 
 # START DISPLAY
+alias pdf="llpp"
 alias tql="tail -f ~/.local/share/qtile/qtile.log" # Tail Qtile Log
 alias clip="wl-copy <" # clip a.cpp
 alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/" # ConFig https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
