@@ -48,6 +48,8 @@ export TERM=xterm-256color
 export EDITOR=nvim
 # cpplint command installed to ~/.local/bin/ instead of /usr/local/bin/ . This is the fix
 export PATH=$PATH:~/.local/bin/
+# needed for Unexpected Keyboard
+export ANDROID_HOME=~/Android/Sdk
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
