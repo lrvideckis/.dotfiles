@@ -37,6 +37,8 @@ mod = "mod1"
 terminal = "alacritty"
 terminal_floating = terminal + " --class floating_terminal --command"
 network_interface = "wlp1s0"
+start_network = "nmcli device connect " + network_interface
+stop_network = "nmcli device disconnect " + network_interface
 
 # START DISPLAY
 keys = [
@@ -130,12 +132,20 @@ screens = [
                     samples=20,
                     width=20,
                     background=color2,
+                    mouse_callbacks = {
+                        'Button1': lambda: qtile.cmd_spawn(start_network),
+                        'Button3': lambda: qtile.cmd_spawn(stop_network),
+                    },
                 ),
                 widget.Net(
                     interface=network_interface,
                     format='{up:7} ↑↓ {down:7}',
                     padding=5,
                     background=color2,
+                    mouse_callbacks = {
+                        'Button1': lambda: qtile.cmd_spawn(start_network),
+                        'Button3': lambda: qtile.cmd_spawn(stop_network),
+                    },
                 ),
                 widget.NetGraph(
                     interface=network_interface,
@@ -147,6 +157,10 @@ screens = [
                     samples=20,
                     width=20,
                     background=color2,
+                    mouse_callbacks = {
+                        'Button1': lambda: qtile.cmd_spawn(start_network),
+                        'Button3': lambda: qtile.cmd_spawn(stop_network),
+                    },
                 ),
                 get_arrow_widget(True, False),
                 widget.TextBox(
