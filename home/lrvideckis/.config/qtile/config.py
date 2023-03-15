@@ -52,7 +52,6 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window right"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "f", lazy.spawn("firefox"), desc="Launch firefox"),
-    Key([mod], "d", lazy.spawn("discord"), desc="Launch discord"),
     Key([mod], "g", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating status of selected window"),
     Key([mod], "s", lazy.spawn(expanduser("~/.config/qtile/grim.sh")), desc="take screenshot"),
