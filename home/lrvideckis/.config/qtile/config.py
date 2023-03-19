@@ -288,6 +288,7 @@ floating_layout = layout.Floating(
     float_rules=[
         *layout.Floating.default_float_rules,
         Match(wm_class="floating_terminal"), # window to show keybindings
+        Match(wm_class="pinentry-gtk-2"), # pass: master-password entry window
     ],
 )
 auto_fullscreen = True
