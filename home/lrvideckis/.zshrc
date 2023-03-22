@@ -36,6 +36,7 @@ alias minecraft="LC_ALL=C ./.minecraft/launcher/minecraft-launcher"
 alias matrix="unimatrix --speed=95 --no-bold"
 alias hollywood="hollywood"
 alias cbonsai="cbonsai --live --infinite --message='it will be okay' --verbose"
+alias rmlast="truncate --size=-1" # to remove last newline
 alias gs="git status"
 alias gd="git diff"
 alias ga="git add"
