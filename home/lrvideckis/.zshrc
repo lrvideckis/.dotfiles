@@ -31,7 +31,8 @@ alias pdf="llpp"
 alias tql="tail -f ~/.local/share/qtile/qtile.log" # Tail Qtile Log
 alias clip="wl-copy <" # clip a.cpp
 alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/" # ConFig https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
-alias catlib="cat ~/programming_team_code/library/**/*.hpp"
+alias catlib="bat ~/programming_team_code/library/**/*.hpp"
+alias catptc="bat ~/programming_team_code/library/**/*.hpp ~/programming_team_code/tests/online_judge_tests/**/*.test.cpp"
 alias minecraft="LC_ALL=C ./.minecraft/launcher/minecraft-launcher"
 alias matrix="unimatrix --speed=95 --no-bold"
 alias hollywood="hollywood"
