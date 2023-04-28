@@ -1,8 +1,9 @@
 -- settings
 vim.opt.number = true -- show line numbers
-tab_len = 4 -- tabs!
-vim.opt.tabstop = tab_len
-vim.opt.shiftwidth = tab_len
+spaces_len = 4 -- spaces!
+vim.opt.expandtab = true
+vim.opt.tabstop = spaces_len
+vim.opt.shiftwidth = spaces_len
 vim.opt.wrap = false
 vim.opt.ignorecase = true -- better search highlight settings
 vim.opt.smartcase = true
