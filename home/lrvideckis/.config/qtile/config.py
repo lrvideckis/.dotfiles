@@ -53,6 +53,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "f", lazy.spawn("firefox"), desc="Launch firefox"),
     Key([mod], "b", lazy.spawn("brave"), desc="Launch brave"),
+    Key([mod], "m", lazy.spawn("flatpak run io.mrarm.mcpelauncher"), desc="Launch Minecraft"),
     Key([mod], "g", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating status of selected window"),
     Key([mod], "s", lazy.spawn("scrot --select --freeze --exec 'mv $f ~/Pictures/screenshots/'"), desc="take screenshot"),
