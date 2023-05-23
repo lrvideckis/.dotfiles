@@ -1,0 +1,3 @@
+imap kj <Esc>
+map <c-j> 6j
+map <c-k> 6k
