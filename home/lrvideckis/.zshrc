@@ -41,6 +41,7 @@ alias rmlast="truncate --size=-1" # to remove last newline
 alias ga="git add"
 alias gb="git branch"
 alias gc="git commit"
+alias gch="git checkout"
 alias gd="git diff"
 alias gs="git status"
 alias gps="git push"
