@@ -23,7 +23,7 @@ autoload -Uz compinit
 compinit
 eval "$(zoxide init zsh)"
 alias cd="z"
-alias cat="bat --wrap=never --paging=always"
+alias cat="bat --wrap=never"
 alias du="dust"
 
 # START DISPLAY
