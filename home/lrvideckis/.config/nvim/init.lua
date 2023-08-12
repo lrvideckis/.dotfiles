@@ -27,8 +27,11 @@ vim.api.nvim_set_keymap('c', 'W', 'w', {noremap = true}) -- :W now writes
 vim.api.nvim_set_keymap('', '<C-j>', '6j', {noremap = true}) -- faster vertical navigation
 vim.api.nvim_set_keymap('', '<C-k>', '6k', {noremap = true})
 vim.api.nvim_set_keymap('n', '<CR>', '<CMD>nohlsearch<CR>', {noremap = true}) -- unhighlight search results
-compile_flags = '-Wall -Wextra -O2 -Wunused -Wshadow -Wpedantic -Wconversion -g -fsanitize=address,undefined -fno-sanitize-recover=all -std=c++17'
 vim.api.nvim_set_keymap('n', '<F5>', -- save, remove old executable, and compile
+	'<CMD>w!<CR>' ..
+	'<CMD>!rm --force %:r.out && g++ -std=c++17 %:r.cpp -o %:r.out<CR>', {noremap = true})
+compile_flags = '-Wall -Wextra -O2 -Wunused -Wshadow -Wpedantic -Wconversion -g -fsanitize=address,undefined -fno-sanitize-recover=all -std=c++17'
+vim.api.nvim_set_keymap('n', '<F6>', -- save, remove old executable, and compile
 	'<CMD>w!<CR>' ..
 	'<CMD>!rm --force %:r.out && g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F9>', '<CMD>!cat in && echo "----" && ./%:r.out < in<CR>', {noremap = true}) -- run code
