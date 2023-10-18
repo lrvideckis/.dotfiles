@@ -140,7 +140,7 @@ screens = [
                 ),
                 widget.Net(
                     interface=network_interface,
-                    format='{up:7} ↑↓ {down:7}',
+                    format='{up:6.2f}{up_suffix:<2} ↑↓ {down:6.2f}{down_suffix:<2}',
                     padding=5,
                     background=color2,
                     mouse_callbacks = {
