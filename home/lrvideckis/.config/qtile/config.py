@@ -140,8 +140,9 @@ screens = [
                 ),
                 widget.Net(
                     interface=network_interface,
-                    format='{up:6.2f}{up_suffix:<2} ↑↓ {down:6.2f}{down_suffix:<2}',
+                    format='{up:5.2f}{up_suffix} ↑↓ {down:5.2f}{down_suffix}',
                     padding=5,
+                    prefix='M',
                     background=color2,
                     mouse_callbacks = {
                         'Button1': lambda: qtile.cmd_spawn(start_network),
