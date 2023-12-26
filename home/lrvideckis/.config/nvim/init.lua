@@ -39,7 +39,7 @@ vim.api.nvim_set_keymap('n', '<F6>', -- save, remove old executable, and compile
 	'<CMD>w!<CR>' ..
 	'<CMD>!rm --force %:r.out && g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F9>', '<CMD>!cat input && echo "----" && ./%:r.out < input<CR>', {noremap = true}) -- run code
-vim.api.nvim_set_keymap('n', '<C-t>', '<CMD>NvimTreeFocus<CR>', {noremap = true}) -- open nvim tree
+vim.api.nvim_set_keymap('n', '<C-t>', '<CMD>NvimTreeToggle<CR>', {noremap = true}) -- open nvim tree
 vim.api.nvim_set_keymap('n', 'Q', '^a    <ESC>', {noremap = true}) -- to help with formatting @code doxygen comments
 
 -- enhancements
@@ -68,7 +68,9 @@ local function my_on_attach(bufnr)
         return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
     api.config.mappings.default_on_attach(bufnr)
-    vim.keymap.del('n', '<C-k>', { buffer = bufnr })
+    vim.keymap.del('n', '<C-k>', { buffer = bufnr }) -- I want C-k to do 6k
+    vim.keymap.del('n', '<C-t>', { buffer = bufnr }) -- I want C-t to close nvim tree (via toggle keybinding)
+    vim.keymap.del('n', '<C-e>', { buffer = bufnr }) -- I want default behavior for C-e
 end
 require("nvim-tree").setup({
     on_attach = my_on_attach,
