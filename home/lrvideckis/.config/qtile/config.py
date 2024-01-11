@@ -93,7 +93,7 @@ for i in groups:
 layouts = [
     layout.Max(),
     layout.MonadTall(
-        new_client_position='top',
+        new_client_position='bottom',
         border_width=0,
     ),
 ]
