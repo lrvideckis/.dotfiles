@@ -34,11 +34,11 @@ vim.api.nvim_set_keymap('n', '<CR>', '<CMD>nohlsearch<CR>', {noremap = true}) --
 vim.api.nvim_set_keymap('n', '<F5>', -- save, remove old executable, and compile
 	'<CMD>w!<CR>' ..
 	'<CMD>!rm --force %:r.out && g++ -std=c++17 %:r.cpp -o %:r.out<CR>', {noremap = true})
-compile_flags = '-Wall -Wextra -O2 -Wunused -Wshadow -Wpedantic -Wconversion -g -fsanitize=address,undefined -fno-sanitize-recover=all -std=c++17'
+compile_flags = '-Wall -Wextra -Wunused -Wpedantic -Wshadow -Wlogical-op -Wformat=2 -Wfloat-equal -Wcast-qual -Wcast-align -Wshift-overflow=2 -Wduplicated-cond -O2 -std=c++17 -fsanitize=address,undefined -fno-sanitize-recover=all -fstack-protector -D_GLIBCXX_DEBUG -D_GLIBCXX_SANITIZE_VECTOR -D_GLIBCXX_DEBUG_PEDANTIC -D_GLIBCXX_ASSERTIONS -D_FORTIFY_SOURCE=2'
 vim.api.nvim_set_keymap('n', '<F6>', -- save, remove old executable, and compile
 	'<CMD>w!<CR>' ..
 	'<CMD>!rm --force %:r.out && g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F9>', '<CMD>!cat input && echo "----" && ./%:r.out < input<CR>', {noremap = true}) -- run code
+vim.api.nvim_set_keymap('n', '<F9>', '<CMD>!touch input output && cat input && echo "----" && diff -wy <(./%:r.out < input) output<CR>', {noremap = true}) -- run code
 vim.api.nvim_set_keymap('n', '<F10>', -- save, run test
 	'<CMD>w!<CR>' ..
 	'<CMD>!oj-verify run %:r.cpp<CR>', {noremap = true})
