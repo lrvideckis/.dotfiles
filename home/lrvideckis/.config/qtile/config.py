@@ -52,7 +52,6 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window right"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "f", lazy.spawn("firefox"), desc="Launch firefox"),
-    Key([mod], "b", lazy.spawn("brave"), desc="Launch brave"),
     Key([mod], "a", lazy.spawn("./android-studio/bin/studio.sh"), desc="Launch android studio"),
     Key([mod], "d", lazy.spawn("discord"), desc="Launch discord"),
     Key([mod], "m", lazy.spawn("flatpak run io.mrarm.mcpelauncher"), desc="Launch Minecraft"),
