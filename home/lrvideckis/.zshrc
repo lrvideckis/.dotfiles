@@ -53,7 +53,7 @@ export EDITOR=nvim
 # cpplint command installed to ~/.local/bin/ instead of /usr/local/bin/ . This is the fix
 export PATH=$PATH:~/.local/bin/
 # needed for Unexpected Keyboard
-export ANDROID_HOME=~/Android/Sdk
+export ANDROID_HOME=/home/lrvideckis/android_sdk
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh

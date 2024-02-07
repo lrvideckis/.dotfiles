@@ -52,7 +52,9 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window right"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "f", lazy.spawn("firefox"), desc="Launch firefox"),
-    Key([mod], "b", lazy.spawn("brave"), desc="Launch brave"),
+    Key([mod], "a", lazy.spawn("./android-studio/bin/studio.sh"), desc="Launch android studio"),
+    Key([mod], "d", lazy.spawn("discord"), desc="Launch discord"),
+    Key([mod], "m", lazy.spawn("flatpak run io.mrarm.mcpelauncher"), desc="Launch Minecraft"),
     Key([mod], "g", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating status of selected window"),
     Key([mod], "s", lazy.spawn(expanduser("~/.config/qtile/grim.sh")), desc="take screenshot"),
@@ -90,7 +92,7 @@ for i in groups:
 layouts = [
     layout.Max(),
     layout.MonadTall(
-        new_client_position='top',
+        new_client_position='bottom',
         border_width=0,
     ),
 ]
@@ -139,8 +141,9 @@ screens = [
                 ),
                 widget.Net(
                     interface=network_interface,
-                    format='{up:7} ↑↓ {down:7}',
+                    format='{up:5.2f}{up_suffix} ↑↓ {down:5.2f}{down_suffix}',
                     padding=5,
+                    prefix='M',
                     background=color2,
                     mouse_callbacks = {
                         'Button1': lambda: qtile.cmd_spawn(start_network),
