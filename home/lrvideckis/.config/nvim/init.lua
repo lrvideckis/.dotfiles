@@ -4,10 +4,9 @@ vim.g.loaded_netrwPlugin = 1
 
 -- settings
 vim.opt.number = true -- show line numbers
-spaces_len = 4 -- spaces!
-vim.opt.expandtab = true
-vim.opt.tabstop = spaces_len
-vim.opt.shiftwidth = spaces_len
+len = 4
+vim.opt.tabstop = len
+vim.opt.shiftwidth = len
 vim.opt.wrap = false
 vim.opt.ignorecase = true -- better search highlight settings
 vim.opt.smartcase = true
