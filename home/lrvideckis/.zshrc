@@ -16,7 +16,7 @@ alias mkdir="mkdir --parents" # create all folders on path
 
 # alternatives to core utils https://wiki.archlinux.org/title/Core_utilities#Alternatives
 alias vim="nvim"
-alias exa="exa --all --long --classify --color=always --group-directories-first --sort=modified --git"
+alias exa="exa --all --long --classify --color=always --group-directories-first --sort=name --git"
 alias ls="exa"
 alias tree="exa --tree"
 autoload -Uz compinit
