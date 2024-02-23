@@ -245,6 +245,27 @@ screens = [
                     background=color1
                 ), # widgets after this are right justified
                 get_arrow_widget(False, False),
+                widget.WindowCount(
+                    fmt='Windows {}',
+                    show_zero=True,
+                    background=color2
+                ),
+                get_arrow_widget(False, True),
+                widget.Clock(
+                    format="%d-%m-%Y %a %H:%M",
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + " zsh -c \"cal --color=always --months 9 | bat --wrap=never --style=plain --paging=always\"") },
+                    background=color1
+                ),
+                get_arrow_widget(False, False),
+                widget.Battery(
+                    format="Battery {char} {percent:2.0%}",
+                    charge_char = '↑',
+                    discharge_char = '↓',
+                    full_char = '',
+                    show_short_text = False,
+                    background=color2
+                ),
+                get_arrow_widget(False, True),
                 widget.Volume(
                     fmt='Vol {}',
                     mouse_callbacks = {
@@ -252,27 +273,6 @@ screens = [
                         'Button3': lambda: qtile.cmd_spawn('amixer set Master 9-'),
                     },
                     padding = 10,
-                    background=color2
-                ),
-                get_arrow_widget(False, True),
-                widget.WindowCount(
-                    fmt='Windows {}',
-                    show_zero=True,
-                    background=color1
-                ),
-                get_arrow_widget(False, False),
-                widget.Clock(
-                    format="%d-%m-%Y %a %H:%M",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + " zsh -c \"cal --color=always --months 9 | bat --wrap=never --style=plain --paging=always\"") },
-                    background=color2
-                ),
-                get_arrow_widget(False, True),
-                widget.Battery(
-                    format="Battery {char} {percent:2.0%}",
-                    charge_char = '↑',
-                    discharge_char = '↓',
-                    full_char = '',
-                    show_short_text = False,
                     background=color1
                 ),
                 get_arrow_widget(False, False),
