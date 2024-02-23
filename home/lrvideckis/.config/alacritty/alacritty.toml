@@ -6,7 +6,3 @@ family = "Source Code Pro"
 
 [window]
 opacity = 0.94
-
-[window.dimensions]
-columns = 100
-lines = 32

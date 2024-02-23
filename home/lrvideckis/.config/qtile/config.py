@@ -29,7 +29,7 @@ import socket
 import subprocess
 
 from libqtile import bar, layout, widget, qtile
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 from libqtile.lazy import lazy
 from os.path import expanduser
 
@@ -39,6 +39,7 @@ terminal_floating = terminal + " --class floating_terminal --command"
 network_interface = "wlp1s0"
 start_network = "nmcli device connect " + network_interface
 stop_network = "nmcli device disconnect " + network_interface
+show_keybindings_aliases = terminal + " --command zsh -c \"sed -n '/^\# START DISPLAY$/,/^\# END DISPLAY$/p' " + expanduser("~/.config/qtile/config.py") + " " + expanduser("~/.zshrc") + " | bat --wrap=never --style=plain --paging=always --file-name='.zshrc'\""
 
 # START DISPLAY
 keys = [
@@ -50,24 +51,36 @@ keys = [
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window right"),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "f", lazy.spawn("firefox"), desc="Launch firefox"),
-    Key([mod], "a", lazy.spawn("./android-studio/bin/studio.sh"), desc="Launch android studio"),
-    Key([mod], "d", lazy.spawn("discord"), desc="Launch discord"),
-    Key([mod], "m", lazy.spawn("flatpak run io.mrarm.mcpelauncher"), desc="Launch Minecraft"),
     Key([mod], "g", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating status of selected window"),
     Key([mod], "s", lazy.spawn(expanduser("~/.config/qtile/grim.sh")), desc="take screenshot"),
     Key([mod], "x", lazy.hide_show_bar(position="top"), desc="Toggle top bar"),
-    Key([mod], "z", lazy.spawn(terminal_floating + " zsh -c \"sed -n '/^\# START DISPLAY$/,/^\# END DISPLAY$/p' " + expanduser("~/.config/qtile/config.py") + " " + expanduser("~/.zshrc") + " | bat --wrap=never --style=plain --paging=always --file-name='.zshrc'\""), desc="show keybindings & aliases"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod, "shift"], "Return", lazy.spawn("dmenu_run"), desc='Run Dmenu Launcher'),
+    # opening programs
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "f", lazy.spawn("firefox")),
+    Key([mod], "d", lazy.spawn("discord")),
+    KeyChord([mod], "o", [ # open
+        Key([], "l", lazy.spawn(terminal + " --command zsh -c \"bat " + expanduser("~/programming_team_code/library/") + "**/*.hpp\"")), #lib
+        Key([], "p", lazy.spawn(terminal + " --working-directory " + expanduser("~/programming_team_code/tests/")), #ptc
+                     lazy.spawn(terminal + " --working-directory " + expanduser("~/programming_team_code/library/"))),
+        Key([], "k", lazy.spawn(show_keybindings_aliases)), #keybindings
+        Key([], "q", lazy.spawn(terminal + " --command tail -f " + expanduser("~/.local/share/qtile/qtile.log"))), #qtile log
+        Key([], "a", lazy.spawn("./android-studio/bin/studio.sh")), #android studio
+        Key([], "m", lazy.spawn("flatpak run io.mrarm.mcpelauncher")), #minecraft
+        Key([], "v", lazy.spawn(terminal + " --command alsamixer")), #volume
+    ])
 ]
 # END DISPLAY
 
-groups = [Group(i) for i in "123"]
+groups = [
+    Group("1", spawn="firefox"),
+    Group("2", spawn=show_keybindings_aliases),
+    Group("3", spawn="discord"),
+]
 
 for i in groups:
     keys.extend(
@@ -234,7 +247,10 @@ screens = [
                 get_arrow_widget(False, False),
                 widget.Volume(
                     fmt='Vol {}',
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' alsamixer')},
+                    mouse_callbacks = {
+                        'Button1': lambda: qtile.cmd_spawn('amixer set Master 9+'),
+                        'Button3': lambda: qtile.cmd_spawn('amixer set Master 9-'),
+                    },
                     padding = 10,
                     background=color2
                 ),
