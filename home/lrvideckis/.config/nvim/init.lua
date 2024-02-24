@@ -37,7 +37,7 @@ compile_flags = '-Wall -Wextra -Wunused -Wpedantic -Wshadow -Wlogical-op -Wforma
 vim.api.nvim_set_keymap('n', '<F6>', -- save, remove old executable, and compile
 	'<CMD>w!<CR>' ..
 	'<CMD>!rm --force %:r.out && g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F9>', '<CMD>!touch input output && cat input && echo "----" && diff -wy <(./%:r.out < input) output<CR>', {noremap = true}) -- run code
+vim.api.nvim_set_keymap('n', '<F9>', '<CMD>!touch input && cat input && echo "----" && ./%:r.out < input<CR>', {noremap = true}) -- run code
 vim.api.nvim_set_keymap('n', '<F10>', -- save, run test
 	'<CMD>w!<CR>' ..
 	'<CMD>!oj-verify run %:r.cpp<CR>', {noremap = true})
