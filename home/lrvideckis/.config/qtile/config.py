@@ -39,10 +39,24 @@ terminal_floating = terminal + " --class floating_terminal --command"
 network_interface = "wlp1s0"
 start_network = "nmcli device connect " + network_interface
 stop_network = "nmcli device disconnect " + network_interface
-show_keybindings_aliases = terminal + " --command zsh -c \"sed -n '/^\# START DISPLAY$/,/^\# END DISPLAY$/p' " + expanduser("~/.config/qtile/config.py") + " " + expanduser("~/.zshrc") + " | bat --wrap=never --style=plain --paging=always --file-name='.zshrc'\""
+show_keybindings_aliases = terminal + " --command zsh -c \"sed -n '/^\# START DISPLAY$/,/^\# END DISPLAY$/p' " + expanduser("~/.zshrc") + " " + expanduser("~/.config/qtile/config.py") + " | bat --wrap=never --style=plain --paging=always --file-name='.zshrc'\""
 
 # START DISPLAY
 keys = [
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "f", lazy.spawn("firefox")),
+    Key([mod], "d", lazy.spawn("discord")),
+    KeyChord([mod], "o", [ # open
+        Key([], "l", lazy.spawn(terminal + " --command zsh -c \"bat " + expanduser("~/programming_team_code/library/") + "**/*.hpp\"")), #lib
+        Key([], "p", lazy.spawn(terminal + " --working-directory " + expanduser("~/programming_team_code/tests/")), #ptc
+                     lazy.spawn(terminal + " --working-directory " + expanduser("~/programming_team_code/library/"))),
+        Key([], "e", lazy.spawn("evince")), #document viewer
+        Key([], "k", lazy.spawn(show_keybindings_aliases)), #keybindings
+        Key([], "q", lazy.spawn(terminal + " --command tail -f " + expanduser("~/.local/share/qtile/qtile.log"))), #qtile log
+        Key([], "a", lazy.spawn("./android-studio/bin/studio.sh")), #android studio
+        Key([], "m", lazy.spawn("flatpak run io.mrarm.mcpelauncher")), #minecraft
+        Key([], "v", lazy.spawn(terminal + " --command alsamixer")), #volume
+    ]),
     Key([mod], "h", lazy.layout.left(), desc="Move focus left"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
@@ -59,21 +73,6 @@ keys = [
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod, "shift"], "Return", lazy.spawn("dmenu_run"), desc='Run Dmenu Launcher'),
-    # opening programs
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "f", lazy.spawn("firefox")),
-    Key([mod], "d", lazy.spawn("discord")),
-    KeyChord([mod], "o", [ # open
-        Key([], "l", lazy.spawn(terminal + " --command zsh -c \"bat " + expanduser("~/programming_team_code/library/") + "**/*.hpp\"")), #lib
-        Key([], "p", lazy.spawn(terminal + " --working-directory " + expanduser("~/programming_team_code/tests/")), #ptc
-                     lazy.spawn(terminal + " --working-directory " + expanduser("~/programming_team_code/library/"))),
-        Key([], "e", lazy.spawn("evince")), #document viewer
-        Key([], "k", lazy.spawn(show_keybindings_aliases)), #keybindings
-        Key([], "q", lazy.spawn(terminal + " --command tail -f " + expanduser("~/.local/share/qtile/qtile.log"))), #qtile log
-        Key([], "a", lazy.spawn("./android-studio/bin/studio.sh")), #android studio
-        Key([], "m", lazy.spawn("flatpak run io.mrarm.mcpelauncher")), #minecraft
-        Key([], "v", lazy.spawn(terminal + " --command alsamixer")), #volume
-    ])
 ]
 # END DISPLAY
 
