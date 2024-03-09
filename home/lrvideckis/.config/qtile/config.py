@@ -47,9 +47,7 @@ keys = [
     Key([mod], "f", lazy.spawn("firefox")),
     Key([mod], "d", lazy.spawn("discord")),
     KeyChord([mod], "o", [ # open
-        Key([], "l", lazy.spawn(terminal + " --command zsh -c \"bat " + expanduser("~/programming_team_code/library/") + "**/*.hpp\"")), #lib
-        Key([], "p", lazy.spawn(terminal + " --working-directory " + expanduser("~/programming_team_code/tests/")), #ptc
-                     lazy.spawn(terminal + " --working-directory " + expanduser("~/programming_team_code/library/"))),
+        Key([], "p", lazy.spawn(terminal + " --command zsh -c \"bat " + expanduser("~/programming_team_code/library/") + "**/*.hpp\"")), #ptc, cat-ed
         Key([], "e", lazy.spawn("evince")), #document viewer
         Key([], "k", lazy.spawn(show_keybindings_aliases)), #keybindings
         Key([], "q", lazy.spawn(terminal + " --command tail -f " + expanduser("~/.local/share/qtile/qtile.log"))), #qtile log
