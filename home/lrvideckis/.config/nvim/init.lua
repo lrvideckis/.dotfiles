@@ -4,9 +4,11 @@ vim.g.loaded_netrwPlugin = 1
 
 -- settings
 vim.opt.number = true -- show line numbers
-len = 4
+len = 2
 vim.opt.tabstop = len
 vim.opt.shiftwidth = len
+vim.opt.softtabstop = len
+vim.opt.expandtab = true
 vim.opt.wrap = false
 vim.opt.ignorecase = true -- better search highlight settings
 vim.opt.smartcase = true
@@ -30,17 +32,19 @@ vim.api.nvim_set_keymap('c', 'W', 'w', {noremap = true}) -- :W now writes
 vim.api.nvim_set_keymap('', '<C-j>', '6j', {noremap = true}) -- faster vertical navigation
 vim.api.nvim_set_keymap('', '<C-k>', '6k', {noremap = true})
 vim.api.nvim_set_keymap('n', '<CR>', '<CMD>nohlsearch<CR>', {noremap = true}) -- unhighlight search results
-vim.api.nvim_set_keymap('n', '<F5>', -- save, remove old executable, and compile
+vim.api.nvim_set_keymap('n', '<F5>', -- save, remove old executable, and fast compile
 	'<CMD>w!<CR>' ..
-	'<CMD>!rm --force %:r.out && g++ -std=c++17 %:r.cpp -o %:r.out<CR>', {noremap = true})
+	'<CMD>term rm --force %:r.out && g++ -std=c++17 %:r.cpp -o %:r.out<CR>', {noremap = true})
 compile_flags = '-Wall -Wextra -Wunused -Wpedantic -Wshadow -Wlogical-op -Wformat=2 -Wfloat-equal -Wcast-qual -Wcast-align -Wshift-overflow=2 -Wduplicated-cond -O2 -std=c++17 -fsanitize=address,undefined -fstack-protector -D_GLIBCXX_DEBUG -D_GLIBCXX_SANITIZE_VECTOR -D_GLIBCXX_DEBUG_PEDANTIC -D_GLIBCXX_ASSERTIONS -D_FORTIFY_SOURCE=2'
-vim.api.nvim_set_keymap('n', '<F6>', -- save, remove old executable, and compile
+vim.api.nvim_set_keymap('n', '<F6>', -- save, remove old executable, and debug compile
 	'<CMD>w!<CR>' ..
-	'<CMD>!rm --force %:r.out && g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F9>', '<CMD>!touch input && cat input && echo "----" && ./%:r.out < input<CR>', {noremap = true}) -- run code
+	'<CMD>term rm --force %:r.out && g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F7>', '<CMD>term cat input<CR>', {noremap = true}) -- print input file
+vim.api.nvim_set_keymap('n', '<F8>', '<CMD>term wl-paste > input && cat input<CR>', {noremap = true}) -- initialize input file with clipboard
+vim.api.nvim_set_keymap('n', '<F9>', '<CMD>term cat input && echo "----" && ./%:r.out < input<CR>', {noremap = true}) -- run code
 vim.api.nvim_set_keymap('n', '<F10>', -- save, run test
 	'<CMD>w!<CR>' ..
-	'<CMD>!oj-verify run %:r.cpp<CR>', {noremap = true})
+	'<CMD>term oj-verify run %:r.cpp<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-t>', '<CMD>NvimTreeToggle<CR>', {noremap = true}) -- open nvim tree
 
 -- enhancements
