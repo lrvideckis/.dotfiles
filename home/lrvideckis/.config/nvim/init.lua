@@ -28,8 +28,8 @@ vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
 vim.api.nvim_set_keymap('i', '<TAB>', '<C-n>', {noremap = true}) -- tab completion
 vim.api.nvim_set_keymap('i', '<S-TAB>', '<C-p>', {noremap = true})
 vim.api.nvim_set_keymap('c', 'W', 'w', {noremap = true}) -- :W now writes
-vim.api.nvim_set_keymap('n', '<C-j>', '6j', {noremap = true}) -- faster vertical navigation
-vim.api.nvim_set_keymap('n', '<C-k>', '6k', {noremap = true})
+vim.keymap.set({'n', 'v'}, '<C-j>', '6j', {noremap = true}) -- faster vertical navigation
+vim.keymap.set({'n', 'v'}, '<C-k>', '6k', {noremap = true})
 vim.api.nvim_set_keymap('n', '<CR>', '<CMD>nohlsearch<CR>', {noremap = true}) -- unhighlight search results
 vim.api.nvim_set_keymap('n', '<C-t>', '<CMD>NvimTreeToggle<CR>', {noremap = true}) -- open nvim tree
 
