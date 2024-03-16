@@ -58,7 +58,7 @@ compile_flags = ' -Wall'
              .. ' -D_FORTIFY_SOURCE=2'
 vim.api.nvim_set_keymap('n', '<F5>', '<CMD>w!<CR><CMD>terminal g++ -std=c++17 %:r.cpp -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F6>', '<CMD>w!<CR><CMD>terminal g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F7>', '<CMD>terminal cat input<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F7>', '<CMD>tab split input<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F8>', '<CMD>terminal wl-paste > input && cat input<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F9>', '<CMD>terminal ' .. exec .. '<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F10>', '<CMD>w!<CR><CMD>terminal oj-verify run %:r.cpp<CR>', {noremap = true})
