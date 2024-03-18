@@ -68,6 +68,7 @@ vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = 'read ~
 vim.api.nvim_create_autocmd('BufWrite', { pattern = '*.cpp,*.hpp,*.lua,*.html,*.css', command = 'silent! execute \'%s/\\s\\+$//ge\'' }) -- remove trailing white space during writes
 require('packer').startup(function() -- :PackerSync to reload (run after all changes)
 	use 'wbthomason/packer.nvim' -- Packer can manage itself
+	use 'neovim/nvim-lspconfig' -- language server protocol
 	use 'karb94/neoscroll.nvim' -- smooth scroll
 	use 'kyazdani42/nvim-tree.lua' -- better file tree than Netrw
 	use { -- better git integration
@@ -78,8 +79,7 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 	}
 	use 'norcalli/nvim-colorizer.lua' -- show color for hex codes
 end)
-vim.cmd('colorscheme pablo')
-vim.cmd('highlight Normal guibg=none') -- transparency
+vim.cmd('highlight Normal guibg=none') -- transparency, same color scheme as alacritty
 require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-e> and <C-y>
 -- delete ctrl-k so it uses my 6j keymap instead
 -- https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt
@@ -98,3 +98,4 @@ require("nvim-tree").setup({
 })
 require('gitsigns').setup()
 require('colorizer').setup()
+require('lspconfig').clangd.setup{}
