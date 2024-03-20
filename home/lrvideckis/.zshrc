@@ -29,6 +29,7 @@ alias du="dust"
 # START DISPLAY
 alias clip="wl-copy <" # clip a.cpp
 alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=/" # ConFig https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
+alias ac="nvim ~/.config/alacritty/alacritty.toml"
 alias minecraft="LC_ALL=C ./.minecraft/launcher/minecraft-launcher"
 alias matrix="unimatrix --speed=95 --no-bold"
 alias hollywood="hollywood"

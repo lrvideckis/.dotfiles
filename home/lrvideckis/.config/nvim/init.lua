@@ -22,6 +22,7 @@ vim.opt.clipboard = 'unnamedplus' -- sync nvim and OS clipboard
 vim.opt.ch = 0 -- hide command prompt when unused; keep bottom panel to show command when using `:terminal ..`
 vim.opt.termguicolors = true
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
+vim.api.nvim_set_hl(0, 'CursorLine', { underline = true }) -- line with cursor is underlined
 
 -- key maps
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
@@ -79,7 +80,6 @@ require('packer').startup(function() -- :PackerSync to reload (run after all cha
 	}
 	use 'norcalli/nvim-colorizer.lua' -- show color for hex codes
 end)
-vim.cmd('highlight Normal guibg=none') -- transparency, same color scheme as alacritty
 require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-e> and <C-y>
 -- delete ctrl-k so it uses my 6j keymap instead
 -- https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt
