@@ -14,7 +14,8 @@ vim.opt.ignorecase = true -- better search highlight settings
 vim.opt.smartcase = true
 vim.opt.cindent = true
 vim.opt.cino = 'j1,(0,ws,Ws' -- handle indentation inside lambdas correctly
-vim.opt.cursorline = true
+vim.opt.cursorline = true -- change background color of cursor line
+vim.api.nvim_set_hl(0, 'CursorLine', { background = '#000050' })
 vim.opt.list = true -- show '>' for tabs and '-' for trailing spaces
 vim.opt.wildmode = 'list:longest' -- bash-like tab completion
 vim.opt.matchpairs = '(:),{:},[:],<:>' -- <> is not included by default; useful for c++ templates
@@ -22,7 +23,6 @@ vim.opt.clipboard = 'unnamedplus' -- sync nvim and OS clipboard
 vim.opt.ch = 0 -- hide command prompt when unused; keep bottom panel to show command when using `:terminal ..`
 vim.opt.termguicolors = true
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
-vim.api.nvim_set_hl(0, 'CursorLine', { underline = true }) -- line with cursor is underlined
 
 -- key maps
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
