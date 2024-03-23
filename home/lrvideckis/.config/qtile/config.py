@@ -101,11 +101,12 @@ for i in groups:
     )
 
 layouts = [
-    layout.Max(),
     layout.MonadTall(
         new_client_position='bottom',
-        border_width=0,
+        border_focus='#04C1E2',
+        border_width=1,
     ),
+    layout.Max(),
 ]
 
 widget_defaults = dict(
@@ -243,9 +244,11 @@ screens = [
                     background=color1
                 ), # widgets after this are right justified
                 get_arrow_widget(False, False),
-                widget.WindowCount(
-                    fmt='Windows {}',
-                    show_zero=True,
+                widget.TextBox(
+                    fmt='Keybindings',
+                    mouse_callbacks = {
+                        'Button1': lambda: qtile.cmd_spawn(show_keybindings_aliases),
+                    },
                     background=color2
                 ),
                 get_arrow_widget(False, True),
