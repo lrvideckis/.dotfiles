@@ -26,9 +26,6 @@ vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
 
 -- key maps
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
-vim.api.nvim_set_keymap('i', '<TAB>', '<C-n>', {noremap = true}) -- tab completion
-vim.api.nvim_set_keymap('i', '<S-TAB>', '<C-p>', {noremap = true})
-vim.api.nvim_set_keymap('c', 'W', 'w', {noremap = true}) -- :W now writes
 vim.keymap.set({'n', 'v'}, '<C-j>', '6j', {noremap = true}) -- faster vertical navigation
 vim.keymap.set({'n', 'v'}, '<C-k>', '6k', {noremap = true})
 vim.api.nvim_set_keymap('n', '<CR>', '<CMD>nohlsearch<CR>', {noremap = true}) -- unhighlight search results
@@ -49,7 +46,7 @@ compile_flags = ' -Wall'
              .. ' -Wshift-overflow=2'
              .. ' -Wduplicated-cond'
              .. ' -O2'
-             .. ' -std=c++17'
+             .. ' -std=c++20'
              .. ' -fsanitize=address,undefined'
              .. ' -fstack-protector'
              .. ' -D_GLIBCXX_DEBUG'
@@ -57,7 +54,7 @@ compile_flags = ' -Wall'
              .. ' -D_GLIBCXX_DEBUG_PEDANTIC'
              .. ' -D_GLIBCXX_ASSERTIONS'
              .. ' -D_FORTIFY_SOURCE=2'
-vim.api.nvim_set_keymap('n', '<F5>', '<CMD>w!<CR><CMD>terminal g++ -std=c++17 %:r.cpp -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F5>', '<CMD>w!<CR><CMD>terminal g++ -std=c++20 %:r.cpp -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F6>', '<CMD>w!<CR><CMD>terminal g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F7>', '<CMD>tab split input<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<F8>', '<CMD>terminal wl-paste > input && cat input<CR>', {noremap = true})
