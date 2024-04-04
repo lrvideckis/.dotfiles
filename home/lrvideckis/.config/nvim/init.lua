@@ -3,7 +3,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- snippets
-vim.cmd('let @f="diwafor(int pa = 0; pa < ; pa++) {bbbi"') -- need to type out loop variable name, and have cursor over it in command mode
+vim.cmd('let @f="diwafor(int pa = 0; pa < ; pa++) {o}k$bbbi"') -- need to type out loop variable name, and have cursor over it in command mode
 vim.cmd('let @d="iauto dfs = [&](auto&& self, int u, int p) -> void {ofor(int v : adj[u]) {oif(v == p) continue;oself(self, v, u);o}o};odfs(dfs, 0, -1);Vk^%="')
 
 -- settings
