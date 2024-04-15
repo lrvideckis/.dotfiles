@@ -1,0 +1,32 @@
+#!/data/data/com.termux/files/usr/bin/env bash
+
+# https://news.ycombinator.com/item?id=26801530
+# Lists passwords in termux dialog, decrypting selection to clipboard for 45s
+
+# http://redsymbol.net/articles/unofficial-bash-strict-mode/
+set -euo pipefail
+
+# Inspired by https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu
+shopt -s nullglob globstar
+
+prefix=${PASSWORD_STORE_DIR-~/.password-store}
+password_files=("$prefix"/**/*.gpg)
+password_files=("${password_files[@]#"$prefix"/}")
+password_files=("${password_files[@]%.gpg}")
+
+password_files_csv=$(printf '%s,' "${password_files[@]}")
+choice_json=$(termux-dialog sheet -t "Select password" -v "$password_files_csv")
+
+# pkg install jq
+choice_exit=$(echo "$choice_json" | jq .code)
+[[ $choice_exit == 0 ]] || exit
+
+password=$(echo "$choice_json" | jq .text | tr -d '"')
+
+# Need to install termux-API (it's a separate android app) for
+# termux-clipboard-set to work
+pass "$password" | termux-clipboard-set
+termux-toast -s "Password copied to clipboard"
+sleep 46
+termux-clipboard-set ""
+termux-toast -s "Password remove from clipboard"
