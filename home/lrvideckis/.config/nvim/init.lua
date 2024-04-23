@@ -66,7 +66,7 @@ vim.api.nvim_set_keymap('n', '<F9>', '<CMD>terminal ' .. exec .. '<CR>', {norema
 vim.api.nvim_set_keymap('n', '<F10>', '<CMD>w!<CR><CMD>terminal oj-verify run %:r.cpp<CR>', {noremap = true})
 
 -- enhancements
-vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = 'read ~/programming_team_code/contest/template.cpp' }) -- new cpp files default to template
+vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = 'read ~/github_repos/programming_team_code/contest/template.cpp' }) -- new cpp files default to template
 vim.api.nvim_create_autocmd('BufWrite', { pattern = '*.cpp,*.hpp,*.lua,*.html,*.css', command = 'silent! execute \'%s/\\s\\+$//ge\'' }) -- remove trailing white space during writes
 require('packer').startup(function() -- :PackerSync to reload (run after all changes)
 	use 'wbthomason/packer.nvim' -- Packer can manage itself
