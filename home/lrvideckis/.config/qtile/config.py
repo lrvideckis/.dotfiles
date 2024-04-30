@@ -47,7 +47,7 @@ keys = [
     Key([mod], "f", lazy.spawn("firefox")),
     Key([mod], "d", lazy.spawn("discord")),
     KeyChord([mod], "o", [ # open
-        Key([], "p", lazy.spawn(terminal + " --command zsh -c \"bat " + expanduser("~/programming_team_code/library/") + "**/*.hpp\"")), #ptc, cat-ed
+        Key([], "p", lazy.spawn(terminal + " --command zsh -c \"bat " + expanduser("~/github_repos/programming_team_code/library/") + "**/*.hpp\"")), #ptc, cat-ed
         Key([], "e", lazy.spawn("evince")), #document viewer
         Key([], "k", lazy.spawn(show_keybindings_aliases)), #keybindings
         Key([], "q", lazy.spawn(terminal + " --command tail -f " + expanduser("~/.local/share/qtile/qtile.log"))), #qtile log
@@ -76,8 +76,8 @@ keys = [
 
 groups = [
     Group("1", spawn="firefox"),
-    Group("2", spawn=show_keybindings_aliases),
-    Group("3", spawn="discord"),
+    Group("2"),
+    Group("3"),
 ]
 
 for i in groups:
