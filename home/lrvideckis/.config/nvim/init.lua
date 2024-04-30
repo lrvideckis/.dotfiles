@@ -68,19 +68,32 @@ vim.api.nvim_set_keymap('n', '<F10>', '<CMD>w!<CR><CMD>terminal oj-verify run %:
 -- enhancements
 vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = 'read ~/github_repos/programming_team_code/contest/template.cpp' }) -- new cpp files default to template
 vim.api.nvim_create_autocmd('BufWrite', { pattern = '*.cpp,*.hpp,*.lua,*.html,*.css', command = 'silent! execute \'%s/\\s\\+$//ge\'' }) -- remove trailing white space during writes
-require('packer').startup(function() -- :PackerSync to reload (run after all changes)
-	use 'wbthomason/packer.nvim' -- Packer can manage itself
-	use 'neovim/nvim-lspconfig' -- language server protocol
-	use 'karb94/neoscroll.nvim' -- smooth scroll
-	use 'kyazdani42/nvim-tree.lua' -- better file tree than Netrw
-	use { -- better git integration
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+	lazypath,
+})
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup({
+	'neovim/nvim-lspconfig', -- language server protocol
+	'karb94/neoscroll.nvim', -- smooth scroll
+	'kyazdani42/nvim-tree.lua', -- better file tree than Netrw
+	{ -- better git integration
 		'lewis6991/gitsigns.nvim',
 		requires = {
 			'nvim-lua/plenary.nvim'
 		},
-	}
-	use 'norcalli/nvim-colorizer.lua' -- show color for hex codes
-end)
+	},
+	'norcalli/nvim-colorizer.lua', -- show color for hex codes
+})
+
 require('neoscroll').setup({ mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'} }) -- importantly, not <C-e> and <C-y>
 -- delete ctrl-k so it uses my 6j keymap instead
 -- https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt
