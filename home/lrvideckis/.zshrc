@@ -55,6 +55,10 @@ export ANDROID_HOME=/home/lrvideckis/android_sdk
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+# enter python environment; needed for oj-verify and pip
+# https://wiki.archlinux.org/title/Python/Virtual_environment
+source my_python_env/bin/activate
+
 # starship prompt
 eval "$(starship init zsh)"
 
