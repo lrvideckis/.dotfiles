@@ -4,6 +4,7 @@ vim.g.loaded_netrwPlugin = 1
 
 -- snippets
 vim.cmd('let @f="diwafor(int pa = 0; pa < ; pa++) {o}k$bbbi"') -- need to type out loop variable name, and have cursor over it in command mode
+vim.cmd('let @i="ainput.token::<>()hhi"')
 
 -- settings
 vim.opt.number = true -- show line numbers
@@ -112,3 +113,4 @@ require("nvim-tree").setup({
 require('gitsigns').setup()
 require('colorizer').setup()
 require('lspconfig').clangd.setup{}
+require('lspconfig').rust_analyzer.setup{}
