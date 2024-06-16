@@ -33,7 +33,6 @@ alias ac="nvim ~/.config/alacritty/alacritty.toml"
 alias minecraft="LC_ALL=C ./.minecraft/launcher/minecraft-launcher"
 alias matrix="unimatrix --speed=95 --no-bold"
 alias hollywood="hollywood"
-alias cbonsai="cbonsai --live --infinite --message='it will be okay' --verbose"
 alias rmlast="truncate --size=-1" # to remove last newline
 alias ga="git add"
 alias gb="git branch"
@@ -62,5 +61,4 @@ source my_python_env/bin/activate
 # starship prompt
 eval "$(starship init zsh)"
 
-# terminal bling
-neofetch
+cbonsai -p -m ' it will be okay'
