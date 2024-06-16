@@ -5,6 +5,7 @@ vim.g.loaded_netrwPlugin = 1
 -- snippets
 vim.cmd('let @f="diwafor(int pa = 0; pa < ; pa++) {o}k$bbbi"') -- need to type out loop variable name, and have cursor over it in command mode
 vim.cmd('let @i="ainput.token::<>()hhi"')
+vim.cmd('let @o="awrite!(writer, \\"{}\\\\n\\", ).unwrap();10hi"')
 
 -- settings
 vim.opt.number = true -- show line numbers
