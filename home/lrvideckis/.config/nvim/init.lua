@@ -116,5 +116,16 @@ require("nvim-tree").setup({
 })
 require('gitsigns').setup()
 require('colorizer').setup()
-require('lspconfig').clangd.setup{}
-require('lspconfig').rust_analyzer.setup{}
+
+local lspconfig = require('lspconfig')
+lspconfig.clangd.setup{} -- c++
+lspconfig.rust_analyzer.setup {
+  -- server-specific settings. See `:help lspconfig-setup`
+  settings = {
+    ['rust-analyzer'] = {
+      checkOnSave = {
+        command = 'clippy',
+      },
+    },
+  },
+} -- rust
