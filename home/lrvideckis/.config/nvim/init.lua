@@ -85,8 +85,11 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 })
 end
 vim.opt.rtp:prepend(lazypath)
+
 require("lazy").setup({
 	'neovim/nvim-lspconfig', -- language server protocol
+	'rust-lang/rust.vim',
+	'simrat39/rust-tools.nvim',
 	'karb94/neoscroll.nvim', -- smooth scroll
 	'kyazdani42/nvim-tree.lua', -- better file tree than Netrw
 	{ -- better git integration
@@ -129,3 +132,25 @@ lspconfig.rust_analyzer.setup {
     },
   },
 } -- rust
+
+local rt = require('rust-tools')
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      -- hover actions
+      vim.keymap.set('n', '<C-space>', rt.hover_actions.hover_actions, { buffer = bufnr })
+    end,
+  },
+})
+
+local format_sync_grp = vim.api.nvim_create_augroup('Format', {})
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.rs',
+  callback = function()
+    vim.lsp.buf.format({ timeout_ms = 200 })
+  end,
+  group = format_sync_grp,
+})
+
+-- autoformat on save
+vim.cmd('autocmd FileType cpp ClangFormatAutoEnable')
