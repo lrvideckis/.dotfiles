@@ -38,6 +38,9 @@ vim.api.nvim_set_keymap('n', '<C-t>', '<CMD>NvimTreeToggle<CR>', {noremap = true
 
 -- CP key maps
 exec = 'cat input && echo "----" && ./%:r.out < input'
+
+vim.api.nvim_set_keymap('n', '<F1>', '<CMD>w!<CR><CMD>terminal rustc %:r.rs -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
+
 compile_flags = ' -Wall'
              .. ' -Wextra'
              .. ' -Wunused'
