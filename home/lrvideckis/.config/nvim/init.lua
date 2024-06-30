@@ -88,6 +88,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	'neovim/nvim-lspconfig', -- language server protocol
+	'rhysd/vim-clang-format',
 	'rust-lang/rust.vim',
 	'simrat39/rust-tools.nvim',
 	'karb94/neoscroll.nvim', -- smooth scroll
