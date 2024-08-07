@@ -1,0 +1,21 @@
+# https://github.com/alacritty/alacritty-theme
+import = [
+# dark
+"~/.config/alacritty/alacritty-theme/themes/xterm.toml"
+#"~/.config/alacritty/alacritty-theme/themes/cyber_punk_neon.toml"
+#"~/.config/alacritty/alacritty-theme/themes/baitong.toml"
+#"~/.config/alacritty/alacritty-theme/themes/github_dark_high_contrast.toml"
+#"~/.config/alacritty/alacritty-theme/themes/ubuntu.toml"
+# light
+#"~/.config/alacritty/alacritty-theme/themes/github_light_high_contrast.toml"
+#"~/.config/alacritty/alacritty-theme/themes/solarized_light.toml"
+]
+
+[env]
+TERM = "xterm-256color"
+
+[font.normal]
+family = "Source Code Pro"
+
+[window]
+opacity = 0.94
