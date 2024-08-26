@@ -3,7 +3,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- snippets
-vim.cmd('let @f="diwafor (int pa = 0; pa < ; pa++) {o}k$bbbi"') -- need to type out loop variable name, and have cursor over it in command mode
+vim.cmd('let @f="diwafor (int pa = 0; pa <; pa++) {o}k$F;i"') -- need to type out loop variable name, and have cursor over it in command mode
 vim.cmd('let @i="ainput.token::<>()hhi"')
 vim.cmd('let @o="awrite!(writer, \\"{}\\\\n\\", ).unwrap();10hi"')
 
@@ -28,6 +28,7 @@ vim.opt.clipboard = 'unnamedplus' -- sync nvim and OS clipboard
 vim.opt.ch = 0 -- hide command prompt when unused; keep bottom panel to show command when using `:terminal ..`
 vim.opt.termguicolors = true
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
+vim.g.loaded_matchparen = false -- don't highlight matching paren as in light mode the cursor disappears
 
 -- key maps
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
@@ -157,3 +158,6 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 
 -- autoformat on save
 vim.cmd('autocmd FileType cpp ClangFormatAutoEnable')
+
+vim.cmd('colorscheme retrobox')
+--vim.cmd('colorscheme morning')
