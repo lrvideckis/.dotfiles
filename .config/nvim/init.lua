@@ -73,7 +73,7 @@ vim.api.nvim_set_keymap('n', '<F10>', '<CMD>w!<CR><CMD>terminal oj-verify run %:
 vim.api.nvim_set_keymap('n', '<F11>', '<CMD>w!<CR><CMD>terminal oj-verify run %:r.rs<CR>', {noremap = true})
 
 -- enhancements
-vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = 'read ~/github_repos/ptc_inclusive_inclusive/template.cpp' }) -- new cpp files default to template
+vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = 'read ~/Documents/template.cpp' }) -- new cpp files default to template
 vim.api.nvim_create_autocmd('BufWrite', { pattern = '*.cpp,*.hpp,*.lua,*.html,*.css,*.rs', command = 'silent! execute \'%s/\\s\\+$//ge\'' }) -- remove trailing white space during writes
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
