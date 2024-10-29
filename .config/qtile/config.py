@@ -271,6 +271,7 @@ screens = [
                     fmt='Vol {}',
                     mouse_callbacks = {
                         'Button1': lambda: qtile.cmd_spawn('amixer set Master 9+'),
+                        'Button2': lambda: qtile.cmd_spawn('pavucontrol'),
                         'Button3': lambda: qtile.cmd_spawn('amixer set Master 9-'),
                     },
                     padding = 10,
