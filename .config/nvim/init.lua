@@ -27,8 +27,8 @@ vim.opt.matchpairs = '(:),{:},[:],<:>' -- <> is not included by default; useful 
 vim.opt.clipboard = 'unnamedplus' -- sync nvim and OS clipboard
 vim.opt.ch = 0 -- hide command prompt when unused; keep bottom panel to show command when using `:terminal ..`
 vim.opt.termguicolors = true
+vim.opt.splitright = true -- vertical splits open on right
 vim.g.c_no_curly_error = true -- disable curly brace error: thing[{i, j}]
-vim.g.loaded_matchparen = false -- don't highlight matching paren as in light mode the cursor disappears
 
 -- key maps
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true}) -- the OG keymap!
@@ -64,13 +64,13 @@ compile_flags = ' -Wall'
              .. ' -D_GLIBCXX_DEBUG_PEDANTIC'
              .. ' -D_GLIBCXX_ASSERTIONS'
              .. ' -D_FORTIFY_SOURCE=2'
-vim.api.nvim_set_keymap('n', '<F5>', '<CMD>w!<CR><CMD>terminal g++ -std=c++20 %:r.cpp -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F6>', '<CMD>w!<CR><CMD>terminal g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F7>', '<CMD>tab split input<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F8>', '<CMD>terminal wl-paste > input && cat input<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F9>', '<CMD>terminal ' .. exec .. '<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F10>', '<CMD>w!<CR><CMD>terminal oj-verify run %:r.cpp<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F11>', '<CMD>w!<CR><CMD>terminal oj-verify run %:r.rs<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F5>', '<CMD>w!<CR><CMD>vsplit | terminal g++ -std=c++20 %:r.cpp -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F6>', '<CMD>w!<CR><CMD>vsplit | terminal g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F7>', '<CMD>vsplit input<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F8>', '<CMD>vsplit | terminal wl-paste > input && cat input<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F9>', '<CMD>vsplit | terminal ' .. exec .. '<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F10>', '<CMD>w!<CR><CMD>vsplit | terminal oj-verify run %:r.cpp<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F11>', '<CMD>w!<CR><CMD>vsplit | terminal oj-verify run %:r.rs<CR>', {noremap = true})
 
 -- enhancements
 vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = 'read ~/Documents/template.cpp' }) -- new cpp files default to template
