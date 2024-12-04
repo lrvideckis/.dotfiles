@@ -64,13 +64,13 @@ compile_flags = ' -Wall'
              .. ' -D_GLIBCXX_DEBUG_PEDANTIC'
              .. ' -D_GLIBCXX_ASSERTIONS'
              .. ' -D_FORTIFY_SOURCE=2'
-vim.api.nvim_set_keymap('n', '<F5>', '<CMD>w!<CR><CMD>50vsplit | terminal g++ -O2 -std=c++20 %:r.cpp -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F6>', '<CMD>w!<CR><CMD>50vsplit | terminal g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F7>', '<CMD>50vsplit input<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F8>', '<CMD>50vsplit | terminal wl-paste > input && cat input<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F9>', '<CMD>50vsplit | terminal ' .. exec .. '<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F10>', '<CMD>w!<CR><CMD>50vsplit | terminal oj-verify run %:r.cpp<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<F11>', '<CMD>w!<CR><CMD>50vsplit | terminal oj-verify run %:r.rs<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F5>', '<CMD>w!<CR><CMD>vsplit | terminal g++ -O2 -std=c++20 %:r.cpp -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F6>', '<CMD>w!<CR><CMD>vsplit | terminal g++ ' .. compile_flags .. ' %:r.cpp -o %:r.out && ' .. exec .. '<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F7>', '<CMD>vsplit input<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F8>', '<CMD>vsplit | terminal wl-paste > input && cat input<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F9>', '<CMD>vsplit | terminal ' .. exec .. '<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F10>', '<CMD>w!<CR><CMD>vsplit | terminal oj-verify run %:r.cpp<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<F11>', '<CMD>w!<CR><CMD>vsplit | terminal oj-verify run %:r.rs<CR>', {noremap = true})
 
 -- enhancements
 vim.api.nvim_create_autocmd('BufNewFile', { pattern = '*.cpp', command = 'read ~/Documents/template.cpp' }) -- new cpp files default to template
