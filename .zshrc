@@ -4,8 +4,22 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 # Enable Vi key bindings
+#bindkey -v
+
+# vi mode, and change cursor depending on mode
 bindkey -v
 bindkey 'kj' vi-cmd-mode
+function zle-keymap-select {
+  case $KEYMAP in
+    vicmd) echo -ne '\e[1 q';; # block
+    viins|main) echo -ne '\e[5 q';; # beam
+  esac
+}
+zle -N zle-keymap-select
+zle-line-init() { echo -ne "\e[5 q" }
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # better flags for common tools
 alias grep="grep --line-number --color=auto"
