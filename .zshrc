@@ -54,11 +54,12 @@ export ANDROID_HOME=/home/lrvideckis/android_sdk
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-# enter python environment; needed for oj-verify and pip
-# https://wiki.archlinux.org/title/Python/Virtual_environment
-source my_python_env/bin/activate
-
-# starship prompt
-eval "$(starship init zsh)"
+# to show git branch in prompt
+# https://stackoverflow.com/a/67628932
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats '%b'
+setopt PROMPT_SUBST
+PROMPT='%F{blue}%~ %F{red}${vcs_info_msg_0_}%F{white} %# '
 
 cbonsai -p -m ' it will be okay'
