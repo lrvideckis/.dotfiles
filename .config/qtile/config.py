@@ -100,10 +100,16 @@ for i in groups:
         ]
     )
 
+color1 = '#253253'
+color2 = '#4169E1'
+font_shadow_color = '#002e63'
+graph_color_hex = '#C41E3A'
+border_focus_color = '#04C1E2'
+
 layouts = [
     layout.MonadTall(
         new_client_position='bottom',
-        border_focus='#04C1E2',
+        border_focus=border_focus_color,
         border_width=1,
     ),
     layout.Max(),
@@ -112,13 +118,9 @@ layouts = [
 widget_defaults = dict(
     font="Source Code Pro", # use monospace font for bar so that widgets have a constant width
     fontsize=13,
-    fontshadow='#002e63'
+    fontshadow=font_shadow_color
 )
 extension_defaults = widget_defaults.copy()
-
-color1 = '#253253'
-color2 = '#4169E1'
-graph_color_hex = '#C41E3A'
 
 def get_arrow_widget(points_right: bool, parody: bool) -> widget.TextBox:
     return widget.TextBox(
