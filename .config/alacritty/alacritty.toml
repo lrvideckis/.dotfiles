@@ -1,14 +1,17 @@
 # https://github.com/alacritty/alacritty-theme
-import = [
+general.import = [
 # dark
-"~/.config/alacritty/alacritty-theme/themes/xterm.toml"
-#"~/.config/alacritty/alacritty-theme/themes/cyber_punk_neon.toml"
-#"~/.config/alacritty/alacritty-theme/themes/baitong.toml"
-#"~/.config/alacritty/alacritty-theme/themes/github_dark_high_contrast.toml"
-#"~/.config/alacritty/alacritty-theme/themes/ubuntu.toml"
+#"~/.config/alacritty/themes/themes/xterm.toml"
+#"~/.config/alacritty/themes/themes/cyber_punk_neon.toml"
+#"~/.config/alacritty/themes/themes/baitong.toml"
+#"~/.config/alacritty/themes/themes/github_dark_high_contrast.toml"
+#"~/.config/alacritty/themes/themes/ubuntu.toml"
+#"~/.config/alacritty/themes/themes/aura.toml"
+#"~/.config/alacritty/themes/themes/ayu_dark.toml"
+"~/.config/alacritty/themes/themes/blood_moon.toml"
 # light
-#"~/.config/alacritty/alacritty-theme/themes/github_light_high_contrast.toml"
-#"~/.config/alacritty/alacritty-theme/themes/solarized_light.toml"
+#"~/.config/alacritty/themes/themes/github_light_high_contrast.toml"
+#"~/.config/alacritty/themes/themes/solarized_light.toml"
 ]
 
 [env]
