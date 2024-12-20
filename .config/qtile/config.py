@@ -65,7 +65,7 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window right"),
     Key([mod], "g", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating status of selected window"),
-    Key([mod], "s", lazy.spawn("bash -c \"slurp | xargs -I{} grim -g {} /home/lrvideckis/pictures/screenshots/$(date -Iseconds).png\""), desc="take screenshot"),
+    Key([mod], "s", lazy.spawn("bash -c \"slurp | xargs -I{} grim -g {} /home/lrvideckis/Pictures/screenshots/$(date -Iseconds).png\""), desc="take screenshot"),
     Key([mod], "x", lazy.hide_show_bar(position="top"), desc="Toggle top bar"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
