@@ -100,11 +100,17 @@ for i in groups:
         ]
     )
 
-color1 = '#253253'
-color2 = '#4169E1'
-font_shadow_color = '#002e63'
-graph_color_hex = '#C41E3A'
-border_focus_color = '#04C1E2'
+# color1 = '#253253'
+# color2 = '#4169E1'
+# font_shadow_color = '#002e63'
+# graph_color_hex = '#C41E3A'
+# border_focus_color = '#04C1E2'
+
+color1 = '#CE1713'
+color2 = '#0F7833'
+font_shadow_color = '#000000'
+graph_color_hex = color1
+border_focus_color = '#00FF00'
 
 layouts = [
     layout.MonadTall(
