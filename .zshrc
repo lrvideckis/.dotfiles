@@ -62,4 +62,5 @@ zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
 PROMPT='%F{green}%~ %F{red}${vcs_info_msg_0_}%F{green}%# %F{white}'
 
-cbonsai -p -m ' it will be okay'
+#cbonsai -p -m ' it will be okay'
+ctree --no-refresh
