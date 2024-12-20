@@ -290,7 +290,7 @@ screens = [
             ],
             22,
         ),
-        wallpaper='~/Pictures/wallpaper_yash.jpg',
+        wallpaper='~/Pictures/wallpaper_fam_DC.jpg',
         wallpaper_mode='fill',
     ),
 ]
