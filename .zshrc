@@ -60,6 +60,6 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%b'
 setopt PROMPT_SUBST
-PROMPT='%F{blue}%~ %F{red}${vcs_info_msg_0_}%F{white} %# '
+PROMPT='%F{green}%~ %F{red}${vcs_info_msg_0_}%F{green} %# %F{white}'
 
 cbonsai -p -m ' it will be okay'
