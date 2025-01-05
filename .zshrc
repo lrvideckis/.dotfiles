@@ -45,8 +45,6 @@ alias clip="wl-copy <" # clip a.cpp
 alias cf="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME" # ConFig https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
 alias ac="nvim ~/.config/alacritty/alacritty.toml"
 alias minecraft="LC_ALL=C ./.minecraft/launcher/minecraft-launcher"
-alias matrix="unimatrix --speed=95 --no-bold"
-alias hollywood="hollywood"
 alias rmlast="truncate --size=-1" # to remove last newline
 alias ga="git add"
 alias gb="git branch"

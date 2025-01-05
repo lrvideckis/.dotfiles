@@ -198,8 +198,8 @@ screens = [
                     background=color1
                 ),
                 widget.CPUGraph(
-                    graph_color=graph_color_hex,
-                    fill_color=graph_color_hex,
+                    graph_color=color2,
+                    fill_color=color2,
                     border_width=0,
                     margin_x=0,
                     margin_y=0,
