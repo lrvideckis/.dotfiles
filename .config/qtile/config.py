@@ -100,17 +100,17 @@ for i in groups:
         ]
     )
 
-# color1 = '#253253'
-# color2 = '#4169E1'
-# font_shadow_color = '#002e63'
-# graph_color_hex = '#C41E3A'
-# border_focus_color = '#04C1E2'
+color1 = '#253253'
+color2 = '#4169E1'
+font_shadow_color = '#002e63'
+graph_color_hex = '#C41E3A'
+border_focus_color = '#04C1E2'
 
-color1 = '#CE1713'
-color2 = '#0F7833'
-font_shadow_color = '#000000'
-graph_color_hex = color1
-border_focus_color = '#00FF00'
+# color1 = '#CE1713'
+# color2 = '#0F7833'
+# font_shadow_color = '#000000'
+# graph_color_hex = color1
+# border_focus_color = '#00FF00'
 
 layouts = [
     layout.MonadTall(
@@ -198,8 +198,8 @@ screens = [
                     background=color1
                 ),
                 widget.CPUGraph(
-                    graph_color=color2,
-                    fill_color=color2,
+                    graph_color=graph_color_hex,
+                    fill_color=graph_color_hex,
                     border_width=0,
                     margin_x=0,
                     margin_y=0,
