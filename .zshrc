@@ -30,8 +30,9 @@ alias mkdir="mkdir --parents" # create all folders on path
 
 # alternatives to core utils https://wiki.archlinux.org/title/Core_utilities#Alternatives
 alias vim="nvim"
-alias eza="eza --all --long --classify --color=always --group-directories-first --sort=name --git"
-alias ls="eza"
+alias eza="eza --all --long --classify --color=always --group-directories-first --git"
+alias ls="eza --sort=name"
+alias lsm="eza --sort=modified"
 alias tree="eza --tree"
 autoload -Uz compinit
 compinit
@@ -76,3 +77,19 @@ PROMPT='%F{green}%~ %F{red}${vcs_info_msg_0_}%F{green}%# %F{white}'
 
 cbonsai -p -m ' it will be okay'
 #ctree --no-refresh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/lrvideckis/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/lrvideckis/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/lrvideckis/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/lrvideckis/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
