@@ -298,7 +298,7 @@ screens = [
             ],
             22,
         ),
-        wallpaper='~/Pictures/wallpaper_fam_DC.jpg',
+        wallpaper='~/Pictures/the_bois.jpg',
         wallpaper_mode='fill',
     ),
 ]
