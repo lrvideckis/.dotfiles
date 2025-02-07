@@ -55,6 +55,10 @@ alias gd="git diff"
 alias gs="git status"
 alias gps="git push"
 alias gpl="git pull"
+# this initialized the python/conda environment for data analysis
+da() {
+  eval "$(/home/lrvideckis/github_repos/anaconda3/bin/conda shell.zsh hook)"
+}
 # END DISPLAY
 
 export TERM=xterm-256color
