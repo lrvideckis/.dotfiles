@@ -55,9 +55,8 @@ alias gd="git diff"
 alias gs="git status"
 alias gps="git push"
 alias gpl="git pull"
-# this initializes the python/conda environment for data analysis
-# mnemonic: da=data analysis
-da() {
+# initialize the python/conda environment
+py() {
   eval "$(/home/lrvideckis/github_repos/anaconda3/bin/conda shell.zsh hook)"
 }
 # END DISPLAY

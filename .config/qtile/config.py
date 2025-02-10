@@ -51,7 +51,7 @@ keys = [
         Key([], "e", lazy.spawn("evince")), #document viewer
         Key([], "k", lazy.spawn(show_keybindings_aliases)), #keybindings
         Key([], "q", lazy.spawn(terminal + " --command tail -f " + expanduser("~/.local/share/qtile/qtile.log"))), #qtile log
-        Key([], "a", lazy.spawn("./android-studio/bin/studio.sh")), #android studio
+        Key([], "a", lazy.spawn("./android-studio/bin/studio")), #android studio
         Key([], "m", lazy.spawn("flatpak run io.mrarm.mcpelauncher")), #minecraft
         Key([], "v", lazy.spawn(terminal + " --command alsamixer")), #volume
     ]),
