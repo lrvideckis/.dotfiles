@@ -44,7 +44,7 @@ show_keybindings_aliases = terminal + " --command zsh -c \"sed -n '/^\# START DI
 # START DISPLAY
 keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "f", lazy.spawn("firefox")),
+    Key([mod], "b", lazy.spawn("brave")),
     Key([mod], "d", lazy.spawn("discord")),
     KeyChord([mod], "o", [ # open
         Key([], "p", lazy.spawn(terminal + " --command zsh -c \"bat " + expanduser("~/github_repos/programming_team_code/library/") + "**/*.hpp\"")), #ptc, cat-ed
@@ -75,7 +75,7 @@ keys = [
 # END DISPLAY
 
 groups = [
-    Group("1", spawn="firefox"),
+    Group("1"),
     Group("2"),
     Group("3"),
 ]
