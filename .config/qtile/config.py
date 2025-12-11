@@ -46,9 +46,9 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "b", lazy.spawn("brave")),
     Key([mod], "d", lazy.spawn("discord")),
+    Key([mod], "e", lazy.spawn("evince")), #document viewer
     KeyChord([mod], "o", [ # open
         Key([], "p", lazy.spawn(terminal + " --command zsh -c \"bat " + expanduser("~/github_repos/programming_team_code/library/") + "**/*.hpp\"")), #ptc, cat-ed
-        Key([], "e", lazy.spawn("evince")), #document viewer
         Key([], "k", lazy.spawn(show_keybindings_aliases)), #keybindings
         Key([], "q", lazy.spawn(terminal + " --command tail -f " + expanduser("~/.local/share/qtile/qtile.log"))), #qtile log
         Key([], "a", lazy.spawn("./android-studio/bin/studio")), #android studio
@@ -100,17 +100,19 @@ for i in groups:
         ]
     )
 
-color1 = '#253253'
-color2 = '#4169E1'
-font_shadow_color = '#002e63'
-graph_color_hex = '#C41E3A'
-border_focus_color = '#04C1E2'
+#color1 = '#253253'
+#color2 = '#4169E1'
+#font_shadow_color = '#002e63'
+#graph_color1 = '#C41E3A'
+#graph_color2 = '#C41E3A'
+#border_focus_color = '#04C1E2'
 
-# color1 = '#CE1713'
-# color2 = '#0F7833'
-# font_shadow_color = '#000000'
-# graph_color_hex = color1
-# border_focus_color = '#00FF00'
+color1 = '#CE1713'
+color2 = '#0F7833'
+font_shadow_color = '#000000'
+graph_color1 = color1
+graph_color2 = color2
+border_focus_color = '#00FF00'
 
 layouts = [
     layout.MonadTall(
@@ -141,12 +143,15 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(background=color1),
+                widget.GroupBox(
+                    background=color1,
+                    this_current_screen_border=color2,
+                ),
                 get_arrow_widget(True, True),
                 widget.NetGraph(
                     interface=network_interface,
-                    graph_color=graph_color_hex,
-                    fill_color=graph_color_hex,
+                    graph_color=graph_color1,
+                    fill_color=graph_color1,
                     bandwidth_type='up',
                     border_width=0,
                     margin_x=0,
@@ -172,8 +177,8 @@ screens = [
                 ),
                 widget.NetGraph(
                     interface=network_interface,
-                    graph_color=graph_color_hex,
-                    fill_color=graph_color_hex,
+                    graph_color=graph_color1,
+                    fill_color=graph_color1,
                     border_width=0,
                     margin_x=0,
                     margin_y=0,
@@ -198,8 +203,8 @@ screens = [
                     background=color1
                 ),
                 widget.CPUGraph(
-                    graph_color=graph_color_hex,
-                    fill_color=graph_color_hex,
+                    graph_color=graph_color2,
+                    fill_color=graph_color2,
                     border_width=0,
                     margin_x=0,
                     margin_y=0,
@@ -210,6 +215,8 @@ screens = [
                 ),
                 widget.ThermalSensor(
                     tag_sensor="CPU",
+                    metric=False,
+                    threshold=158, # 70 degrees celsius
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
                     background=color1
                 ),
@@ -220,8 +227,8 @@ screens = [
                     background=color2
                 ),
                 widget.MemoryGraph(
-                    graph_color=graph_color_hex,
-                    fill_color=graph_color_hex,
+                    graph_color=graph_color1,
+                    fill_color=graph_color1,
                     border_width=0,
                     margin_x=0,
                     margin_y=0,
@@ -244,7 +251,7 @@ screens = [
                     update_interval = 1800, # 30 minutes
                     mouse_callbacks = {
                         'Button1': lambda: qtile.cmd_spawn(terminal + ' --command sudo pacman -Syu'),
-                        'Button3': lambda: qtile.cmd_spawn(terminal + ' --command paru -Syu'),
+                        'Button3': lambda: qtile.cmd_spawn(terminal + ' --command paru'),
                     },
                     background=color1
                 ),
@@ -252,48 +259,41 @@ screens = [
                     background=color1
                 ), # widgets after this are right justified
                 get_arrow_widget(False, False),
-                widget.TextBox(
-                    fmt='Keybindings',
-                    mouse_callbacks = {
-                        'Button1': lambda: qtile.cmd_spawn(show_keybindings_aliases),
-                    },
+                widget.Clock(
+                    format="%a, %b %-d, %Y, %-I:%M %p",
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + " zsh -c \"cal --color=always --months 9 | bat --wrap=never --style=plain --paging=always\"") },
                     background=color2
                 ),
                 get_arrow_widget(False, True),
-                widget.Clock(
-                    format="%d-%m-%Y %a %H:%M",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + " zsh -c \"cal --color=always --months 9 | bat --wrap=never --style=plain --paging=always\"") },
-                    background=color1
-                ),
-                get_arrow_widget(False, False),
                 widget.Battery(
                     format="Battery {char} {percent:2.0%}",
                     charge_char = '↑',
                     discharge_char = '↓',
                     full_char = '',
+                    not_charging_char = '',
                     show_short_text = False,
-                    background=color2
+                    background=color1
                 ),
-                get_arrow_widget(False, True),
+                get_arrow_widget(False, False),
                 widget.Volume(
-                    fmt='Vol {}',
+                    fmt='Volume {}',
                     mouse_callbacks = {
                         'Button1': lambda: qtile.cmd_spawn('amixer set Master 9+'),
                         'Button2': lambda: qtile.cmd_spawn('pavucontrol'),
                         'Button3': lambda: qtile.cmd_spawn('amixer set Master 9-'),
                     },
                     padding = 10,
-                    background=color1
+                    background=color2
                 ),
-                get_arrow_widget(False, False),
+                get_arrow_widget(False, True),
                 widget.Backlight(
                     backlight_name='intel_backlight',
-                    fmt='Backlight {}',
+                    fmt='Brightness {}',
                     mouse_callbacks = {
                         'Button1': lambda: qtile.cmd_spawn('brightnessctl set +10%'),
                         'Button3': lambda: qtile.cmd_spawn('brightnessctl set 10%-'),
                     },
-                    background=color2
+                    background=color1
                 ),
             ],
             22,
