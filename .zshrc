@@ -1,10 +1,6 @@
-# inspired by DT: https://gitlab.com/dwt1/dotfiles/-/blob/master/.zshrc
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
-
-# Enable Vi key bindings
-#bindkey -v
 
 # vi mode, and change cursor depending on mode
 bindkey -v
@@ -44,8 +40,6 @@ alias du="dust"
 # START DISPLAY
 alias clip="wl-copy <" # clip a.cpp
 alias cf="/usr/bin/git --git-dir=$HOME/github_repos/.dotfiles --work-tree=$HOME" # ConFig https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
-alias ac="nvim ~/.config/alacritty/alacritty.toml"
-alias minecraft="LC_ALL=C ./.minecraft/launcher/minecraft-launcher"
 alias rmlast="truncate --size=-1" # to remove last newline
 alias ga="git add"
 alias gb="git branch"
@@ -55,21 +49,17 @@ alias gd="git diff"
 alias gs="git status"
 alias gps="git push"
 alias gpl="git pull"
-# initialize the python/conda environment
-py() {
-  eval "$(/home/lrvideckis/github_repos/anaconda3/bin/conda shell.zsh hook)"
-}
 # END DISPLAY
 
 export TERM=xterm-256color
 export EDITOR=nvim
-# cpplint command installed to ~/.local/bin/ instead of /usr/local/bin/ . This is the fix
-export PATH=$PATH:~/.local/bin/
 # needed for Unexpected Keyboard
 export ANDROID_HOME=/home/lrvideckis/android_sdk
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+
+source ~/.venv/bin/activate
 
 # to show git branch in prompt
 # https://stackoverflow.com/a/67628932
@@ -80,4 +70,3 @@ setopt PROMPT_SUBST
 PROMPT='%F{green}%~ %F{red}${vcs_info_msg_0_}%F{green}%# %F{white}'
 
 cbonsai -p -m ' it will be okay'
-#ctree --no-refresh
