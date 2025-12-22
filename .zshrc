@@ -35,6 +35,7 @@ compinit
 eval "$(zoxide init zsh)"
 alias cd="z"
 alias cat="bat --wrap=never"
+alias lsblk="dysk --all --color yes"
 alias du="dust"
 
 # START DISPLAY
@@ -53,8 +54,6 @@ alias gpl="git pull"
 
 export TERM=xterm-256color
 export EDITOR=nvim
-# needed for Unexpected Keyboard
-export ANDROID_HOME=/home/lrvideckis/android_sdk
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
