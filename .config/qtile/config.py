@@ -41,20 +41,17 @@ start_network = "nmcli device connect " + network_interface
 stop_network = "nmcli device disconnect " + network_interface
 show_keybindings_aliases = terminal + " --command zsh -c \"sed -n '/^\# START DISPLAY$/,/^\# END DISPLAY$/p' " + expanduser("~/.zshrc") + " " + expanduser("~/.config/qtile/config.py") + " | bat --wrap=never --style=plain --paging=always --file-name='.zshrc'\""
 
+def unfloat_and_next_layout(qtile):
+    for window in qtile.current_group.windows:
+        window.floating = False
+    qtile.next_layout()
+
 # START DISPLAY
 keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "b", lazy.spawn("brave")),
-    Key([mod], "d", lazy.spawn("discord")),
-    Key([mod], "e", lazy.spawn("evince")), #document viewer
-    KeyChord([mod], "o", [ # open
-        Key([], "p", lazy.spawn(terminal + " --command zsh -c \"bat " + expanduser("~/github_repos/programming_team_code/library/") + "**/*.hpp\"")), #ptc, cat-ed
-        Key([], "k", lazy.spawn(show_keybindings_aliases)), #keybindings
-        Key([], "q", lazy.spawn(terminal + " --command tail -f " + expanduser("~/.local/share/qtile/qtile.log"))), #qtile log
-        Key([], "a", lazy.spawn("./android-studio/bin/studio")), #android studio
-        Key([], "m", lazy.spawn("flatpak run io.mrarm.mcpelauncher")), #minecraft
-        Key([], "v", lazy.spawn(terminal + " --command alsamixer")), #volume
-    ]),
+    Key([mod], "b", lazy.spawn("librewolf")), # mnemonic: browser
+    Key([mod], "e", lazy.spawn("evince")), # document viewer
+    Key([mod], "a", lazy.spawn("./android-studio/bin/studio")),
     Key([mod], "h", lazy.layout.left(), desc="Move focus left"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
@@ -63,10 +60,8 @@ keys = [
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window right"),
-    Key([mod], "g", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating status of selected window"),
+    Key([mod], "f", lazy.function(unfloat_and_next_layout), desc="Unfloat and toggle between layouts"), # mnemonic: fullscreen
     Key([mod], "s", lazy.spawn("bash -c \"slurp | xargs -I{} grim -g {} /home/lrvideckis/Pictures/screenshots/$(date -Iseconds).png\""), desc="take screenshot"),
-    Key([mod], "x", lazy.hide_show_bar(position="top"), desc="Toggle top bar"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -264,18 +259,8 @@ screens = [
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + " zsh -c \"cal --color=always --months 9 | bat --wrap=never --style=plain --paging=always\"") },
                     background=color2
                 ),
-                get_arrow_widget(False, True),
-                widget.Battery(
-                    format="Battery {char} {percent:2.0%}",
-                    charge_char = '↑',
-                    discharge_char = '↓',
-                    full_char = '',
-                    not_charging_char = '',
-                    show_short_text = False,
-                    background=color1
-                ),
-                get_arrow_widget(False, False),
-                widget.Volume(
+               get_arrow_widget(False, True),
+               widget.Volume(
                     fmt='Volume {}',
                     mouse_callbacks = {
                         'Button1': lambda: qtile.cmd_spawn('amixer set Master 9+'),
@@ -283,9 +268,9 @@ screens = [
                         'Button3': lambda: qtile.cmd_spawn('amixer set Master 9-'),
                     },
                     padding = 10,
-                    background=color2
+                    background=color1
                 ),
-                get_arrow_widget(False, True),
+                get_arrow_widget(False, False),
                 widget.Backlight(
                     backlight_name='intel_backlight',
                     fmt='Brightness {}',
@@ -293,10 +278,10 @@ screens = [
                         'Button1': lambda: qtile.cmd_spawn('brightnessctl set +10%'),
                         'Button3': lambda: qtile.cmd_spawn('brightnessctl set 10%-'),
                     },
-                    background=color1
+                    background=color2
                 ),
             ],
-            22,
+            23,
         ),
         wallpaper='~/Pictures/the_bois.jpg',
         wallpaper_mode='fill',
