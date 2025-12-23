@@ -48,23 +48,24 @@ def unfloat_and_next_layout(qtile):
 
 # START DISPLAY
 keys = [
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn(terminal)),
     Key([mod], "b", lazy.spawn("librewolf")), # mnemonic: browser
     Key([mod], "e", lazy.spawn("evince")), # document viewer
     Key([mod], "a", lazy.spawn("./android-studio/bin/studio")),
-    Key([mod], "h", lazy.layout.left(), desc="Move focus left"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus right"),
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window left"),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window right"),
-    Key([mod], "f", lazy.function(unfloat_and_next_layout), desc="Unfloat and toggle between layouts"), # mnemonic: fullscreen
-    Key([mod], "s", lazy.spawn("bash -c \"slurp | xargs -I{} grim -g {} /home/lrvideckis/Pictures/screenshots/$(date -Iseconds).png\""), desc="take screenshot"),
-    Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod], "f", lazy.function(unfloat_and_next_layout)), # mnemonic: fullscreen
+    Key([mod], "s", lazy.spawn("bash -c \"slurp | xargs -I{} grim -g {} ~/Pictures/screenshots/$(date -Iseconds).png\"")),
+    Key([mod], "c", lazy.window.kill()),
+    Key([mod], "r", lazy.reload_config()),
+    Key([mod], "q", lazy.shutdown()),
+
+    Key([mod], "h", lazy.layout.left()),
+    Key([mod], "j", lazy.layout.down()),
+    Key([mod], "k", lazy.layout.up()),
+    Key([mod], "l", lazy.layout.right()),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
 ]
 # END DISPLAY
 
