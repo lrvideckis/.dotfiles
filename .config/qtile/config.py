@@ -65,7 +65,6 @@ keys = [
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod, "shift"], "Return", lazy.spawn("dmenu_run"), desc='Run Dmenu Launcher'),
 ]
 # END DISPLAY
 
