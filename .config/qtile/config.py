@@ -140,6 +140,8 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
+                    padding_x=0,
+                    padding_y=0,
                     background=color1,
                     this_current_screen_border=color2,
                 ),
