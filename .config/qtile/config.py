@@ -48,10 +48,11 @@ def unfloat_and_next_layout(qtile):
 
 # START DISPLAY
 keys = [
-    Key([mod], "Return", lazy.spawn(terminal)),
+    Key([mod], "a", lazy.spawn("./android-studio/bin/studio")),
     Key([mod], "b", lazy.spawn("librewolf")), # mnemonic: browser
     Key([mod], "e", lazy.spawn("evince")), # document viewer
-    Key([mod], "a", lazy.spawn("./android-studio/bin/studio")),
+
+    Key([mod], "Return", lazy.spawn(terminal)),
     Key([mod], "f", lazy.function(unfloat_and_next_layout)), # mnemonic: fullscreen
     Key([mod], "s", lazy.spawn("bash -c \"slurp | xargs -I{} grim -g {} ~/Pictures/screenshots/$(date -Iseconds).png\"")),
     Key([mod], "c", lazy.window.kill()),
