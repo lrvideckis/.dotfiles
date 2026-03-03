@@ -48,7 +48,6 @@ def unfloat_and_next_layout(qtile):
 
 # START DISPLAY
 keys = [
-    Key([mod], "a", lazy.spawn("./android-studio/bin/studio")),
     Key([mod], "b", lazy.spawn("librewolf")), # mnemonic: browser
     Key([mod], "e", lazy.spawn("evince")), # document viewer
 
@@ -295,6 +294,9 @@ screens = [
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    # scroll to resize split
+    Click([mod], "Button4", lazy.layout.shrink_main()),
+    Click([mod], "Button5", lazy.layout.grow_main()),
 ]
 
 dgroups_key_binder = None
