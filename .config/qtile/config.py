@@ -295,8 +295,8 @@ mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     # scroll to resize split
-    Click([mod], "Button4", lazy.layout.shrink_main()),
-    Click([mod], "Button5", lazy.layout.grow_main()),
+    Click([mod], "Button6", lazy.layout.shrink_main()),
+    Click([mod], "Button7", lazy.layout.grow_main()),
 ]
 
 dgroups_key_binder = None
