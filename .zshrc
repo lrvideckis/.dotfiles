@@ -23,6 +23,7 @@ alias rm="rm --interactive" # confirm before overwriting
 alias mv="mv --interactive"
 alias cp="cp --interactive"
 alias mkdir="mkdir --parents" # create all folders on path
+alias brave="brave --ozone-platform=wayland" # fixes clipboard
 
 # alternatives to core utils https://wiki.archlinux.org/title/Core_utilities#Alternatives
 alias vim="nvim"
@@ -35,7 +36,6 @@ compinit
 eval "$(zoxide init zsh)"
 alias cd="z"
 alias cat="bat --wrap=never"
-alias lsblk="dysk --all --color yes"
 alias du="dust"
 
 # START DISPLAY
@@ -58,7 +58,7 @@ export EDITOR=nvim
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-source ~/.venv/bin/activate
+source venv/bin/activate
 
 # to show git branch in prompt
 # https://stackoverflow.com/a/67628932
