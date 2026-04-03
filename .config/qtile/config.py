@@ -108,7 +108,7 @@ layouts = [
     layout.MonadTall(
         new_client_position='bottom',
         border_focus=border_focus_color,
-        border_width=1,
+        border_width=2,
     ),
     layout.Max(),
 ]
