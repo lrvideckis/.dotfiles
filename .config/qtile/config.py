@@ -109,6 +109,9 @@ layouts = [
         new_client_position='bottom',
         border_focus=border_focus_color,
         border_width=2,
+        change_ratio=0.02,
+        min_ratio=0.1,
+        max_ratio=0.9,
     ),
     layout.Max(),
 ]
