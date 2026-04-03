@@ -37,16 +37,12 @@ mod = "mod1"
 terminal = "alacritty"
 terminal_floating = terminal + " --class floating_terminal --command"
 network_interface = "wlp1s0"
-start_network = "nmcli device connect " + network_interface
-stop_network = "nmcli device disconnect " + network_interface
-show_keybindings_aliases = terminal + " --command zsh -c \"sed -n '/^\# START DISPLAY$/,/^\# END DISPLAY$/p' " + expanduser("~/.zshrc") + " " + expanduser("~/.config/qtile/config.py") + " | bat --wrap=never --style=plain --paging=always --file-name='.zshrc'\""
 
 def unfloat_and_next_layout(qtile):
     for window in qtile.current_group.windows:
         window.floating = False
     qtile.next_layout()
 
-# START DISPLAY
 keys = [
     Key([mod], "b", lazy.spawn("librewolf")), # mnemonic: browser
     Key([mod], "e", lazy.spawn("evince")), # document viewer
@@ -67,7 +63,6 @@ keys = [
     Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
 ]
-# END DISPLAY
 
 groups = [
     Group("1"),
@@ -157,8 +152,7 @@ screens = [
                     width=20,
                     background=color2,
                     mouse_callbacks = {
-                        'Button1': lambda: qtile.spawn(start_network),
-                        'Button3': lambda: qtile.spawn(stop_network),
+                        'Button1': lambda: qtile.spawn(terminal_floating + ' nmtui')
                     },
                 ),
                 widget.Net(
@@ -168,8 +162,7 @@ screens = [
                     prefix='M',
                     background=color2,
                     mouse_callbacks = {
-                        'Button1': lambda: qtile.spawn(start_network),
-                        'Button3': lambda: qtile.spawn(stop_network),
+                        'Button1': lambda: qtile.spawn(terminal_floating + ' nmtui')
                     },
                 ),
                 widget.NetGraph(
@@ -183,8 +176,7 @@ screens = [
                     width=20,
                     background=color2,
                     mouse_callbacks = {
-                        'Button1': lambda: qtile.spawn(start_network),
-                        'Button3': lambda: qtile.spawn(stop_network),
+                        'Button1': lambda: qtile.spawn(terminal_floating + ' nmtui')
                     },
                 ),
                 get_arrow_widget(True, False),
