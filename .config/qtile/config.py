@@ -157,8 +157,8 @@ screens = [
                     width=20,
                     background=color2,
                     mouse_callbacks = {
-                        'Button1': lambda: qtile.cmd_spawn(start_network),
-                        'Button3': lambda: qtile.cmd_spawn(stop_network),
+                        'Button1': lambda: qtile.spawn(start_network),
+                        'Button3': lambda: qtile.spawn(stop_network),
                     },
                 ),
                 widget.Net(
@@ -168,8 +168,8 @@ screens = [
                     prefix='M',
                     background=color2,
                     mouse_callbacks = {
-                        'Button1': lambda: qtile.cmd_spawn(start_network),
-                        'Button3': lambda: qtile.cmd_spawn(stop_network),
+                        'Button1': lambda: qtile.spawn(start_network),
+                        'Button3': lambda: qtile.spawn(stop_network),
                     },
                 ),
                 widget.NetGraph(
@@ -183,20 +183,20 @@ screens = [
                     width=20,
                     background=color2,
                     mouse_callbacks = {
-                        'Button1': lambda: qtile.cmd_spawn(start_network),
-                        'Button3': lambda: qtile.cmd_spawn(stop_network),
+                        'Button1': lambda: qtile.spawn(start_network),
+                        'Button3': lambda: qtile.spawn(stop_network),
                     },
                 ),
                 get_arrow_widget(True, False),
                 widget.TextBox(
                     text="CPU",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
+                    mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
                     padding=10,
                     background=color1
                 ),
                 widget.CPU(
                     format="{load_percent:4.1f}%",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
+                    mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
                     background=color1
                 ),
                 widget.CPUGraph(
@@ -207,20 +207,20 @@ screens = [
                     margin_y=0,
                     samples=20,
                     width=20,
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
+                    mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
                     background=color1,
                 ),
                 widget.ThermalSensor(
                     tag_sensor="CPU",
                     metric=False,
                     threshold=158, # 70 degrees celsius
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
+                    mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
                     background=color1
                 ),
                 get_arrow_widget(True, True),
                 widget.Memory(
                     format="RAM {MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' htop --sort-key=PERCENT_MEM')},
+                    mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_MEM')},
                     background=color2
                 ),
                 widget.MemoryGraph(
@@ -232,7 +232,7 @@ screens = [
                     samples=20,
                     width=20,
                     background=color2,
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + ' htop --sort-key=PERCENT_MEM')},
+                    mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_MEM')},
                 ),
                 get_arrow_widget(True, False),
                 widget.Spacer(
@@ -247,8 +247,8 @@ screens = [
                     no_update_string="ᗧ·· 0",
                     update_interval = 1800, # 30 minutes
                     mouse_callbacks = {
-                        'Button1': lambda: qtile.cmd_spawn(terminal + ' --command sudo pacman -Syu'),
-                        'Button3': lambda: qtile.cmd_spawn(terminal + ' --command paru'),
+                        'Button1': lambda: qtile.spawn(terminal + ' --command sudo pacman -Syu'),
+                        'Button3': lambda: qtile.spawn(terminal + ' --command paru'),
                     },
                     background=color1
                 ),
@@ -258,16 +258,16 @@ screens = [
                 get_arrow_widget(False, False),
                 widget.Clock(
                     format="%a, %b %-d, %Y, %-I:%M %p %Z",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal_floating + " zsh -c \"cal --color=always --months 9 | bat --wrap=never --style=plain --paging=always\"") },
+                    mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + " zsh -c \"cal --color=always --months 9 | bat --wrap=never --style=plain --paging=always\"") },
                     background=color2
                 ),
                get_arrow_widget(False, True),
                widget.Volume(
                     fmt='Volume {}',
                     mouse_callbacks = {
-                        'Button1': lambda: qtile.cmd_spawn('amixer set Master 9+'),
-                        'Button2': lambda: qtile.cmd_spawn('pavucontrol'),
-                        'Button3': lambda: qtile.cmd_spawn('amixer set Master 9-'),
+                        'Button1': lambda: qtile.spawn('amixer set Master 9+'),
+                        'Button2': lambda: qtile.spawn('pavucontrol'),
+                        'Button3': lambda: qtile.spawn('amixer set Master 9-'),
                     },
                     padding = 10,
                     background=color1
@@ -277,8 +277,8 @@ screens = [
                     backlight_name='intel_backlight',
                     fmt='Brightness {}',
                     mouse_callbacks = {
-                        'Button1': lambda: qtile.cmd_spawn('brightnessctl set +10%'),
-                        'Button3': lambda: qtile.cmd_spawn('brightnessctl set 10%-'),
+                        'Button1': lambda: qtile.spawn('brightnessctl set +10%'),
+                        'Button3': lambda: qtile.spawn('brightnessctl set 10%-'),
                     },
                     background=color2
                 ),
