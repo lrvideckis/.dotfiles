@@ -24,6 +24,7 @@ alias mv="mv --interactive"
 alias cp="cp --interactive"
 alias mkdir="mkdir --parents" # create all folders on path
 alias brave="brave --ozone-platform=wayland" # fixes clipboard
+export LESS='--mouse -R' # so that mouse scroll works when doing "git diff"
 
 # alternatives to core utils https://wiki.archlinux.org/title/Core_utilities#Alternatives
 alias vim="nvim"
