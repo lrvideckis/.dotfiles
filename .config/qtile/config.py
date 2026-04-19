@@ -292,6 +292,8 @@ mouse = [
     # scroll to resize split
     Click([mod], "Button6", lazy.layout.shrink_main()),
     Click([mod], "Button7", lazy.layout.grow_main()),
+    Click([mod, "shift"], "Button4", lazy.layout.shrink_main()),
+    Click([mod, "shift"], "Button5", lazy.layout.grow_main()),
 ]
 
 dgroups_key_binder = None
