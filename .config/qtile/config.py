@@ -28,6 +28,8 @@ import re
 import socket
 import subprocess
 
+from datetime import datetime
+
 from libqtile import bar, layout, widget, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 from libqtile.lazy import lazy
@@ -90,18 +92,22 @@ for i in groups:
         ]
     )
 
-color1 = '#253253'
-color2 = '#4169E1'
+color_themes = [
+    ['#253253', '#4169E1'],
+    ['#1B1B1B', '#FFD700'],
+    ['#2D5A27', '#A7C957'],
+    ['#4B0082', '#E0B0FF'],
+    ['#800000', '#FF6347'],
+    ['#004B49', '#20B2AA'],
+    ['#2F4F4F', '#FFA500'],
+]
+color1, color2 = color_themes[datetime.now().weekday()]
 font_shadow_color = '#002e63'
-graph_color1 = '#C41E3A'
-graph_color2 = '#C41E3A'
 border_focus_color = '#04C1E2'
 
 #color1 = '#CE1713'
 #color2 = '#0F7833'
 #font_shadow_color = '#000000'
-#graph_color1 = color1
-#graph_color2 = color2
 #border_focus_color = '#00FF00'
 
 layouts = [
@@ -147,7 +153,7 @@ screens = [
                     padding_y=1,
                     background=color1,
                     borderwidth=3,
-                    border = color2,
+                    border=color2,
                     max_title_width=100,
                 ),
                 get_arrow_widget(False, False),
