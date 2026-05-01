@@ -105,6 +105,7 @@ border_focus_color = '#04C1E2'
 #border_focus_color = '#00FF00'
 
 layouts = [
+    layout.Max(),
     layout.MonadTall(
         new_client_position='bottom',
         border_focus=border_focus_color,
@@ -113,7 +114,6 @@ layouts = [
         min_ratio=0.1,
         max_ratio=0.9,
     ),
-    layout.Max(),
 ]
 
 widget_defaults = dict(
