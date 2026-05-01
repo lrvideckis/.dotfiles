@@ -142,22 +142,15 @@ screens = [
                     background=color1,
                     this_current_screen_border=color2,
                 ),
-                get_arrow_widget(True, True),
-                widget.NetGraph(
-                    interface=network_interface,
-                    graph_color=graph_color1,
-                    fill_color=graph_color1,
-                    bandwidth_type='up',
-                    border_width=0,
-                    margin_x=0,
-                    margin_y=0,
-                    samples=20,
-                    width=20,
-                    background=color2,
-                    mouse_callbacks = {
-                        'Button1': lambda: qtile.spawn(terminal_floating + ' nmtui')
-                    },
+                widget.TaskList(
+                    padding_x=3,
+                    padding_y=1,
+                    background=color1,
+                    borderwidth=3,
+                    border = color2,
+                    max_title_width=100,
                 ),
+                get_arrow_widget(False, False),
                 widget.Net(
                     interface=network_interface,
                     format='{up:5.2f}{up_suffix} ↑↓ {down:5.2f}{down_suffix}',
@@ -168,21 +161,7 @@ screens = [
                         'Button1': lambda: qtile.spawn(terminal_floating + ' nmtui')
                     },
                 ),
-                widget.NetGraph(
-                    interface=network_interface,
-                    graph_color=graph_color1,
-                    fill_color=graph_color1,
-                    border_width=0,
-                    margin_x=0,
-                    margin_y=0,
-                    samples=20,
-                    width=20,
-                    background=color2,
-                    mouse_callbacks = {
-                        'Button1': lambda: qtile.spawn(terminal_floating + ' nmtui')
-                    },
-                ),
-                get_arrow_widget(True, False),
+                get_arrow_widget(False, True),
                 widget.TextBox(
                     text="CPU",
                     mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
@@ -194,49 +173,14 @@ screens = [
                     mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
                     background=color1
                 ),
-                widget.CPUGraph(
-                    graph_color=graph_color2,
-                    fill_color=graph_color2,
-                    border_width=0,
-                    margin_x=0,
-                    margin_y=0,
-                    samples=20,
-                    width=20,
-                    mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
-                    background=color1,
-                ),
-                widget.ThermalSensor(
-                    tag_sensor="CPU",
-                    metric=False,
-                    threshold=158, # 70 degrees celsius
-                    mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
-                    background=color1
-                ),
-                get_arrow_widget(True, True),
+                get_arrow_widget(False, False),
                 widget.Memory(
                     format="RAM {MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
                     mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_MEM')},
                     background=color2
                 ),
-                widget.MemoryGraph(
-                    graph_color=graph_color1,
-                    fill_color=graph_color1,
-                    border_width=0,
-                    margin_x=0,
-                    margin_y=0,
-                    samples=20,
-                    width=20,
-                    background=color2,
-                    mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_MEM')},
-                ),
-                get_arrow_widget(True, False),
-                widget.Spacer(
-                    background=color1
-                ), # widgets before this are left justified
+                get_arrow_widget(False, True),
                 widget.CheckUpdates(
-                    # requires an internet connection (good)
-                    # other options (pacman -Qu; pacman -Sup) show stale info unless you first manually run pacman -Sy (so bad)
-                    # https://www.reddit.com/r/qtile/comments/ur8mz3/comment/i90sa7d/
                     distro="Arch_checkupdates",
                     display_format="ᗧ·· {updates}",
                     no_update_string="ᗧ·· 0",
@@ -247,9 +191,6 @@ screens = [
                     },
                     background=color1
                 ),
-                widget.Spacer(
-                    background=color1
-                ), # widgets after this are right justified
                 get_arrow_widget(False, False),
                 widget.Clock(
                     format="%a, %b %-d, %Y, %-I:%M %p %Z",
