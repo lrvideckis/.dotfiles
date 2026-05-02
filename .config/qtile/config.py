@@ -129,11 +129,11 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-def get_arrow_widget(points_right: bool, parody: bool) -> widget.TextBox:
+def get_arrow_widget(color_parody: bool) -> widget.TextBox:
     return widget.TextBox(
-            text = '' if points_right else '',
-            foreground = color1 if parody else color2,
-            background = color2 if parody else color1,
+            text = '',
+            foreground = color1 if color_parody else color2,
+            background = color2 if color_parody else color1,
             padding = 0,
             fontsize = 20
     )
@@ -156,7 +156,15 @@ screens = [
                     border=color2,
                     max_title_width=100,
                 ),
-                get_arrow_widget(False, False),
+                #get_arrow_widget(True),
+                widget.CheckUpdates(
+                    distro="Arch_checkupdates",
+                    display_format="ᗧ·· {updates}",
+                    no_update_string="ᗧ·· 0",
+                    update_interval = 1800, # 30 minutes
+                    background=color1
+                ),
+                get_arrow_widget(False),
                 widget.Net(
                     interface=network_interface,
                     format='{up:5.2f}{up_suffix} ↑↓ {down:5.2f}{down_suffix}',
@@ -167,7 +175,7 @@ screens = [
                         'Button1': lambda: qtile.spawn(terminal_floating + ' nmtui')
                     },
                 ),
-                get_arrow_widget(False, True),
+                get_arrow_widget(True),
                 widget.TextBox(
                     text="CPU",
                     mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
@@ -179,31 +187,19 @@ screens = [
                     mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_CPU')},
                     background=color1
                 ),
-                get_arrow_widget(False, False),
+                get_arrow_widget(False),
                 widget.Memory(
                     format="RAM {MemUsed:4.0f}{mm}/{MemTotal:4.0f}{mm}",
                     mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + ' htop --sort-key=PERCENT_MEM')},
                     background=color2
                 ),
-                get_arrow_widget(False, True),
-                widget.CheckUpdates(
-                    distro="Arch_checkupdates",
-                    display_format="ᗧ·· {updates}",
-                    no_update_string="ᗧ·· 0",
-                    update_interval = 1800, # 30 minutes
-                    mouse_callbacks = {
-                        'Button1': lambda: qtile.spawn(terminal + ' --command sudo pacman -Syu'),
-                        'Button3': lambda: qtile.spawn(terminal + ' --command paru'),
-                    },
-                    background=color1
-                ),
-                get_arrow_widget(False, False),
+                get_arrow_widget(True),
                 widget.Clock(
                     format="%a, %b %-d, %Y, %-I:%M %p %Z",
                     mouse_callbacks = {'Button1': lambda: qtile.spawn(terminal_floating + " zsh -c \"cal --color=always --months 9 | bat --wrap=never --style=plain --paging=always\"") },
-                    background=color2
+                    background=color1
                 ),
-               get_arrow_widget(False, True),
+               get_arrow_widget(False),
                widget.Volume(
                     fmt='Volume {}',
                     mouse_callbacks = {
@@ -212,9 +208,9 @@ screens = [
                         'Button3': lambda: qtile.spawn('amixer set Master 9-'),
                     },
                     padding = 10,
-                    background=color1
+                    background=color2
                 ),
-                get_arrow_widget(False, False),
+                get_arrow_widget(True),
                 widget.Backlight(
                     backlight_name='intel_backlight',
                     fmt='Brightness {}',
@@ -222,7 +218,7 @@ screens = [
                         'Button1': lambda: qtile.spawn('brightnessctl set +10%'),
                         'Button3': lambda: qtile.spawn('brightnessctl set 10%-'),
                     },
-                    background=color2
+                    background=color1
                 ),
             ],
             23,
