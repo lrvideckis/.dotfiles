@@ -156,7 +156,6 @@ screens = [
                     border=color2,
                     max_title_width=100,
                 ),
-                #get_arrow_widget(True),
                 widget.CheckUpdates(
                     distro="Arch_checkupdates",
                     display_format="ᗧ·· {updates}",
