@@ -56,10 +56,10 @@ keys = [
     Key([mod], "r", lazy.reload_config()),
     Key([mod], "q", lazy.shutdown()),
 
-    Key([mod], "h", lazy.layout.left()),
-    Key([mod], "j", lazy.layout.down()),
-    Key([mod], "k", lazy.layout.up()),
-    Key([mod], "l", lazy.layout.right()),
+    Key([mod], "h", lazy.layout.left().when(layout=['monadtall']), lazy.layout.previous().when(layout=['max'])),
+    Key([mod], "j", lazy.layout.down().when(layout=['monadtall'])),
+    Key([mod], "k", lazy.layout.up().when(layout=['monadtall'])),
+    Key([mod], "l", lazy.layout.right().when(layout=['monadtall']), lazy.layout.next().when(layout=['max'])),
     Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
@@ -258,13 +258,3 @@ auto_minimize = True
 
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
-
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
-wmname = "LG3D"
