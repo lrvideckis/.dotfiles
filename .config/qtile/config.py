@@ -69,7 +69,6 @@ keys = [
 groups = [
     Group("1"),
     Group("2"),
-    Group("3"),
 ]
 
 for i in groups:
