@@ -97,7 +97,7 @@ color_themes = [
     ['#2D5A27', '#A7C957'],
     ['#4B0082', '#E0B0FF'],
     ['#800000', '#FF6347'],
-    ['#004B49', '#20B2AA'],
+    ['#0000FF', '#FF4F00'],
     ['#2F4F4F', '#FFA500'],
 ]
 color1, color2 = color_themes[datetime.now().weekday()]
