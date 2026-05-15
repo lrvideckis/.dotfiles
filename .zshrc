@@ -38,7 +38,6 @@ alias cd="z"
 alias cat="bat --wrap=never"
 alias du="dust"
 
-# START DISPLAY
 alias clip="wl-copy <" # clip a.cpp
 alias cf="/usr/bin/git --git-dir=$HOME/github_repos/.dotfiles --work-tree=$HOME" # ConFig https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
 alias rmlast="truncate --size=-1" # to remove last newline
@@ -50,7 +49,6 @@ alias gd="git diff"
 alias gs="git status"
 alias gps="git push"
 alias gpl="git pull"
-# END DISPLAY
 
 export TERM=xterm-256color
 export EDITOR=nvim
