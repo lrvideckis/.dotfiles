@@ -52,6 +52,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal)),
     Key([mod], "f", lazy.function(unfloat_and_next_layout)), # mnemonic: fullscreen
     Key([mod], "s", lazy.spawn("bash -c \"slurp | xargs -I{} grim -g {} ~/Pictures/screenshots/$(date -Iseconds).png\"")),
+    Key([mod], "m", lazy.window.toggle_minimize()),
     Key([mod], "c", lazy.window.kill()),
     Key([mod], "r", lazy.reload_config()),
     Key([mod], "q", lazy.shutdown()),
