@@ -35,7 +35,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 from libqtile.lazy import lazy
 from os.path import expanduser
 
-mod = "mod1"
+mod = "mod4"
 terminal = "alacritty"
 terminal_floating = terminal + " --class floating_terminal --command"
 network_interface = "wlp1s0"
