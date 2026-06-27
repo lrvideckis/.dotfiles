@@ -35,7 +35,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 from libqtile.lazy import lazy
 from os.path import expanduser
 
-mod = "mod4"
+mod = "mod1"
 terminal = "alacritty"
 terminal_floating = terminal + " --class floating_terminal --command"
 network_interface = "wlp1s0"
@@ -46,7 +46,7 @@ def unfloat_and_next_layout(qtile):
     qtile.next_layout()
 
 keys = [
-    Key([mod], "b", lazy.spawn("librewolf")), # mnemonic: browser
+    Key([mod], "b", lazy.spawn("brave")), # mnemonic: browser
     Key([mod], "e", lazy.spawn("evince")), # document viewer
 
     Key([mod], "Return", lazy.spawn(terminal)),
