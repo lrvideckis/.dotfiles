@@ -1,0 +1,11 @@
+[user]
+	email = lrvideckis@gmail.com
+	name = Luke Videckis
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch -vv
+	last = log -1 HEAD
+	ll = log --oneline --graph
+	pushup = !git push --set-upstream origin $(git branch --show-current)
